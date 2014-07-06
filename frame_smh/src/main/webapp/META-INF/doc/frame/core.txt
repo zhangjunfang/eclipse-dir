@@ -1,0 +1,6 @@
+com.iisquare.smh.core.component
+该目录下存放自定义拓展基类，采用C开头，避免与其他框架冲突
+frame基类具有通用性，core和实际业务关联较密切
+
+com.iisquare.smh.core.widget
+该目录下存放自定义插件，实现特殊的通用功能

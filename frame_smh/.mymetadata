@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="frame_smh"
+  id="myeclipse.1393991713159"
+  context-root="/frame_smh"
+  j2ee-spec="6.0"
+  archive="frame_smh.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,65 @@
+-------------------------------------------------------------
+#
+# 注意事项
+#
+-------------------------------------------------------------
+
+jQuery easyUI的标签控件与JS控件函数不能同时使用，会导致控件重复渲染。
+<table id="dg" class="easyui-datagrid"></table>
+$('#dg').datagrid({
+	onDblClickCell: function(index,field,value){
+	}
+});
+$('#dg').datagrid({
+	onClickCell: function(index,field,value){
+	}
+});
+这样会导致datagrid渲染3次，正确的方法应该是去除#dg的class="easyui-datagrid"属性，将两个JS函数合并书写。
+
+-------------------------------------------------------------
+
+避免在layout中直接为iframe指定链接，会导致浏览器主动取消第一次请求，可在页面加载完成后通过JS操作。
+
+
+
+
+-------------------------------------------------------------
+#
+# 异常汇总
+#
+--------------------------------------------------------------
+
+异常内容：jTemplates: Template "MAIN" is not closed. 
+异常来源：jquery-jtemplates.js
+解决方案：采用&lt;/textarea&gt;替代</textarea>解决模板引擎问题
+
+--------------------------------------------------------------
+
+异常内容：Unknown column 'typeId' in 'where clause'
+异常来源：
+Domain
+	@JoinColumn(name = "typeId")
+	private NoticeType type;
+Service
+	hqls.add("typeId = :typeId");
+	params.put("typeId", typeId);
+解决方案：
+	hqls.add("type.id = :typeId");
+	params.put("typeId", typeId);
+
+--------------------------------------------------------------
+
+异常内容：$.form({url, function}).submit();提交地址无法动态修改
+异常来源：一个form通过ajax对应多个action的情况
+解决方案：$.form('submit', {url, function});采用form插件本身的提交方法
+
+--------------------------------------------------------------
+
+异常内容：unexpected token:member
+异常来源：
+hqls.add("member.id in (select id from Member" + " where serial = :member or name = :member)");
+hql = "from Log where " + hql;
+解决方案：
+hqls.add("log.member.id in (select id from Member" + " where serial = :member or name = :member)");
+hql = "from Log log where " + hql;
+

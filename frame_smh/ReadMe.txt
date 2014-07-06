@@ -1,0 +1,1 @@
+OpenSourceSMH开源项目全线迁移至github，该项目地址https://github.com/iisquare/frame_smh，期待更多的开源爱好者加入。

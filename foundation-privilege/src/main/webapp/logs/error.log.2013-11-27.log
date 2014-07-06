@@ -1,0 +1,94 @@
+[INFO ] [2013-11-27 13:31:06] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 13:34:46] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 13:34:49] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 13:34:49] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/foundation-privilege/src/main/webapp/
+[INFO ] [2013-11-27 13:34:52] init (BaseResource.java:87) 
+ method[POST] call!
+[ERROR] [2013-11-27 13:35:30] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 14:20:03] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:20:53] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:25:30] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:25:37] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:25:37] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/foundation-privilege/src/main/webapp/
+[INFO ] [2013-11-27 14:25:39] init (BaseResource.java:87) 
+ method[POST] call!
+[ERROR] [2013-11-27 14:25:49] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[ERROR] [2013-11-27 14:28:05] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 14:28:09] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:28:11] init (BaseResource.java:87) 
+ method[POST] call!
+[INFO ] [2013-11-27 14:30:08] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:53:24] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:53:28] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:53:28] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/foundation-privilege/src/main/webapp/
+[INFO ] [2013-11-27 14:53:30] init (BaseResource.java:87) 
+ method[POST] call!
+[ERROR] [2013-11-27 14:53:31] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 14:53:58] init (BaseResource.java:87) 
+ method[GET] call!
+[ERROR] [2013-11-27 14:53:58] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 14:55:23] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:57:08] init (BaseResource.java:87) 
+ method[POST] call!
+[ERROR] [2013-11-27 14:57:56] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 14:59:12] init (DefaultLocalCache.java:70) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-11-27 14:59:15] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:59:48] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:59:55] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 14:59:58] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:00:08] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:00:08] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/foundation-privilege/src/main/webapp/
+[INFO ] [2013-11-27 15:00:10] init (BaseResource.java:87) 
+ method[POST] call!
+[ERROR] [2013-11-27 15:00:15] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-11-27 15:00:21] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:01:13] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:02:16] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:02:31] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:02:56] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:02:58] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:02:59] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:03:03] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:03:28] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:05:02] init (BaseResource.java:87) 
+ method[GET] call!
+[INFO ] [2013-11-27 15:05:48] init (BaseResource.java:87) 
+ method[GET] call!

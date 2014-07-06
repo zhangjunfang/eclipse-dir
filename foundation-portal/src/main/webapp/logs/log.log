@@ -1,0 +1,125 @@
+[INFO ] [2013-12-26 15:50:30] init (DefaultLocalCache.java:73) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-12-26 15:50:30] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2013-12-26 15:50:30] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Thu Dec 26 15:50:30 CST 2013]; parent: Root WebApplicationContext
+[INFO ] [2013-12-26 15:50:30] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1f38dd0: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@9aa3f3
+[INFO ] [2013-12-26 15:50:30] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 31 ms
+
+[INFO ] [2013-12-26 15:50:33] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:33] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/fundation-portal/src/main/webapp/
+[INFO ] [2013-12-26 15:50:35] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:36] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:36] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:37] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:39] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:39] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:40] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:40] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:41] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:41] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:42] beforeHandle (RoleResource.java:394) 
+ before......初始化资源之前
+[INFO ] [2013-12-26 15:50:42] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:42] afterHandle (RoleResource.java:405) 
+ after......初始化资源之后
+[INFO ] [2013-12-26 15:50:42] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:42] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:42] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:42] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:43] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:43] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:43] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:43] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:44] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:50:44] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:50:44] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:42] init (DefaultLocalCache.java:73) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-12-26 15:51:42] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2013-12-26 15:51:42] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Thu Dec 26 15:51:42 CST 2013]; parent: Root WebApplicationContext
+[INFO ] [2013-12-26 15:51:42] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1ce154c: defining beans []; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1d74bb1
+[INFO ] [2013-12-26 15:51:42] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 16 ms
+[INFO ] [2013-12-26 15:51:43] init (BaseResource.java:118) 
+ method[GET] call!
+[ERROR] [2013-12-26 15:51:43] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-12-26 15:51:43] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:43] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/fundation-portal/src/main/webapp/
+[INFO ] [2013-12-26 15:51:45] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:45] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:46] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:47] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:47] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:47] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:48] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:48] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:49] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:49] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:49] beforeHandle (RoleResource.java:394) 
+ before......初始化资源之前
+[INFO ] [2013-12-26 15:51:49] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:49] afterHandle (RoleResource.java:405) 
+ after......初始化资源之后
+[INFO ] [2013-12-26 15:51:49] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:49] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:50] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:50] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:50] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:50] init (BaseResource.java:118) 
+ method[POST] call!
+[INFO ] [2013-12-26 15:51:50] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:51] init (BaseResource.java:118) 
+ method[GET] call!
+[INFO ] [2013-12-26 15:51:51] init (BaseResource.java:118) 
+ method[POST] call!

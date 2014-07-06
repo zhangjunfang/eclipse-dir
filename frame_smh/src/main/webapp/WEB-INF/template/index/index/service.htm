@@ -1,0 +1,3 @@
+[<#list tests as test> { "id":"${test.id}",
+"parent":"${(test.parent.name)!""}", "name":"${test.name}" }<#if
+test_has_next>,</#if> </#list>]
