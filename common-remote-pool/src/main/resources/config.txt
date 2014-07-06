@@ -1,0 +1,1 @@
+com.googlecode.common.remote.pool.resource.DefaultResourceFactory

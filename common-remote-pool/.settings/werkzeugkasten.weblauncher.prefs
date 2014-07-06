@@ -1,0 +1,4 @@
+baseDir=/common-remote-pool/src/main/webapp
+contextName=/common-remote-pool
+eclipse.preferences.version=1
+webType=Tomcat6
