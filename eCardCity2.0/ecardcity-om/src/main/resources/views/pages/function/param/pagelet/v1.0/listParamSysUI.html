@@ -1,0 +1,58 @@
+<!--
+ 	功能描述 ：系统参数视图
+	Author : Wangjian
+  Date   : 2014-04-02
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	#parse("function/common/incHead.vm")
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/param/paramSub.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			//初始化加载列表
+			reloadList();
+		});
+	</script>
+	
+</head>
+<body>
+<div class="ld-asideaa btngroup">
+	<div class="dqwz">当前位置：系统管理 > 参数管理 > <a href="#" class="blue">系统参数设置</a></div>
+</div>
+<div class="con">
+	<div class="ld-container ld-con" >
+		<div class="ld-asideaa btngroup"><h2>系统参数设置</h2></div>
+		<div class="ld-aside" style="border-top:none; padding:10px;">功能描述：对系统各类参数进行设置，只允许修改参数值。</div>
+		<!--查询区-->
+		<div class="ld-aside btngroup">
+			<label><strong>参数类型：</strong></label>
+			<select id="p_lib_group" size="1" style="width: 165px;">
+					<option value="" selected>全部</option>
+					#foreach($!dict in $!dictList)
+						<option value="$!dict.d_code">$!dict.d_desc1</option>
+					#end
+			</select>			
+<!-- 			<input type="checkbox" name="p_lib_group" value="1" checked><span>数据验证参数</span> -->
+<!-- 			<input type="checkbox" name="p_lib_group" value="2" checked><span>应用系统参数</span> -->
+<!-- 			<input type="checkbox" name="p_lib_group" value="3" checked><span>错误代码参数</span> -->
+<!-- 			<input type="checkbox" name="p_lib_group" value="4" checked><span>终端参数</span> -->
+			<label><strong>参数名称/显示名称/描述：</strong></label>
+			<input id="schStr" type="text" onblur="this.value=this.value.trim();"/>
+			<a id="search" onClick="reloadList();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/search.png"/>查询</a>
+		</div>
+		<form id="form1" name="form1" method="post">
+			<!--功能区-->
+			<div class="ld-aside btngroup">
+				<div class="naright">
+					<a id="update" onClick="update();" class="ld-btn ld-juse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/bj.png"/>修改</a>
+				</div>
+			</div>
+			<!--数据-->
+			<div id="pageList"></div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

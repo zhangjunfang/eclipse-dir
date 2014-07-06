@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="SystemBlackStatus"
+		table="SYSTEM_BLACK_STATUS"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="sn"
+			column="SN"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="asn"
+			column="ASN"
+			type="integer"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="oldstate"
+			column="OLDSTATE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="newstate"
+			column="NEWSTATE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="sourcetype"
+			column="SOURCETYPE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="suorceip"
+			column="SUORCEIP"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="editPerson"
+			column="EDIT_PERSON"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="editDate"
+			column="EDIT_DATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

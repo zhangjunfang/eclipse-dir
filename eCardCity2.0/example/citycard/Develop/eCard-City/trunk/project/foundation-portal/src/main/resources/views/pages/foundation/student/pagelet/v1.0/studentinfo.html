@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8" />
+        <title>学生信息管理平台</title>
+		#parse("/common/commonHead.html")
+	   <script src="${_project.envRoot}/scripts/foundation/student/studentinfo.js" ></script>
+    </head>
+    <body>
+        <div class="body-container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="/controller/student/studentInfo">人员信息管理配置</a></li>
+                <li class=""><a href="orginfo.html">部门信息管理配置</a></li>
+            </ul>
+            <br>
+
+            <!-- 面包屑导航 -->
+            <ol class="breadcrumb">
+                <li><a href="">首页</a></li>
+                <li class="active">人员信息管理配置</li>
+            </ol>
+
+		<div id="currentDataDiv" action="student">
+            <!-- 搜索条 -->
+            <form class="form form-inline queryForm" style="width:1000px"> 
+            	<input type="hidden" name="offset" id="offset" value="1"/>
+            	<input type="hidden" name="pageSize" id="pageSize" value="2"/>
+                <div class="form-group">
+                    <label class="control-label">人员编号</label>
+                    <input type="text" class="form-control" name="no" style="width:120px;">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">人员名称</label>
+                    <input type="text" class="form-control" name="stuname" style="width:120px;">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">性别</label>
+                    <select class="form-control" name="SEX">
+                        <option value="1">男</option>
+                        <option value='2'>女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                 <button type="button" class="btn btn-info search"><i class="icon-search"></i> 搜 索 </button>
+                <button type="button" class="btn btn-info add" data-toggle="modal" data-target="#detailModel">添加 </button>
+                <button type="button" class="btn btn-info edit" data-toggle="modal" data-target="#detailModel">编辑 </button>
+                <button type="button" class="btn btn-info del">删除 </button>
+                </div>
+            </form>
+
+            <!-- 列表 -->
+            <table class="table table-bordered table-list  table-single">
+                <thead>
+                    <tr>
+                        <th width=""><a href="#" class="sort"><i></i>人员编号</a></th>
+                        <th width=""><a href="#" class="sort"><i></i>人员名称</a></th>
+                        <th width=""><a href="#" class="sort"><i></i>班级</a></th>
+                        <th width=""><a href="#" class="sort"><i></i>性别</a></th>
+                        <th width=""><a href="#" class="sort"><i></i>生日</a></th>
+                        <th width=""><a href="#" class="sort"><i></i>描述</a></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
+		<!-- 列表模板 -->
+            <script  type="text/x-jquery-tmpl" id="listTmpl">
+            	<tr class="active" id="${ID}">
+            		<td>${ID}</td>
+            		<td>${NAME}</td>
+            		<td>${CLASSNAME}</td>
+            		<td>{{if SEX=='1'}}男{{else}}女{{/if}}</td>
+            		<td>${BIRTHDAY}</td>
+            		<td>${DESCRIPTION}</td>
+            	</tr>
+        </script>
+        
+  
+            <!-- 分页 -->
+            <ul class="pagination">
+                <li class=""><a href="#" id="gofirst" onclick="gofirst()">首页</a></li>
+                <li class=""><a href="#" id="gopre" onclick="gopre()">上一页</a></li>
+                <li><a href="#" id="gonext" onclick="gonext()">下一页</a></li>
+                <li><a href="#" id="golast" onclick="golast()">尾页</a></li>
+                <li>&nbsp;第 <input type='text' id="pagenum" name='pagenum' class="pagenum" value='1'/>/<span id="pageCount" style="float:none;border:0;padding:0;"></span> 页</li>
+                <li>&nbsp;每页 <select id="changePagesize"><option>2</option><option>20</option><option>50</option></select> 条</li>
+
+            </ul>
+        </div>
+   <!-- 弹框 -->
+   <div id="detailModel" class="modal fade">
+       <div class="modal-dialog" style="width:80%;">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                   <h4 class="modal-title">新建/编辑人员信息</h4>
+               </div>
+               <div class="modal-body">
+                   <form class="form-horizontal validation" role="form">
+						<input type="hidden" name="id" /> 
+					      <div class="form-group">
+					        <label class="col-sm-2 control-label">编号</label>
+					        <div class="col-sm-6">
+					          <input type="text" class="form-control" name="no" check-type="required" required-message="请填写编号。">
+					        </div>
+						 </div>
+					      <div class="form-group">
+					        <label  class="col-sm-2 control-label">名称</label>
+					        <div class="col-sm-6">
+					          <input type="text" class="form-control" name="name" check-type="required" required-message="请填写你的大名。">
+					        </div>
+						 </div>
+					
+					      <div class="form-group">
+					        <label  class="col-sm-2 control-label">性别</label>
+					            <div class="col-sm-6">
+				                   <select class="form-control" name="sex">
+				                        <option value="1">男</option>
+				                        <option value='2'>女</option>
+				                    </select>
+				                    </div>
+						 </div>
+					      <div class="form-group">
+					        <label  class="col-sm-2 control-label">日期</label>
+					        <div class="col-sm-6">
+					          <input type="text" class="form-control datepicker" name="birthday" >
+					        </div>
+						 </div>
+						 
+						   <div class="form-group ">
+					        <label  class="col-sm-2 control-label">图片</label>
+					         <div class="col-sm-6">
+						    <input type="File" name="photo" class="form-control">
+					        </div>
+						  </div>
+											
+					      <div class="form-group">
+					        <label class="col-sm-2 control-label">描述</label>
+					        <div class="col-sm-6">
+					          <input type="text" class="form-control" name="description"   check-type="required" required-message="请填写描述"/>
+					        </div>
+					      </div>  
+						   <div class="modal-footer">
+		                        <button type="button" class="btn btn-primary save"> 保 存 </button>
+		                        <button type="button" class="btn btn-default cancel" data-dismiss="modal"> 取 消 </button>
+		                    </div>
+                   </form>
+               </div>
+               </div>
+               </div>
+        </div>
+    </body>
+</html>
+
+
+
+

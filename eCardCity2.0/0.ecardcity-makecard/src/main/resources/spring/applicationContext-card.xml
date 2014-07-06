@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    "
+    default-autowire="byName">
+    
+	<!-- 消费卡管理 -->
+	<!-- 消费卡管理DAO -->
+	<bean id="cardDao" class="cn.com.newcapec.citycard.card.dao.impl.CardDao" parent="BaseDao"/>
+
+	<!-- 消费卡管理Service -->
+	<bean id="cardService" class="cn.com.newcapec.citycard.card.service.impl.CardService" parent="baseService">
+		<property name="commonDao">
+			<ref bean="commonDao" />
+		</property>
+		<property name="cardDao">
+			<ref local="cardDao"/>
+		</property>
+	</bean>
+	
+	<!-- Action定义 -->
+	<bean id="consumeCardAction" class="cn.com.newcapec.citycard.card.action.ConsumeCardAction" parent="commonAction" scope="prototype">
+		<property name="cardService">
+			<ref local="cardService" />
+		</property>		
+	</bean>
+
+</beans>

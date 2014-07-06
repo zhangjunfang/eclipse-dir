@@ -1,0 +1,46 @@
+/**
+ * 系统名称 ：城市一卡通综合管理平台
+ * 开发组织 ：城市一卡通事业部
+ * 版权所属 ：新开普电子股份有限公司
+ * (C) Copyright  Corporation 2014  All Rights Reserved.
+ * 本内容仅限于郑州新开普电子股份有限公司内部使用，版权保护，未经过授权拷贝使用将追究法律责任
+ */
+package cn.newcapec.function.ecardcity.om.biz;
+
+import java.util.List;
+import java.util.Map;
+
+import cn.newcapec.framework.core.biz.BaseService;
+import cn.newcapec.framework.core.utils.pagesUtils.Page;
+import cn.newcapec.function.ecardcity.om.model.CardType;
+
+/**
+ * @author wj
+ * @category 卡类型操作BIZ
+ * @version 1.0
+ * @date 2014年4月9日 上午11:11:47
+ */
+public interface CardTypeService extends BaseService<CardType> {
+    /**
+     * 根据类别，查询指定的卡类型列表
+     * @param group	 	分类标识，如果为空，返回全部卡类型列表
+     * @return List 		返回map列表
+     */
+    public List<?> getListByGroup(String group);
+    /**
+     * 根据map，查询指定的卡类型分页
+     * @param param	 	参数Map
+     * @return Page 		根据给定的map返回列表
+     */
+    public Page<?> getPageList(Map<String, Object> paramMap);
+    /**
+     * 批量删除卡类型
+     * @param ids	卡类型ID数组
+     */
+    public void delete(String[] ids);
+    /**
+     * 根据属性查找卡类型列表
+     * @param map	属性Map
+     */
+    public List<Map<String, Object>> getListByAttr(Map<String, Object> attrMap);    
+}

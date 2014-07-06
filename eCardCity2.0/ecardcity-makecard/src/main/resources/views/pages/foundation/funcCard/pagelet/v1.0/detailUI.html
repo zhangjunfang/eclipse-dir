@@ -1,0 +1,91 @@
+<form id="dataDatail">
+   <div style="width: 100%; overflow: auto">
+			<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+				<tr>
+					<td>网点：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+					<td>&nbsp;账号：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<td>姓名：</td>
+					<td>  <input id="name" name="name"
+					type="text" value="$!user.name" /></input>
+					</td>
+					<td>&nbsp;性别：</td>
+					<td> #if($!stu.SEX=='1') 
+							   男
+					           #else 
+					                        女
+					           #end
+					</td>
+				</tr>
+				<tr>
+					<td>联系方式：</td>
+					<td> <input id="telephone"
+					name=telephone type="text" value="$!user.telephone" /></input>
+					</td>
+					<td>&nbsp;证件类型：</td>
+					<td>
+				#if($!stu.SEX=='1') 
+							   身份证
+					           #else 
+					                        其他
+					           #end
+					</td>
+				</tr>
+				<tr>
+					<td>证件号码：</td>
+					<td><input id="idcardno"
+					name="idcardno" type="text" value="$!user.idcardno" /></input>
+					</td>
+					<td>&nbsp;电子邮件：</td>
+					<td><input id="email"
+					name="email" type="text" value="$!user.email" /></input>
+					</td>
+				</tr>
+				<tr>
+					<td>登陆限制：</td>
+					<td > 
+					    #if($!user.loglimit ==1)
+						IP限制
+						#else
+						IP限制
+						#end 
+					</td>
+					<td>&nbsp;限制IP：</td>
+					<td > 
+					    #if($!user.loglimit ==1)
+						192.168.60.196
+						#else
+						192.168.60.196
+						#end 
+					</td>
+				</tr>
+			</table>
+			<div class="dqwz">&nbsp;&nbsp;&nbsp;所持功能卡：</div>
+				<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+				<tr>
+					<td>卡属类别：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+					<td>&nbsp;卡状态：&nbsp;&nbsp;&nbsp;</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div
+			style=" border-top: 1px solid #dddddd; text-align: right; padding-top: 5px;background-color:#F8F9F9">
+			<button style="margin-right: 5px"  onclick="javascript:art.dialog({id:'empDetailid'}).close();">取消</button>
+		</div>
+</form>
+<script type="text/javascript">
+	 $('input').attr("disabled","false");
+</script>

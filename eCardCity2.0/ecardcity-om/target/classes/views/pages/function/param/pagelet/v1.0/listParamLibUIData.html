@@ -1,0 +1,53 @@
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-aside ld-table">
+			<thead>
+				<tr>
+					<th><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>模板类别</th>
+					<th>参数名称</th>
+					<th>参数值</th>
+					<th>参数值类型</th>
+					<th>参数编码</th>
+					<th>显示名字</th>
+					<th>描述</th>
+					<th>可否修改</th>
+					<th>可否显示</th>
+					<th>排序号</th>
+					<th>版本号</th>
+				</tr>
+			</thead>
+			<tbody>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id"value="$!obj.ID"></td>
+						<td>#if($!obj.P_LIB_GROUP=="1") 参数卡参数 #else 消费卡参数 #end</td>
+						<td>$!obj.P_NAME</td>
+						<td>$!obj.P_VALUE</td>
+						<td>$!obj.P_VALUE_TYPE</td>
+						<td>$!obj.P_CODE</td>
+						<td>$!obj.TITLE_NAME</td>
+						<td>$!obj.P_DESC</td>
+						<td>#if($!obj.ALLOW_EDIT=="1")是#else否#end</td>
+						<td>#if($!obj.ALLOW_VISIBLE=="1")是#else否#end</td>
+						<td>$!obj.SORT_NUM</td>
+						<td>$!obj.VER</td>
+					</tr>
+				#end
+			</tbody>
+		</table>
+		<!--分页-->
+		<table class="page-list">
+			<tr>
+				<td>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenye_table">
+						<tr>
+							<td style="width:10px;"></td>
+						</tr>
+						<tr>
+							<td style="width:10px;"></td>#parse($paging) #paging($pageView)
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>

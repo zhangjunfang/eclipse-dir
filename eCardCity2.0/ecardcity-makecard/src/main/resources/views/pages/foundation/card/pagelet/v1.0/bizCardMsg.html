@@ -1,0 +1,55 @@
+﻿<!--   功能描述 ：公共头文件(充值员及时统计消息) -->
+<!--   Author : wulimo -->
+<!--   Date   : 2014-04-04 -->
+<!--   Version: 1.0 -->
+<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/card/bizCardMsg.js"></script>
+<form class="form-horizontal" role="form" id="form0" method="post"></form>
+<div class="col-md-12 column sortable">
+	<div class="portlet box light-grey" id="msgDiv">
+		<div class="portlet-title">
+			<div class="caption" id="msgDiv0">
+				<i class="fa fa-tasks"></i>
+				业务统计信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="currOddFare">当前授权余额：未启用充值授权</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="currCntIn">总收入金额：0.00</span>&nbsp;&nbsp;
+				<span id="currCntOut">总支出金额：0.00</span>
+			</div>
+			<div class="tools">
+				<button type="button" class="btn btn-default btn-sm" role="button" onclick="javascript:onMsgPrint()">
+					<i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp;打印&nbsp;&nbsp;&nbsp;
+				</button>							
+				<a href="javascript:;" class="collapse"></a>
+				<a href="javascript:" class="reload" onclick="onRefresh()"></a>
+				<a href="javascript:;" class="remove"></a>
+			</div>
+		</div>
+		<div class="portlet-body">
+			<div class="table-responsive" id="msgDiv1">
+				<table class="table table-hover">
+					<tbody>
+						<tr>
+							<td><span id="currSellCardNum" class="btn dark btn-block">售卡张数：0</span></td>
+							<td><span id="currAddChargeNum" class="btn default btn-block">钱包充值张数：0</span></td>
+							<td><span id="currUnAddChargeNum" class="btn dark btn-block">充值撤销张数：0</span></td>
+							<td><span id="currPutRightNum" class="btn default btn-block">消费纠错张数：0</span></td>
+							<td><span id="currRenewCardNum" class="btn dark btn-block">补卡张数：0</span></td>
+							<td><span id="currCardLossNum" class="btn default btn-block">挂失张数：0</span></td>
+							<td><span id="currHasCardLogoutNum" class="btn dark btn-block">有卡销户张数：0</span></td>
+							<td><span id="currNoCardLogoutNum" class="btn default btn-block">无卡销户张数：0</span></td>
+						</tr>
+						<tr>
+							<td><span id="currSellCardCash" class="btn dark btn-block">售卡收费金额：0.00</span></td>
+							<td><span id="currAddChargeCash" class="btn default btn-block">钱包充值金额：0.00</span></td>
+							<td><span id="currUnAddChargeCash" class="btn dark btn-block">充值撤销金额：0.00</span></td>
+							<td><span id="currPutRightCash" class="btn default btn-block">消费纠错金额：0.00</span></td>
+							<td><span id="currGetFrozenCash" class="btn dark btn-block">领取冻结金额：0.00</span></td>
+							<td><span id="currCardUnLossNum" class="btn default btn-block">解挂张数：0</span></td>
+							<td><span id="currHasCardLogoutCash" class="btn dark btn-block">有卡销户金额：0.00</span></td>
+							<td><span id="currNoCardLogoutCash" class="btn default btn-block">无卡销户金额：0.00</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

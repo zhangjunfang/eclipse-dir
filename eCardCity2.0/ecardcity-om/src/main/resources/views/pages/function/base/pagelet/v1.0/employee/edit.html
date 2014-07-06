@@ -1,0 +1,111 @@
+<!--
+ 	功能描述 ：	  操作员编辑
+	Author : Wangjian
+  Date   : 2014-05-13
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script language="javaScript">
+	jQuery(document).ready(function(){
+			jQuery("#netsiteid").change(function(){
+			    getBankList("$!obj.bank_id");
+			});
+			getBankList("$!obj.bank_id");
+	});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<input type="hidden" name="empid" value="$!obj.empid"/>
+		<input type="hidden" name="ver" value="$!obj.ver"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">网点</td>
+					<td><select id="netsiteid" name="netsite_id" size="1" style="width: 165px;">
+							#foreach($!pObj in $!netsiteList)
+							<option value="$!pObj.id" #if("$!pObj.id"=="$!obj.netsite_id")selected#end>$!pObj.netname</option>
+							#end
+						</select>
+					</td>
+					<td class="ld-lab">操作员</td>
+					<td><select name="user_id" size="1" style="width: 165px;">
+							#foreach($!user in $!userList)
+							<option value="$!user.user_id" #if("$!user.user_id"=="$!obj.user_id")selected#end>$!user.user_name</option>
+							#end
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">绑定银行</td>
+					<td colspan="3" id="bank">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">职员允许销售卡类型</td>
+					<td colspan="3">
+						#foreach($!card in $!typeList)
+						<input type="checkbox" name="sale_cardtype" value="$!card.id" #if($!obj.sale_cardtype.indexOf("$!card.id")>-1)checked#end>$!card.cardtypename&nbsp;&nbsp;&nbsp;
+						#end
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">职员允许充值卡类型</td>
+					<td colspan="3">
+						#foreach($!card in $!typeList)
+						<input type="checkbox" name="cash_cardtype" value="$!card.id" #if($!obj.cash_cardtype.indexOf("$!card.id")>-1)checked#end>$!card.cardtypename&nbsp;&nbsp;&nbsp;
+						#end
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">存款权限</td>
+					<td>
+						<input type="radio" name="privilege_cashin" value="1" #if("$!obj.privilege_cashin" == "1") checked #end>有&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="privilege_cashin" value="0" #if("$!obj.privilege_cashin" == "0") checked #end>无&nbsp;&nbsp;&nbsp;
+					</td>
+					<td class="ld-lab">取款权限</td>
+					<td>
+						<input type="radio" name="privilege_cashout" value="1" #if("$!obj.privilege_cashout" == "1") checked #end>有&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="privilege_cashout" value="0" #if("$!obj.privilege_cashout" == "0") checked #end>无&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">POS机操作权限</td>
+					<td>
+						<input type="radio" name="privilege_pos" value="1" #if("$!obj.privilege_pos" == "1") checked #end>有&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="privilege_pos" value="0" #if("$!obj.privilege_pos" == "0") checked #end>无&nbsp;&nbsp;&nbsp;
+					</td>
+					<td class="ld-lab">登录权限</td>
+					<td>
+						<input type="radio" name="privilege_login" value="1" #if("$!obj.privilege_login" == "1") checked #end>有&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="privilege_login" value="0" #if("$!obj.privilege_login" == "0") checked #end>无&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'netsite'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

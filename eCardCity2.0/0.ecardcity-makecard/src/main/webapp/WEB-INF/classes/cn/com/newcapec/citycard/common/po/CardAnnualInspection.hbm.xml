@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="CardAnnualInspection"
+		table="CARD_ANNUAL_INSPECTION"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="asn"
+			column="ASN"
+			type="integer"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="preAnnualInspectionStart"
+			column="PRE_ANNUAL_INSPECTION_START"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="preAnnualInspectionEnd"
+			column="PRE_ANNUAL_INSPECTION_END"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="annualInspectionResult"
+			column="ANNUAL_INSPECTION_RESULT"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="poscode"
+			column="POSCODE"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="editPerson"
+			column="EDIT_PERSON"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="editDate"
+			column="EDIT_DATE"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

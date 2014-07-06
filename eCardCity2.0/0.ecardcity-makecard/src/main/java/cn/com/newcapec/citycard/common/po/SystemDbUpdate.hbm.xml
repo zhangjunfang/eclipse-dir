@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="SystemDbUpdate"
+		table="SYSTEM_DB_UPDATE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="versionnumber"
+			column="VERSIONNUMBER"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="note"
+			column="NOTE"
+			type="string"
+			not-null="false"
+			length="1024"
+		/>
+		<property
+			name="publishdate"
+			column="PUBLISHDATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="lastnumber"
+			column="LASTNUMBER"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="updatedate"
+			column="UPDATEDATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="innerverno"
+			column="INNERVERNO"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="dbver"
+			column="DBVER"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="appver"
+			column="APPVER"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="appinnerver"
+			column="APPINNERVER"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

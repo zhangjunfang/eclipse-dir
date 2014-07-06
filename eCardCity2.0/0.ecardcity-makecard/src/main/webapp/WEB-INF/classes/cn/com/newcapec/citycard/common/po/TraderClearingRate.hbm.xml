@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TraderClearingRate"
+		table="TRADER_CLEARING_RATE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="merchantcode"
+			column="MERCHANTCODE"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="feepersale"
+			column="FEEPERSALE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="currencyrates"
+			column="CURRENCYRATES"
+			type="big_decimal"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="transferratesofbank"
+			column="TRANSFERRATESOFBANK"
+			type="big_decimal"
+			not-null="true"
+			length="4"
+		/>
+		<property
+			name="flag"
+			column="FLAG"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="editPerson"
+			column="EDIT_PERSON"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="editDate"
+			column="EDIT_DATE"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

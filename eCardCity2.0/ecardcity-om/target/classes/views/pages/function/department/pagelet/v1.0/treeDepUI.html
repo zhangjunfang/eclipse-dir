@@ -1,0 +1,40 @@
+<!--
+ 	功能描述 ：部门树形视图
+	Author : Wangjian
+  Date   : 2014-03-19
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		#parse("function/common/incHead.vm")
+		<link rel="stylesheet" href="${_project.envRoot}/scripts/lib/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+		<script type="text/javascript">
+			var setting = {
+				data: {
+					simpleData: {
+						enable: true
+					}
+				}
+			};
+			
+			var zNodes = new Array();
+			var zNode;
+			#foreach($dep in ${list})
+				zNode={id:"$dep.ID",name:"$dep.DEPT_NAME",pId:"$dep.PID",url:"${_project.envRoot}/department/listDepUI?parentid=$dep.ID",target:"rightFrame",open:true};
+				zNodes.push(zNode);
+			#end
+
+			jQuery(document).ready(function(){ 
+				jQuery.fn.zTree.init(jQuery("#treeDemo"), setting, zNodes); 		    
+			});
+		</script>
+	</head>
+	
+<body bgcolor="#F7F7F7">
+	<div class="zTreeDemoBackground left">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	#include("head.vm")
+
+	<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+	<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+	<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<html class="not-ie" lang="en">
+	<!--<![endif]-->
+	<head>
+	<meta http-equiv="X-UA-Compatible" content="edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Cache-Control" content="no-store"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="keywords" content="一卡通  城市一卡通" />
+	<meta name="description" content="卡务平台-城市一卡通V2.0-郑州新开普电子股份有限公司" />
+	<title>卡务平台-城市一卡通V2.0</title>
+		<!-- common framework -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/css/main.css">
+		<script type='text/javascript' src='${_project.envRoot}/commons/plugins/My97DatePicker/WdatePicker.js'></script>		
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/common.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+		<!-- end common framework -->
+		<!-- global -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/google/google.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/font-awesome/css/font-awesome.min.css">
+		<!-- end global -->
+		<!-- bootstrap -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap-theme.min.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/jQuery_1.10/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap3-validation.js"></script>
+    <!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap-ie78.css"/>
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/respond.min.js"></script> 
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/html5.js"></script>
+    <![endif]-->
+    <!-- end bootstrap -->
+    <!-- theme styles -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/css/uniform.default.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/jquery.uniform.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-metronic.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-responsive.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/plugins.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/themes/light.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery.blockui.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/core/app.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/portlet-draggable.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/ui-blockui.js"></script>
+		
+		<!-- end theme styles -->
+		<!-- custome js -->
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/privilege/v1.0/privilege.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+			    App.init();// initiate layout and plugins
+			    PortletDraggable.init();
+					UIBlockUI.init();
+			});
+			$(function(){
+			      //1. 简单写法：
+			      $("#form1").validation();
+			});
+			
+			//submit
+			function save(){
+/* 				var name=$("#name").val();
+				var classname=$("#className").val();
+				var no=$("#no").val();
+				if(name==""){
+					alert("姓名不能为空！");
+					return;
+				}
+				if(classname==""){
+					alert("班级不能为空！");
+					return;
+				}
+				if(no==""){
+					alert("学号不能为空！");
+					return;
+				}
+ */				$("#form1").ajaxSubmit({
+					url:"add",
+					dataType:'json',
+					success:function(data){
+						alert(data.msg);
+					    
+						if(data.success){
+							loadDiv("stuListGrid",function(){
+								art.dialog({id:'addstuid'}).close();
+							});
+						}else{
+							alert(data.msg);
+						}
+					}
+				
+				});			    
+			}
+		</script>
+	</head>
+<body>
+<div class="page-container">
+	<!-- 导航 -->
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="page-breadcrumb breadcrumb">
+				<li><i class="fa fa-home"></i><a href="#">卡务管理平台</a></li>
+				<li><a href="#">消费卡管理</a></li>
+				<li class="active">发卡</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row" id="sortable_portlets">
+		<!-- 当前充值员售卡信息 -->
+			<div class="col-md-12 column sortable">
+				<div class="portlet box red">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-tasks"></i>
+							发卡充值信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="bg-red">当前授权余额：10000.00</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="bg-red">总收入金额：20000.00</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="bg-red">总支出金额：8000.00</span>
+						</div>
+						<div class="tools">
+							<button type="button" class="btn btn-default btn-sm" role="button">
+								<i class="fa fa-print"></i>&nbsp;&nbsp;&nbsp;打印&nbsp;&nbsp;&nbsp;
+							</button>							
+							<a href="javascript:;" class="collapse"></a>
+							<a href="javascript:;" class="reload"></a>
+							<a href="javascript:;" class="remove"></a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<tbody>
+									<tr>
+										<td><span class="btn dark btn-block">售卡张数：500</span></td>
+										<td><span class="btn default btn-block">钱包充值张数：1000</span></td>
+										<td><span class="btn dark btn-block">充值撤销张数：10000</span></td>
+										<td><span class="btn default btn-block">补卡张数：300</span></td>
+										<td><span class="btn dark btn-block">挂失张数：200</span></td>
+										<td><span class="btn default btn-block">有卡销户张数：100</span></td>
+										<td><span class="btn dark btn-block">无卡销户张数：150</span></td>
+									</tr>
+									<tr>
+										<td><span class="btn dark btn-block">售卡收费金额：20000.00</span></td>
+										<td><span class="btn default btn-block">钱包充值金额：1000.000</span></td>
+										<td><span class="btn dark btn-block">充值撤销金额：2000.00</span></td>
+										<td><span class="btn default btn-block">领取冻结金额：3000.90</span></td>
+										<td><span class="btn dark btn-block">解挂张数：200</span></td>
+										<td><span class="btn default btn-block">有卡销户金额：3000..0</span></td>
+										<td><span class="btn dark btn-block">无卡销户金额：1500.00</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<!-- 客户信息 -->
+			<div class="col-md-12 column sortable">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-user"></i>客户信息
+						</div>
+						<div class="tools">
+								<button type="button" class="btn btn-default btn-sm" role="button" id="blockui_sample_2_2">
+									<i class="fa fa-credit-card"></i>&nbsp;&nbsp;&nbsp;读卡 &nbsp;&nbsp;&nbsp;
+								</button>
+								&nbsp;&nbsp;&nbsp;
+								<button type="button" class="btn btn-default btn-sm" role="button">
+									<i class="fa fa-cogs"></i>读身份证
+								</button>
+							<a href="javascript:;" class="collapse"></a> <a
+								href="javascript:;" class="reload"
+							></a> <a href="javascript:;" class="remove"></a>
+						</div>
+					</div>
+					<div class="portlet-body tabs-below">
+								<form class="form-horizontal" role="form" id="form1" method="post">
+<!-- 							<p>
+								<a href="javascript:;" class="btn yellow" id="blockui_sample_2_2">
+									 Block Page With Boxed Message
+								</a>
+							</p>								
+ -->						<div class="tab-content">
+							<div class="tab-pane active" id="tab_1">
+									<div class="form-group">
+										<label for="cardNo" class="col-sm-2 control-label">客户卡号</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="cardNo" name="cardNo"
+												check-type="required" placeholder="客户卡号"
+												required-message="请填写或读取客户一卡通卡号。"
+											>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="name" class="col-sm-2 control-label">客户姓名</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="name" name="name"
+												check-type="required" placeholder="客户姓名"
+												required-message="请读取或填写客户姓名。"
+											>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="telephone" class="col-sm-2 control-label">手机号码</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="telephone" name="telephone"
+												check-type="required" placeholder="手机号码"
+												required-message="请填写手机号码。"
+											>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="idcardno" class="col-sm-2 control-label">证件号码</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="idcardno" name="idcardno"
+												check-type="required" placeholder="证件号码"
+												required-message="请读取或填写证件号码。"
+											>
+										</div>
+									</div>
+							</div>
+							<div class="tab-pane fade" id="tab_2">
+									<div class="form-group">
+										<label for="cardTypeBig" class="col-sm-2 control-label">卡类别</label>
+										<div class="col-sm-6">
+										<select class="form-control" id="cardTypeBig" name="cardTypeBig">
+											<option value="0" selected>普通卡</option>
+											<option value="1">福利卡</option>
+											<option value="2">管理卡</option>
+											<option value="3">其他卡</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="sex" class="col-sm-2 control-label">性别</label>
+										<div class="col-sm-6">
+										<label class="radio-inline">
+											<input type="radio" name="sex" id="sex" value="1" checked>男
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="sex" id="sex" value="0">女
+										</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cardType" class="col-sm-2 control-label">卡用途</label>
+										<div class="col-sm-6">
+										<select class="form-control" id="cardType" name="cardType">
+											<option value="0" selected>A卡</option>
+											<option value="1">B卡</option>
+											<option value="2">C卡</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="jpdm" class="col-sm-2 control-label">姓名简拼</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="jpdm" name="jpdm" placeholder="姓名简拼">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="address" class="col-sm-2 control-label">联系地址</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="address" name="address" placeholder="联系地址">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="nation" class="col-sm-2 control-label">民族</label>
+										<div class="col-sm-6">
+										<select class="form-control" id="nation" name="nation">
+											<option value="01" selected>汉族</option>
+											<option value="02">蒙古族</option>
+											<option value="03">满族</option>
+											<option value="04">回族</option>
+											<option value="05">藏族</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="email" class="col-sm-2 control-label">电子邮箱</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="email" name="email" check-type="mail" placeholder="电子邮箱">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="conuntry" class="col-sm-2 control-label">国家</label>
+										<div class="col-sm-6">
+										<select class="form-control" id="conuntry" name="conuntry">
+											<option value="01" selected>中国</option>
+											<option value="02">阿富汗</option>
+											<option value="03">阿尔巴尼亚</option>
+											<option value="04">阿尔及利亚</option>
+											<option value="05">安道尔</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="postCode" class="col-sm-2 control-label">邮政编码</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="postCode" name="postCode" placeholder="邮政编码">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="certificateid" class="col-sm-2 control-label">证件类型</label>
+										<div class="col-sm-6">
+										<select class="form-control" id="certificateid" name="certificateid">
+											<option value="01" selected>身份证</option>
+											<option value="02">军官证</option>
+											<option value="03">警官证</option>
+											<option value="04">护照</option>
+											<option value="05">驾驶证</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="birthday" class="col-sm-2 control-label">出生日期</label>
+										<div class="col-sm-6">
+										<div class="input-group">
+										<input type="text" class="form-control" id="birthday" name="birthday" placeholder="出生日期" onClick="WdatePicker()">
+											<span class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</span>
+										</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="rremark" class="col-sm-2 control-label">备注</label>
+										<div class="col-sm-6">
+										<textarea class="form-control" rows="2" id="rremark" name="rremark"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">&nbsp;</label>
+										<div class="col-sm-6">
+										<label class="checkbox-inline">
+											<input type="checkbox" id="oneCunsumePassword" name="oneCunsumePassword"  value="true" checked>统一消费密码
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="noName" value="true">不记名
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="createOnlineAccount" name="createOnlineAccount" value="true" onClick="if(this.checked){$('#onlineAccount').show();}else{$('#onlineAccount').hide();};">创建在线账户
+											<span class="form-control-static" id="onlineAccount" style="display:none;">ZXX410102201432</span>
+										</label>
+									</div>
+									</div>
+							</div>
+						</div>
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab_1" data-toggle="tab">基本信息</a>
+							</li>
+							<li><a href="#tab_2" data-toggle="tab">更多详情</a></li>
+						</ul>
+								</form>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 收费信息 -->
+			<div class="col-md-12 column sortable">
+				<div class="portlet box green">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-exchange"></i>收费信息
+						</div>
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a> <a
+								href="javascript:;" class="reload"
+							></a> <a href="javascript:;" class="remove"></a>
+						</div>
+					</div>
+					<div class="portlet-body">
+								<form class="form-horizontal" role="form" id="form2" action="#">
+									<div class="form-group">
+										<label for="costMoney" class="col-sm-2 control-label">成本费</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="costMoney" disabled value="10.00">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="manageMoney" class="col-sm-2 control-label">管理费</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="manageMoney" disabled value="10.00">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="cardCoat" class="col-sm-2 control-label">卡套费用</label>
+										<div class="col-sm-6">
+											<label class="checkbox-inline">
+											<input type="checkbox" id="useCardCoat" value="true" checked onClick="if(this.checked){$('#cardCoat').show();}else{$('#cardCoat').hide();};">使用卡套
+											</label>
+											<label class="checkbox-inline" id="cardCoat">
+											<input type="text" class="form-control" id="cardCoatTxt" disabled value="10.00"></span>
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="chargeMoney" class="col-sm-2 control-label">充值金额</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="chargeMoney">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="recMoney" class="col-sm-2 control-label">实收款</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="recMoney">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">&nbsp;</label>
+										<div class="col-sm-6">
+											<label class="inline">应收金额：<span class="red">100.00</span></label>
+											<label class="inline">找零金额：<span class="red">20.00</span></label>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+		</div>
+		<!-- 提交 -->
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+				<button type="submit" class="btn btn-success" role="button" onClick="return save();">
+					<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;提交&nbsp;&nbsp;&nbsp;
+				</button>
+				&nbsp;&nbsp;&nbsp;
+				<button type="reset" class="btn btn-default" role="button">
+					<i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;重置&nbsp;&nbsp;&nbsp;
+				</button>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

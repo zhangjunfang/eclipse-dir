@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<title>城市一卡通V2.0卡务平台-读卡信息</title>
+		<!-- common framework -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/css/main.css">
+		<script type='text/javascript' src='${_project.envRoot}/commons/plugins/My97DatePicker/WdatePicker.js'></script>		
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/common.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+		<!-- end common framework -->
+		<!-- global -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/google/google.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/font-awesome/css/font-awesome.min.css">
+		<!-- end global -->
+		<!-- bootstrap -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap-theme.min.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/jQuery_1.10/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap3-validation.js"></script>
+    <!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap-ie78.css"/>
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/respond.min.js"></script> 
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/html5.js"></script>
+    <![endif]-->
+    <!-- end bootstrap -->
+    <!-- theme styles -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/css/uniform.default.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/jquery.uniform.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-metronic.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-responsive.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/plugins.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/themes/light.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery.blockui.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/core/app.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/portlet-draggable.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/ui-blockui.js"></script>
+		
+		<!-- end theme styles -->
+		<!-- custome js -->
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/privilege/v1.0/privilege.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+			    App.init();// initiate layout and plugins
+			    PortletDraggable.init();
+			});
+
+			/*通过OCX调用获取的信息,当次调用值覆盖*/
+			/*终端设备读卡器*/
+			var termId="";//终端号数据库中获取的
+			var psamcardno="0";//终端读卡器的psam卡号
+			/*卡片信息*/
+			var asn16="";//卡应用序列号ASN16进制
+			var asn="";//卡应用序列号ASN10进制
+			var snr="";//卡唯一号 10进制
+			var epRec=0;//钱包余额
+			var cardKind="";//卡类别 1：M1卡 2：CPU卡
+			var saveOpCnt=0;//存款操作计数
+			var mac="";
+			var readData;//点击"读卡"按钮提交后台验证后的返回数据
+
+			/*读取终端卡片信息*/
+			function readTermCard(){
+				var cardOCX = document.getElementById('readCardOCX');  
+				/*OCX调用：打开读卡器，0是成功，其它失败*/
+				var openValue = cardOCX.OpenComm(); 
+				if(openValue==0){
+					/*OCX调用：获取终端读卡器上的PSAM号*/
+					psamcardno=cardOCX.GetTermInfo();
+					str0+="<br> GetTermInfo()psamcardno:"+psamcardno;
+					if(psamcardno=="0"){
+						alert("读取SAM卡信息失败");
+						return false;
+					}
+					/*OCX调用：寻卡FindCard(appSnr)a-卡类型(4-M1,8-CPU), b-卡唯一号*/
+					var findCard=cardOCX.FindCard();
+					str0+="<br> FindCard findCard:"+findCard;
+					if(findCard==""||findCard==null){
+						alert("请放入卡片");
+						return false;
+					}else{
+						var a=findCard.toString().split("@")[0];//卡类型
+						var b=findCard.toString().split("@")[1];//卡唯一号8位十六进制
+						snr=parseInt(b,16);//16to10
+						var fasn=cardOCX.GetASNandMAC();//卡应用序列号ASN
+						if(a=="4"){
+							cardKind="1";
+							asn16=fasn.substring(0,16);//16位十六进制
+							mac=fasn.substring(16,24);
+						}else if(a=="8"){
+							cardKind="2";
+							asn16=fasn.substring(4,20);//16位十六进制
+						}
+						epRec=cardOCX.GetEPoddFare();//余额Number
+						//saveOpCnt存款操作计数
+						str0="";
+						str1="";
+						str0+=" 卡类型cardKind:"+cardKind+" 卡唯一号snr:"+snr;
+						str0+="<br> 卡应用序列号GetASNandMAC():"+fasn;
+						str0+=" asn16:"+asn16+" mac:"+mac+" 十进制："+parseInt(mac,16);
+						str0+="<br> GetEPoddFare()余额:"+epRec;
+						
+						//var cardType=cardOCX.GetCardType();//获取公交卡类型失败: 没有找到记录！
+						var raa=cardOCX.ReadCard();
+						var rbb=cardOCX.ReadPersonInfo();
+						var rcc=cardOCX.ReadCommonInfo();
+						var rdd=cardOCX.ReadPublishInfo();//M1卡可用
+						var ree=cardOCX.ReadAuthInfo();
+						//var rff=cardOCX.ReadSignCard();//非签点卡
+						//var rff=cardOCX.ReadChargerCard();//非充值员卡
+						var rff=cardOCX.GetTktInfo2(1);//
+						var wcard=cardOCX.GetSysMsg();
+						
+						str1+="<br> ReadCard():"+raa;
+						str1+="<br> ReadPersonInfo():"+rbb;
+						str1+="<br> ReadPersonInfo():name@code@idNo@idType@sex@sCOflag";
+						str1+="<br> ReadCommonInfo():"+rcc;
+						str1+="<br> ReadPublishInfo():"+rdd;
+						str1+="<br> ReadAuthInfo():"+ree;
+						str1+="<br> GetTktInfo2(1):"+rff;
+						str1+="<br> 错误信息:"+wcard;
+						
+						
+						var now=new Date();
+						var m=Number(now.getMonth()+1)>=10?(now.getMonth()+1):("0"+(now.getMonth()+1));
+						var d=now.getDate()>=10?now.getDate():("0"+now.getDate());
+						var pubDate=now.getFullYear()+"-"+m+"-"+d;
+						jQuery("#spCard2").html("NowTime:"+pubDate);
+					}
+					
+				}else{
+					alert("打开读卡器端口失败");
+					return false;
+				}
+				/*OCX调用：关闭端口读卡器*/
+				cardOCX.CloseComm();
+				jQuery("#spCard0").html(str0);
+				jQuery("#spCard1").html(str1);
+				return true;
+			}
+			var str0="";
+			var str1="";
+			
+			function writeTermCard(){
+				var cardOCX = document.getElementById('readCardOCX');  
+				// OCX调用：打开读卡器，0是成功，其它失败
+				var openValue = cardOCX.OpenComm(); 
+				if(openValue==0){
+					var isM1=Number((cardKind=="1")?1:0);
+                    cardOCX.SetCompCardType(isM1);//系统参数设置卡类型
+                    
+					// OCX调用：获取终端读卡器上的PSAM号
+					var psamcardno=cardOCX.GetTermInfo();
+					// OCX调用：寻卡FindCard(appSnr)a-卡类型(4-M1,8-CPU), b-卡唯一号
+					var findCard=cardOCX.FindCard();
+					if(findCard==""||findCard==null){
+						// alert("寻卡失败请放入卡片");
+						cardOCX.CloseComm();
+						return false;
+					}else{
+						//更新卡片信息
+						var now=new Date();
+						var m=Number(now.getMonth()+1)>=10?(now.getMonth()+1):("0"+(now.getMonth()+1));
+						var d=now.getDate()>=10?now.getDate():("0"+now.getDate());
+						var pubDate=""+now.getFullYear()+"-"+m+"-"+d;//发行日期，YYYY-MM-DD
+						var useDate=pubDate;//启用日期，YYYY-MM-DD
+						var validDate=""+(now.getFullYear()+50)+"-"+m+"-"+d;//有效日期，YYYY-MM-DD 加50年
+						//年检时间
+						var ycSDate=""+(now.getFullYear()+20)+"-01-01";//年检开始日期，YYYY-MM-DD
+						var ycEDate=""+(now.getFullYear()+20)+"-12-31";//年检结束日期，YYYY-MM-DD
+						var cardClass=Number(cardKind);////卡类别，0-普通卡
+						var useFlag=2;//启用标志，1-未启用，2-启用，3-停用，4-黑名单
+						var blFlag=0;//黑名单标志
+						var forgift=30;//押金，单位：元
+						var nidFlag=Number(0);//不记名标记，默认0-记名，1-不记名
+						var tktFlag=Number(00000000);//月票启用标志：  B0-B1:电子钱包状态，0：禁用，非0：启用。  B2-B3:月票钱包状态，0：禁用，非0：启用。  B4-B5:次卡钱包状态，0：禁用，非0：启用。  B6-B7: 0：月卡，1：季卡，2：半年卡，3：年卡。
+						var ycType=0;//年检适用类型，0-无须年检，1-钱包，2-月票，4-次卡，可以相加组合
+						
+						var custId=Number(737); //帐号
+                           var cardSn=Number(1); //持卡序号
+                           
+						var sale0=cardOCX.RegAndSale0(custId,cardSn,pubDate,useDate,validDate,ycSDate,ycEDate,cardClass,useFlag,blFlag,forgift,nidFlag,tktFlag,ycType);
+						if(sale0==0){
+							var ver=1;
+				            var sex=Number(1);//性别
+				            var nation=Number(1);//民族
+				            var idType=Number(0);//证件类型
+                            var country=Number(142); //国家
+                            var consumeDate=""+m+""+d;
+                            var name="wulimoM1";//姓名
+                            var cardNo="5107737";//卡号code
+                            var idCardNo="410120198502027741";//身份证号码
+                            var makeDt=""+pubDate;
+                            var consumePWD="888888";//消费密码
+                            var asPwd=consumePWD;//个人密码
+                            var appLockTime=validDate+" 12:59:00";
+                            var cardIdleTime=appLockTime;
+                            var cardtype=Number(0);// 市民卡类型：00：普通卡，01：福利卡,02、管理卡,03:其他
+							/// 市民卡用途：	作为普通卡：是指卡上有哪些应用，
+				            /// 作为（公交？）管理卡：1司机卡 2线路设置卡 3票价卡 4签点卡 5管理卡（充值、登陆等）6采集卡 7调度卡
+				            var cardFunc=Number(21);
+				          	var typeMaster=0;// 主卡类型（小额支付扩展预留）
+				            var typeSlave=0;// 副卡类型（小额支付扩展预留）
+				            
+							var sale1=cardOCX.RegAndSale1(ver,sex,nation,0,0,idType,country,"000000",0,0,consumeDate,name,cardNo,idCardNo,"0",makeDt,consumePWD,asPwd,"err",appLockTime,cardIdleTime,0, cardtype,cardFunc,typeMaster,typeSlave);
+				            if(sale1==0){
+				            	//写卡成功
+				            }else{
+				            	//写卡失败
+				            	var wcard=cardOCX.GetSysMsg();
+				            	alert(wcard+"code:"+sale1);
+				            	cardOCX.CloseComm();
+				            	return false;
+				            }
+						}
+					}
+				}else{
+					// alert("打开读卡器端口失败");
+					return false;
+				}
+				// OCX调用：关闭端口读卡器CloseComm()
+				cardOCX.CloseComm();
+				return true;
+			}
+			
+			//define param key-value
+			var xmlhttp;
+			var value=new Array();
+			var variable=new Array();
+			//Show Response MSG
+			function handleStateChange(){
+				var h=document.getElementById("spCard3");
+				if(xmlhttp.readyState==4){
+					if(xmlhttp.status==200){
+						alert(xmlhttp.responseText);
+						h.innerHTML=xmlhttp.responseText;
+						//h.innerHTML=xmlhttp.responseXML;
+					}else if(xmlhttp.status==404){
+						h.innerHTML="<br>找不到请求的服务器资源！";
+					}else if(xmlhttp.status==0){
+						h.innerHTML="<br>未初始化！";
+					}else if(xmlhttp.status==1){
+						h.innerHTML="<br>正在加载......！";
+					}else if(xmlhttp.status==2){
+						h.innerHTML="<br>已经加载完成！";
+					}else if(xmlhttp.status==3){
+						h.innerHTML="<br>正在和服务器交互！";
+					}else{
+						h.innerHTML=xmlhttp.responseXML;
+					}
+				}
+			}
+			//Get Request Data's length
+			function getlen(str){
+				var bytesCount=0;
+				for(var i=0;i<str.length;i++){
+					var c=str.charAt(i);
+					//双字节匹配
+					if(/^[\u0000-\u00ff]$/.test(c)){
+						bytesCount+=1;
+					}else{
+						bytesCount+=2;
+					}
+				}
+				return bytesCount;
+			}
+			//Create XMLHttpRequest Object
+			function createXMLHttpRequest(){
+// 				if(window.ActiveXObject){
+// 					xmlhttp=new ActivXObject("Microsoft.XMLHTTP");
+// 				}else if(window.XMLHttpRequest){
+					xmlhttp=new XMLHttpRequest();
+// 				}
+				
+			} 
+			function RequestByPost(method,variable,value,url,_Namespace,data){
+				createXMLHttpRequest();
+				
+				data='<?xml version="1.0" encoding="utf-8"?>';
+				data+='<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">';
+				data+='<soap:Body>';
+				data+='<'+method+' xmlns="'+_Namespace+'">';
+				for(var i=0;i<variable.length;i++){
+					data=data+'<'+variable[i]+'>'+value[i]+'</'+variable[i]+'>';
+				}
+				data=data+'</'+method+'>';
+				data+='</soap:Body>';
+				data+='</soap:Envelope>';
+				xmlhttp.onreadystatechange=handleStateChange;
+				//xmlhttp.open(method, url, true,"","");
+				//xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+				//xmlhttp.setRequestHeader("Content-Length", getlen(data));
+				//xmlhttp.setRequestHeader("SOAPAction", _Namespace+method);
+				xmlhttp.send(data);
+				//alert(data);
+			}
+			//Call Service method
+			function GetCurrentVer(){
+				//var url="http://192.168.60.203/ECardPreServiceCity/ECardPreService_Out.asmx";
+				//var _Namespace="http://NewCap.com/CapWebServicePsam/";
+				//RequestByPost("TestConnection", new Array(),new Array(), url, _Namespace,new Array());
+				
+				var dat= {method:"PBOC_CheckMAC"};
+				$("#form1").ajaxSubmit({
+					url:"getECardPreServiceCity",
+					dataType:'json',
+					data: dat,
+					success:function(result){
+						if(result.success){
+							if(result.msg=="OK"){
+								if(result.data!=null){
+									var xml=result.data.soapResponseData;
+									var aa= jQuery(xml).find("GetCurrentVerResult").html();
+									jQuery("#spCard2").html(aa);
+									alert(aa);
+								}
+							}else{
+								alert(result.msg);
+							}
+						}else{
+							alert(result.msg);
+						}
+					},
+					error:function(e){
+						alert("系统错误：密钥系统请求失败");
+					}
+				});		  
+			}
+			
+		</script>
+	</head>
+<body>
+<!-- 读卡器操作ocx-->
+<object id="readCardOCX" name="readCardOCX" hidden="true" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+<div class="page-container">
+	<!-- 导航 -->
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="page-breadcrumb breadcrumb">
+				<li><i class="fa fa-home"></i><a href="#">卡务管理平台</a></li>
+				<li><a href="#">消费卡管理</a></li>
+				<li class="active">读取卡片信息</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 终端及卡片的信息 -->
+	<div class="col-md-12 column sortable">
+		<form class="form-horizontal" role="form" id="form1" method="post">
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-exchange"></i>终端及卡片的信息
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"></a> 
+					<a href="javascript:;" class="reload"></a> 
+				</div>
+			</div>
+			
+			<div class="portlet-body" >
+			<span id="spCard0" class="red" style=""></span>&nbsp;<br>
+			<span id="spCard1" class="red" style=""></span>&nbsp;<br>
+			<span id="spCard2" class="red" style=""></span>&nbsp;<br>
+			<span id="spCard3" class="red" style=""></span>&nbsp;<br>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+	
+	<!-- 读取卡片信息 -->
+	<div class="row">
+		<div class="col-md-9 col-md-offset-3">
+			<button id="btnAdd" type="submit" class="btn btn-success" role="button" onclick="javascript:readTermCard();">
+				<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;读卡&nbsp;&nbsp;&nbsp;
+			</button>
+			&nbsp;&nbsp;&nbsp;
+			<button id="btnSell" type="submit" class="btn btn-success" role="button" onclick="javascript:;">
+				<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;发卡&nbsp;&nbsp;&nbsp;
+			</button>
+			&nbsp;&nbsp;&nbsp;
+			<button id="btnKey" type="submit" class="btn btn-success" role="button" onclick="javascript:GetCurrentVer();">
+				<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;密钥前置&nbsp;&nbsp;&nbsp;
+			</button>
+			&nbsp;&nbsp;&nbsp;
+			<button id="btnReset" type="reset" class="btn btn-default" role="button" onclick="javascript:location.reload();">
+				<i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;刷新页面&nbsp;&nbsp;&nbsp;
+			</button>
+		</div>
+	</div>
+		
+</div>
+</body>
+</html>

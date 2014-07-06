@@ -1,0 +1,111 @@
+<!-- <div class="ld-asideaa" overflow: auto">
+	<div class="dqwz">
+		<a title="客户信息" class="ld-btn ld-lanse" style="background-color:black;" href="#" id="clk0"
+			onclick="javascript:$('#custCon0').show();$('#custCon1').hide();$('#clk0').attr('style','background-color:black;');$('#clk1').attr('style','background-color:gray;');">
+		客户信息
+		</a>
+		&nbsp;
+		<a title="账户信息" href="#"  class="ld-btn ld-lanse" style="background-color:gray;" id="clk1"
+			onclick="javascript:$('#custCon1').show();$('#custCon1').hide();$('#clk1').attr('style','background-color:black;');$('#clk0').attr('style','background-color:gray;');">
+			账户信息
+		</a>
+	</div>
+</div> -->
+<div class="ld-aside" style="padding:5px;" id="custCon0" overflow: auto">
+	<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+		<tr>
+			<td>卡号:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.cardAppinfo.citycardno"></td>
+			<td style="padding-left:20px;">姓名:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.name"></td>
+		</tr>
+		<tr>
+			<td>卡类别:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="普通卡"></td>
+			<td style="padding-left:20px;">性别:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="#if($!obj.customer.sex=='1')男  #else女 #end"></td>
+		</tr>
+		<tr>
+			<td>卡用途:</td>
+			<td style="padding-left:5px;">
+			<select style="width: 160px;">
+				#foreach($!type in $!cardTypes)
+				<option value="$!type.typeid" #if($!type.typeid=='$!obj.cardAppinfo.cardtype') selected #end>$!type.cardtypename</option>
+				#end
+			</select>
+			</td>
+			<td style="padding-left:20px;">姓名简拼:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.jpdm"></td>
+		</tr>
+		<tr>
+			<td>手机号码:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.telephone"></td>
+			<td style="padding-left:20px;">国家:</td>
+			<td style="padding-left:5px;">
+			<select style="width:160px;">
+				#foreach($!county in $!countrys)
+				<option value="$!county.D_CODE" #if($!county.D_CODE=='$!obj.customer.country') selected #end>$!county.D_DESC1</option>
+				#end
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>地址:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.address"></td>
+			<td style="padding-left:20px;">民族:</td>
+			<td style="padding-left:5px;">
+			<select style="width: 160px;">
+				#foreach($!nat in $!nations)
+				<option value="$!nat.D_CODE" #if($!nat.D_CODE=='$!obj.customer.nation') selected #end>$!nat.D_DESC1</option>
+				#end
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>电子邮箱:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.email"></td>
+			<td style="padding-left:20px;">证件类型:</td>
+			<td style="padding-left:5px;">
+			<select style="width: 160px;">
+				#foreach($!certif in $!certificatetypes)
+				<option value="$!certif.D_CODE" #if($!certif.D_CODE=='$!obj.customer.certificateid') selected #end>$!certif.D_DESC1</option>
+				#end
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>邮编:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.postcode"></td>
+			<td style="padding-left:20px;">证件号码:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.idcardno"></td>
+		</tr>
+		<tr>
+			<td>备注:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.rremark"></td>
+			<td style="padding-left:20px;">出生日期:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.customer.birthday"></td>
+		</tr>
+		
+		<tr>
+			<td>&nbsp;</td>
+			<td style="padding-left:5px;"><input type="checkbox" #if($!obj.cardAppinfo.mark_name=='1')checked="checked"#end disabled="disabled">不记名</td>
+			<td style="padding-left:20px;">在线账户:</td>
+			<td style="padding-left:5px;">&nbsp;</td>
+		</tr>
+		
+		<tr>
+			<td>卡状态:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" 
+			value="#if($!obj.cardAppinfo.cardstatus=='1')正常#else挂失#end"></td>
+			<td style="padding-left:20px;">钱包余额:</td>
+			<td style="padding-left:5px;"><input type="text" width="180px;" readonly="readonly" value="$!obj.cardMoneySum.oddfare">元</td>
+		</tr>
+	</table>
+</div>
+
+<div style="padding-top:5px;padding-right: 5px;padding-bottom:5px;text-align:center;">
+	<a title="关闭窗口" href="#" onclick="javascript:art.dialog({id:'custdetailwin'}).close();" class="ld-btn ld-lanse" >
+		<img src="${_project.envRoot}/styles/css/card/v1.0/images/close.png"/>
+	关闭
+	</a>
+</div>

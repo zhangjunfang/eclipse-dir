@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+	<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+	<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<html class="not-ie" lang="en">
+	<!--<![endif]-->
+	<head>
+	<meta http-equiv="X-UA-Compatible" content="edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Cache-Control" content="no-store"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="keywords" content="一卡通  城市一卡通" />
+	<meta name="description" content="卡务平台-城市一卡通V2.0-郑州新开普电子股份有限公司" />
+	<title>卡务平台-城市一卡通V2.0</title>
+		<!-- common framework -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/css/main.css">
+		<script type='text/javascript' src='${_project.envRoot}/commons/plugins/My97DatePicker/WdatePicker.js'></script>		
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/common.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+		<!-- end common framework -->
+		<!-- global -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/google/google.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/font-awesome/css/font-awesome.min.css">
+		<!-- end global -->
+		<!-- bootstrap -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap-theme.min.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/jQuery_1.10/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap3-validation.js"></script>
+    <!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap-ie78.css"/>
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/respond.min.js"></script> 
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/html5.js"></script>
+    <![endif]-->
+    <!-- end bootstrap -->
+    <!-- theme styles -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/css/uniform.default.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/jquery.uniform.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-metronic.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-responsive.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/plugins.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/themes/light.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery.blockui.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/core/app.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/portlet-draggable.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/ui-blockui.js"></script>
+		
+		<!-- end theme styles -->
+		<!-- custome js -->
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/privilege/v1.0/privilege.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+			    App.init();// initiate layout and plugins
+			    PortletDraggable.init();
+			});
+		    //打印
+		    function onPrint() {
+		        //parent.focus();
+		        //parent.window.print();
+		        window.print();
+		    }
+		</script>
+	</head>
+<body>
+<div class="page-container">
+	<!-- 导航 -->
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="page-breadcrumb breadcrumb">
+				<li><i class="fa fa-home"></i><a href="#">卡务管理平台</a></li>
+				<li><a href="#">消费卡管理</a></li>
+				<li class="active">钱包充值打印</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="portlet-body">
+		<form class="form-horizontal" role="form" id="form2" method="post">
+			<div class="form-group">
+				<label for="costMoney" class="col-sm-2 control-label">授权余额</label>
+				<div class="col-sm-3">
+						<input type="text" class="form-control" id="costMoney" 
+						placeholder="当前授权余额"
+						readonly="readonly" value="10000.00">
+				</div>
+				<div class="col-sm-3">
+					<label class="checkbox-inline">
+						<input type="checkbox" id="useCardCoat" value="true">支票存款
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="chargeMoney" class="col-sm-2 control-label">充值金额</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="chargeMoney"
+					check-type="required" placeholder="请输入充值余额"
+					required-message="请输入充值余额。">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="recMoney" class="col-sm-2 control-label">实收款</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="recMoney"
+					check-type="required" placeholder="请输入实收款金额"
+					required-message="请输入实收款金额。">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">&nbsp;</label>
+				<div class="col-sm-6">
+					<strong>
+					<label class="inline">应收金额：<span id="spCharge" class="red" style="color:red;">0.00</span>元</label>&nbsp;&nbsp;
+					<label class="inline">找零金额：<span id="spRec" class="red" style="color:red;">0.00</span>元</label>
+					</strong>
+				</div>
+			</div>
+		</form>
+	</div>	
+	<!-- 提交 -->
+	<div class="row">
+		<div class="col-md-9 col-md-offset-3">
+			<button id="btnAdd" type="submit" class="btn btn-success" role="button" onclick="javascript:onPrint();">
+				<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;打印&nbsp;&nbsp;&nbsp;
+			</button>
+			&nbsp;&nbsp;&nbsp;
+			<button id="btnReset" type="reset" class="btn btn-default" role="button" onclick="javascript:location.reload();">
+				<i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;关闭&nbsp;&nbsp;&nbsp;
+			</button>
+		</div>
+	</div>
+		
+</div>
+</body>
+</html>

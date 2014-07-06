@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TOrgUser"
+		table="T_ORG_USER"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="sequence"><param name="sequence">SEQ_T_ORG_USER</param></generator>
+		</id>
+
+		<property
+			name="userName"
+			column="USER_NAME"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="code"
+			column="CODE"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="password"
+			column="PASSWORD"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="name"
+			column="NAME"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="phone"
+			column="PHONE"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="email"
+			column="EMAIL"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="fkDep"
+			column="FK_DEP"
+			type="integer"
+			not-null="true"
+			length="38"
+		/>
+		<property
+			name="valid"
+			column="VALID"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="remark"
+			column="REMARK"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<many-to-one lazy="false" name="dept" column="FK_DEP" class="TOrgDept" fetch="select" insert="false" update="false" />
+
+
+	</class>	
+</hibernate-mapping>

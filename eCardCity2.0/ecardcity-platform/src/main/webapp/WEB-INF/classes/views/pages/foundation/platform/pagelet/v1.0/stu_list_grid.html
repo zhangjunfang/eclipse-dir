@@ -1,0 +1,48 @@
+<table class="standard_table th-bg standard_table_tt" style="width: 50%">
+	<tbody>
+		<tr>
+			<th class="th-1"><input title="全选/不选" type="checkbox"
+				class="check_box" onclick="selectAll(this)"></th>
+			<th class="th-3">用户编号</th>
+			<th class="th-6">姓名</th>
+			<th class="th-5">性别</th>
+			<th class="th-7">角色</th>
+			<th class="th-4">地址</th>
+
+		</tr>
+	</tbody>
+</table>
+<table class="standard_table standard_table_con"  style="width: 50%">
+	<tbody>
+		#foreach($!stu in $!pageView.records)
+		<tr>
+			<td class="td-1"><input type="checkbox" name="menuids"
+				value="$!stu.ID" class="check_box"></td>
+			<td class="td-3">$!stu.USER_ID</td>
+			<td class="td-6">$!stu.USERNAME</td>
+			 #if($!stu.SEX==1) 
+			<td class="td-5">男</td>
+             #else 
+	         <td class="td-5">女</td>
+             #end
+			<td class="td-7">$!stu.ROLENAME</td>
+			<td class="td-4">$!stu.ADDRESS</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+<table class="page-list"  style="width: 50%">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellspacing="0"
+				cellpadding="0" class="fenye_table">
+				<tr>
+					<td style="width:10px;"></td>
+				</tr>
+				<tr>
+					<td style="width:10px;"></td>#parse($paging) #paging($pageView)
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

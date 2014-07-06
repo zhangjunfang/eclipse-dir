@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 日志操作模块 -->
+<datas>
+	<data>
+		<key>SYSTEM_ADMIN</key>
+		<value>系统管理</value>
+	</data>
+	<data>
+		<key>SYSTEM_ADMIN_ORG</key>
+		<value>系统管理_组织机构维护</value>
+	</data>
+</datas>

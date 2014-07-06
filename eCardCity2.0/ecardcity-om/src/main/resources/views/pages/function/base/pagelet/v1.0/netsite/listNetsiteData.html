@@ -1,0 +1,54 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th style="text-align: center;"><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>网点ID</th>
+					<th>网点名称</th>
+					<th>网点简称</th>
+					<th>网点状态</th>
+					<th>网点类型</th>
+					<th>网点种类</th>
+					<th>上级网点</th>
+					<th>行业代码</th>
+					<th>联系人</th>
+					<th>联系电话</th>
+					<th>联系传真</th>
+					<th>地址</th>
+					<th>邮编</th>
+					<th>版本号</th>
+					<th>排序号</th>
+					<th>更新用户</th>
+					<th>更新日期</th>
+				</tr>
+			</thead>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id" value="$!obj.ID"></td>
+						<td>$!obj.NETID</td>
+						<td>$!obj.NETNAME</td>
+						<td>$!obj.NETJP</td>
+						<td>#if("$!obj.NETSTATUS"=="1")正常#else停用#end</td>
+						<td>#if("$!obj.NETTYPE"=="0")充值网点#elseif("$!obj.NETTYPE"=="1")消费网点#else综合网点#end</td>
+						<td>#if("$!obj.NETKIND"=="1")代理#else直属#end</td>
+						<td>$!obj.P_NAME</td>
+						<td>$!obj.INDUSCODE_CODE</td>
+						<td>$!obj.LINKMAN</td>
+						<td>$!obj.PHONE</td>
+						<td>$!obj.FAX</td>
+						<td>$!obj.ADDRESS</td>
+						<td>$!obj.POSTCODE</td>
+						<td>$!obj.VER</td>
+						<td>$!obj.SORT_NUM</td>
+						<td>$!obj.EDIT_PERSON</td>
+						<td>$!obj.EDIT_DATE</td>
+					</tr>
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

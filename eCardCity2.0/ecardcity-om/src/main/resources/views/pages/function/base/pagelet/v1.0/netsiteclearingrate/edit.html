@@ -1,0 +1,93 @@
+<!--
+ 	功能描述 ：网点结算费率设置
+	Author : Wangjian
+  Date   : 2014-05-16
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	#parse("function/common/incHead.vm")
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/base/netsiteclearingrate.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_formatCurrency-1.4.0/jquery.formatCurrency-1.4.0.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			//获取当前选定部门的用户
+			jQuery("#netsiteid").change(function(){
+				getClearingRate();
+			});
+			//首次加载获取部门用户
+			getClearingRate();
+		});
+	</script>
+</head>
+<body>
+<div class="ld-asideaa btngroup">
+	<div class="dqwz">当前位置：系统管理 > 网点管理 > <a href="#" class="blue">网点结算费率设置</a></div>
+</div>
+<div class="con">
+<div class="ld-container ld-con">
+	<div class="ld-asideaa btngroup"><h2>网点结算费率设置</h2></div>
+	<div class="ld-aside" style="border-top:none; padding:10px;">功能描述：提供网点结算费率设置。</div>
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" id="id"/>
+		<div class="ld-aside">
+			<div class="ld-aside btngroup" style="text-align: center;">
+				<label><strong>网点：</strong></label>
+				<select id="netsiteid" name="netsiteid" class="ld-sele" style="width: 200px;">
+				#foreach($!netsite in $!netsiteList)
+				<option value="$netsite.id" #if($!velocityCount == 1)selected="true"#end>$!netsite.netname</option>
+				#end
+				</select>
+			</div>
+			<div class="baparameter runparameter">
+				<!--功能区-->
+				<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+					<tbody>
+						<tr>
+							<td class="ld-lab">费率收取方式</td>
+							<td colspan="3">
+								<input type="radio" name="flag" id="flag0" value="0" onClick="if(this.checked){jQuery('#feepersale').attr('disabled',false);jQuery('#currencyrates').attr('disabled',true);jQuery('#currencyrates').val('0');}">按每笔交易收费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="flag" id="flag1" value="1" onClick="if(this.checked){jQuery('#feepersale').attr('disabled',true);jQuery('#currencyrates').attr('disabled',false);jQuery('#feepersale').val('0');}">按交易金额收费&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td class="ld-lab">每笔交易收费（元）</td>
+							<td>
+								<input style="width: 120px;" name="feepersale" id="feepersale" type="text" fTip="每笔交易收费" fLength="1,20" fType="real"/><span class="red">*</span>
+							</td>
+							<td class="ld-lab">交易金额收费比列（%）</td>
+							<td>
+								<input style="width: 120px;" disabled="true" name="currencyrates" id="currencyrates" type="text" fTip="交易金额收费比列" fLength="1,5" fType="real"/><span class="red">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="ld-lab">银行转账费率（%）</td>
+							<td colspan="3">
+								<input style="width: 120px;" name="transferratesofbank" id="transferratesofbank" type="text" fTip="银行转账费率" fLength="1,5" fType="real"/><span class="red">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="ld-lab">编辑人</td>
+							<td id="edit_person"></td>
+							<td class="ld-lab">编辑日期</td>
+							<td id="edit_date"></td>
+						</tr>
+						<tr>
+							<td colspan="4">
+			  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="tjbtngroup" >
+					<a id="submit1" onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;float:none;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+					<a id="reset1" onClick="document.getElementById('form1').reset();" class="ld-btn ld-huise" style="cursor:pointer;float:none;"><img src="${_project.envRoot}/styles/images/cz.png"/>重置</a>
+		</div>
+	</form>
+</div>
+</div>
+</body>
+</html>

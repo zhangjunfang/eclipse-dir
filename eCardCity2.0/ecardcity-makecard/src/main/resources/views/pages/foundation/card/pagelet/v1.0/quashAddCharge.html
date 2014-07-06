@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+	<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+	<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<html class="not-ie" lang="en">
+	<!--<![endif]-->
+	<head>
+	<meta http-equiv="X-UA-Compatible" content="edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Cache-Control" content="no-store"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta name="keywords" content="一卡通  城市一卡通" />
+	<meta name="description" content="卡务平台-城市一卡通V2.0-郑州新开普电子股份有限公司" />
+	<title>城市一卡通V2.0卡务平台-充值撤销</title>
+		<!-- common framework -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/css/main.css">
+		<script type='text/javascript' src='${_project.envRoot}/commons/plugins/My97DatePicker/WdatePicker.js'></script>		
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/common.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+		<!-- end common framework -->
+		<!-- global -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/google/google.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/font-awesome/css/font-awesome.min.css">
+		<!-- end global -->
+		<!-- bootstrap -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/css/bootstrap-theme.min.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/jQuery_1.10/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap3-validation.js"></script>
+    <!--[if lt IE 9]>
+    <link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/bootstrap-plugins/bootstrap-ie78.css"/>
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/respond.min.js"></script> 
+    <script type="text/javascript" src="${_project.envRoot}/commons/plugins/bootstrap-plugins/html5.js"></script>
+    <![endif]-->
+    <!-- end bootstrap -->
+    <!-- theme styles -->
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/css/uniform.default.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/uniform/jquery.uniform.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-metronic.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/style-responsive.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/plugins.css">
+		<link type="text/css" rel="stylesheet" href="${_project.envRoot}/commons/plugins/metronic2.0.2/css/themes/light.css">
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/plugins/jquery.blockui.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/core/app.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/portlet-draggable.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/commons/plugins/metronic2.0.2/scripts/custom/ui-blockui.js"></script>
+		
+		<!-- end theme styles -->
+		<!-- custome js -->
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/privilege/v1.0/privilege.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+		<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/card/quashAddCharge_jsp.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+			    App.init();// initiate layout and plugins
+			    PortletDraggable.init();
+			});
+		    
+		</script>
+	</head>
+<body>
+<!-- 读卡器操作ocx-->
+<object id="readCardOCX" name="readCardOCX" style="display:none;" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+<div class="page-container">
+	<!-- 导航 -->
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="page-breadcrumb breadcrumb">
+				<li><i class="fa fa-home"></i><a href="#">卡务管理平台</a></li>
+				<li><a href="#">消费卡管理</a></li>
+				<li class="active">充值撤销</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row" id="sortable_portlets">
+		<!-- 当前充值员及时统计信息 -->
+		#parse("foundation/card/pagelet/v1.0/bizCardMsg.html")
+		<!--钱包充值 客户信息 -->
+		<div class="col-md-12 column sortable">
+			<div class="portlet box blue">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-user"></i>充值信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span id="spRec" class="red" style="font-size:14px;">操作提示：请先点击“读卡”获取充值信息;最后一笔交易记录为充值类，可完全撤销单笔充值</span>
+					</div>
+					<div class="tools">
+						<button id="btnRead" type="button" class="btn btn-default btn-sm" role="button" onclick="clickReadCard()">
+							<i class="fa fa-credit-card"></i>&nbsp;&nbsp;&nbsp;读卡 &nbsp;&nbsp;&nbsp;
+						</button>
+						<a href="javascript:;" class="collapse"></a> 
+						<a href="javascript:;" class="reload" onclick="location.reload()"></a> 
+					</div>
+				</div>
+				<div class="portlet-body tabs-below">
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_1">
+							<form class="form-horizontal" role="form" id="form1" method="post">
+								<div class="form-group">
+									<label for="custName" class="col-sm-2 control-label">客户姓名</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="custName"
+											placeholder="请读取客户姓名" readonly="readonly"
+										>
+									</div>
+									<label for="custSex" class="col-sm-2 control-label">客户性别</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="custSex"
+											placeholder="请读取客户性别" readonly="readonly"
+										>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="cardNo" class="col-sm-2 control-label">客户卡号</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="cardNo"
+											placeholder="请读取客户一卡通卡号" readonly="readonly"
+										>
+									</div>
+									<label for="idCardNo" class="col-sm-2 control-label">证件号码</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="idCardNo"
+											placeholder="请读取证件号码" readonly="readonly" 
+										>
+									</div>
+								</div>
+									
+								<div class="form-group">
+									<label for="opFare" class="col-sm-2 control-label">交易金额</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opFare"
+											placeholder="请读取交易金额 " readonly="readonly"
+										>
+									</div>
+									<label for="cardFare" class="col-sm-2 control-label">钱包余额</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="cardFare"
+											placeholder="请读取余额" readonly="readonly"
+										>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="opDate" class="col-sm-2 control-label">交易日期</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opDate"
+											placeholder="请读取交易日期" readonly="readonly"
+										>
+									</div>
+									<label for="opCodeDesc" class="col-sm-2 control-label">交易类型</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opCodeDesc"
+											placeholder="请读取交易类型" readonly="readonly" 
+										>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="opNetName" class="col-sm-2 control-label">交易网点</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opNetName"
+											placeholder="请读取交易网点" readonly="readonly"
+										>
+									</div>
+									<label for="opTermName" class="col-sm-2 control-label">终端编号</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opTermName"
+											placeholder="请读取终端编号" readonly="readonly" 
+										>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="opUserName" class="col-sm-2 control-label">充值员</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="opUserName"
+											placeholder="请读取操作员" readonly="readonly"
+										>
+									</div>
+									
+									<label for="correctFlag" class="col-sm-2 control-label">撤销标识</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" id="correctFlag"
+											placeholder="请读取充值撤销标识" readonly="readonly"
+										>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 撤销确认信息 -->
+		<div class="col-md-12 column sortable" id="quashConfirmDiv">
+			<div class="portlet box green">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-exchange"></i>撤销确认信息 
+					</div>
+					<div class="tools">
+						<a href="javascript:;" class="collapse"></a> 
+						<a href="javascript:;" class="reload"></a> 
+					</div>
+				</div>
+				
+				<div class="portlet-body">
+					<form class="form-horizontal" role="form" id="form2" method="post">
+						<div class="form-group">
+							<label for="quashUser" class="col-sm-2 control-label">撤销操作员</label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control" id="quashUser"
+									placeholder="请读取撤销操作员" readonly="readonly"
+								>
+							</div>
+							<div class="col-sm-3">
+								<button id="btnPWD" type="button" class="btn" role="button">
+									<i class="fa fa-check"></i>&nbsp;录入密码&nbsp;
+								</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="searchpwd" class="col-sm-2 control-label">撤销密码</label>
+							<div class="col-sm-3">
+								<input type="password" class="form-control" id="searchpwd"
+								check-type="required" required-message="请输入撤销密码。" min="0" maxlength="6">
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- 提交 -->
+		<div class="row">
+			<div class="col-md-9 col-md-offset-3">
+				<button id="btnQuash" type="submit" class="btn btn-success" role="button" onclick="javascript:clickQuash();">
+					<i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp;撤销&nbsp;&nbsp;&nbsp;
+				</button>
+				&nbsp;&nbsp;&nbsp;
+				<button id="btnReset" type="reset" class="btn btn-default" role="button" onclick="javascript:location.reload();">
+					<i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;重置&nbsp;&nbsp;&nbsp;
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jquery Dialog Demo</title>
+<link type="text/css" rel="stylesheet" href="jquery_dialog.css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery_dialog.js"></script>
+</head>
+<body style="margin:0px;padding:0px;font-size:12px;font-family:Verdana,宋体;">
+<form id="form1">
+<input type="text" name="rtn" id="rtn" value="123">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="30" align="center"><font style="font-size:18px;font-weight:bold;">JQuery Dialog 2.0.5 Demo</font></td>
+  </tr>
+  <tr>
+    <td height="30" align="center"><a href="http://wu-jian.cnblogs.com/" target="_blank">http://wu-jian.cnblogs.com/</a></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr bgcolor="#99FF99">
+    <td height="22">
+		<strong>&nbsp;&nbsp;Debug data
+      </strong></td>
+  </tr>
+  <tr>
+    <td height="22"><font>dialog x:</font><font style="color:red;font-weight:bold;" id="_ocl_x"></font>
+		<font>dialog y:</font><font style="color:red;font-weight:bold;" id="_ocl_y"></font>
+        <font>moving flag:</font><font style="color:red;font-weight:bold;" id="_flag"></font>
+		<font>temp 1:</font><font style="color:red;font-weight:bold;" id="_temp1"></font>
+      <font>temp 2:</font><font style="color:red;font-weight:bold;" id="_temp2"></font></td>
+  </tr>
+  <tr bgcolor="#99FF99">
+    <td height="22" bgcolor="#99FF99"><strong>&nbsp;&nbsp;Demo
+    	
+    </strong></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20%" height="60" align="center">
+        <input type="button" name="s1" value="对话框一" onclick="JqueryDialog.Open('模态DIV1', 'inner1.html', 300, 300);" /></td>
+        <td width="80%">&nbsp;对话框一，宽300PX，高300PX，<strong>包含底部</strong>。提交后<strong>不关闭</strong>，<strong>不刷新</strong>父页面。</td>
+      </tr>
+      <tr>
+        <td height="60" align="center">
+        <input type="button" name="s2" value="对话框二" onclick="JqueryDialog.Open('模态DIV1', 'inner2.html', 300, 300);" /></td>
+        <td>对话框二，宽300PX，高300PX，包含底部。提交后<strong>关闭</strong>，<strong>刷新</strong>父页面。</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20%" height="60" align="center">
+        <input type="button" name="s3" value="对话框三" onclick="JqueryDialog.Open1('模态DIV2', 'inner2.html', 300, 300);" /></td>
+        <td width="80%">&nbsp;对话框三，宽300PX，高1000PX，<strong>不包含底部</strong>。</td>
+      </tr>
+      <tr>
+        <td height="60" align="center">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="22" bgcolor="#99FF99"><strong>&nbsp;&nbsp;Config Example</strong></td>
+  </tr>
+  <tr>
+    <td height="30"><p>//模态窗口背景色<br />
+  &quot;cBackgroundColor&quot;			:	&quot;#ffffff&quot;,<br />
+  <br />
+      //阴影距离(右)<br />
+  &quot;cShdowRight&quot;				:	5,<br />
+      //阴影距离(下)<br />
+  &quot;cShdowDown&quot;				:	5,<br />
+  <br />
+      //边框尺寸(像素)<br />
+  &quot;cBorderSize&quot;				:	2,<br />
+      //边框颜色<br />
+  &quot;cBorderColor&quot;				:	&quot;#999999&quot;,</p>
+      <p> //Header背景色<br />
+  &quot;cHeaderBackgroundColor&quot;	:	&quot;#f0f0f0&quot;,<br />
+        //右上角关闭显示文本<br />
+  &quot;cCloseText&quot;				:	&quot;X 关闭&quot;,<br />
+        //鼠标移上去时的提示文字<br />
+  &quot;cCloseTitle&quot;				:	&quot;关闭&quot;,<br />
+  <br />
+        //Bottom背景色<br />
+  &quot;cBottomBackgroundColor&quot;	:	&quot;#f0f0f0&quot;,<br />
+        //提交按钮文本<br />
+  &quot;cSubmitText&quot;				:	&quot;提 交&quot;,<br />
+        //取消按钮文本<br />
+  &quot;cCancelText&quot;				:	&quot;取 消&quot;,<br />
+  <br />
+        //拖拽效果<br />
+  &quot;cDragTime&quot;					:	&quot;100&quot;,</p></td>
+  </tr>
+  <tr>
+    <td height="30">&nbsp;</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

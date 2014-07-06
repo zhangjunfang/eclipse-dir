@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TLog"
+		table="T_LOG"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="sequence"><param name="sequence">SEQ_T_LOG</param></generator>
+		</id>
+
+		<property
+			name="operator"
+			column="OPERATOR"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="module"
+			column="MODULE"
+			type="string"
+			not-null="true"
+			length="200"
+		/>
+		<property
+			name="action"
+			column="ACTION"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="logContent"
+			column="LOG_CONTENT"
+			type="string"
+			not-null="true"
+			length="200"
+		/>
+		<property
+			name="logDate"
+			column="LOG_DATE"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="ip"
+			column="IP"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="delFlag"
+			column="DEL_FLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

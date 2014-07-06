@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="account" location="25,165" size="260,164">
+    <action name="account_*" location="100,71" size="150,83">
+      <result name="login_success">
+        <resourceEdge source="login_success" routing="0" target="frame.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+      <result name="logout_success">
+        <resourceEdge source="logout_success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="frame.jsp" path="/common/frame/frame.jsp" location="127,430" size="150,55" />
+  <webResource name="index.jsp" path="/index.jsp" location="10,10" size="150,55" />
+</Struts2Diagram>
+

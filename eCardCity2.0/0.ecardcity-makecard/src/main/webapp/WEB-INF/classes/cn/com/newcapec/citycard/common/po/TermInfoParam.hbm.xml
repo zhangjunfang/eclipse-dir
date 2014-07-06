@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TermInfoParam"
+		table="TERM_INFO_PARAM"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="poscode"
+			column="POSCODE"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="typecode"
+			column="TYPECODE"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="datatype"
+			column="DATATYPE"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="content"
+			column="CONTENT"
+			type="string"
+			not-null="true"
+			length="1000"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

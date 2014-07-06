@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/config/jdbc.properties=UTF-8
+encoding//src/main/resources/log4j.properties=UTF-8
+encoding//src/main/resources/views/pages/function/department/pagelet/v1.0/editDepMappingUI.html=UTF-8
+encoding//src/main/resources/views/pages/function/department/pagelet/v1.0/editDepUI.html=UTF-8
+encoding//src/main/resources/views/pages/function/department/pagelet/v1.0/listDepUI.html=UTF-8
+encoding//src/main/resources/views/pages/function/department/pagelet/v1.0/listDepUIData.html=UTF-8
+encoding//src/main/resources/views/pages/function/student/pagelet/v1.0/stu_list_grid.html=UTF-8
+encoding//src/main/resources/views/styles/css/om/v1.0/main.css=UTF-8
+encoding/<project>=UTF-8

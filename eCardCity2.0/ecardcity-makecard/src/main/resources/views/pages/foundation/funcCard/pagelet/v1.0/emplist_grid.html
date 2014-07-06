@@ -1,0 +1,64 @@
+<table border="0" cellpadding="0" cellspacing="0"
+	class="ld-table ld-tableie">
+	<thead>
+		<tr>
+			<th >所属网点</th>
+			<th >职员账号</th>
+			<th >姓名</th>
+			<th >性别</th>
+			<th >账号状态</th>
+			<th >是否允许登陆</th>
+			<th >操作</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+	
+	 <td>模拟</td> <td>$模拟</td> <td>模拟</td> 
+	 <td>模拟</td> <td>模拟</td> <td>模拟</td>
+	 <td>
+			<a  href="#" id="editUser" onclick="empDetailUI('2')">详 细</a>&nbsp;&nbsp;
+			<a  href="#" id="deleteUser" onclick="emitFuncCardUI('2')">发 卡</a>
+			</td>
+	</tr>
+	
+		#foreach($!stu in $!pageView.records)
+		<tr>
+		    <td>$!stu.NETNAME</td>
+			<td >$!stu.EMPCODE</td>
+			<td >$!stu.NAME</td>
+			 <td >
+				 #if($!stu.SEX=='1') 
+				   男
+	             #else 
+		                         女
+	             #end
+			</td >
+			 <td >
+		    	#if($!stu.EMPSTATE == '1')
+		    		启用
+			   	#else 
+			    	禁用
+			    #end 
+		    </td>
+			<td >$!stu.TELEPHONE</td>
+			<td>
+			<a  href="#" id="editUser" onclick="empDetailUI('$!stu.ID')">详 细</a>&nbsp;&nbsp;
+			<a  href="#" id="deleteUser" onclick="emitFuncCardUI('$!stu.ID')">发 卡</a>
+			</td>
+		</tr>
+		#end
+	</tbody>
+</table>
+
+<table class="ld-table ld-tableie" >
+	<tr>
+		<td>
+			<table>
+				<tr>
+				<td>#parse($paging) #paging($pageView)</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

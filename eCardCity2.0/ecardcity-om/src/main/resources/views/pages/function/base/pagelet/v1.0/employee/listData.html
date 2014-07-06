@@ -1,0 +1,46 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th style="text-align: center;"><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>网点</th>
+					<th>员工ID</th>
+					<th>操作员</th>
+					<th>绑定银行</th>
+					<th>绑定开户账号</th>
+					<th>存款权限</th>
+					<th>取款权限</th>
+					<th>POS操作权限</th>
+					<th>登录权限</th>
+					<th>版本号</th>
+				</tr>
+			</thead>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id" value="$!obj.ID"></td>
+						<td>$!obj.NETNAME</td>
+						<td>$!obj.EMPID</td>
+						<td>
+							#foreach($!user in $!userList)
+								#if("$!user.user_id"=="$!obj.USER_ID")
+									$!user.user_name
+								#end
+							#end
+						</td>
+						<td>$!obj.BANKNAME</td>
+						<td>$!obj.OPEN_ACCOUNT</td>
+						<td>#if("$!obj.PRIVILEGE_CASHIN"=="1")是#else否#end</td>
+						<td>#if("$!obj.PRIVILEGE_CASHOUT"=="1")是#else否#end</td>
+						<td>#if("$!obj.PRIVILEGE_POS"=="1")是#else否#end</td>
+						<td>#if("$!obj.PRIVILEGE_LOGIN"=="1")是#else否#end</td>
+						<td>$!obj.VER</td>
+					</tr>
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

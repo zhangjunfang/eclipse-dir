@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="InterfaceCitySafelist"
+		table="INTERFACE_CITY_SAFELIST"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="filename"
+			column="FILENAME"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="citycode"
+			column="CITYCODE"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="cityname"
+			column="CITYNAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

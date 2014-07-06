@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>用户管理</title>
+        </meta>
+           #parse("/manager/include/manageCommonHead.html")
+        <script src="${_project.envRoot}/scripts/foundation/manager/manageIndex.js" ></script>
+        <script src="${_project.envRoot}/scripts/foundation/manager/userIndex.js" ></script>
+        
+    </head>
+    <body>
+        <div class="body-container">
+		<!-- 面包屑导航 -->
+		<ol class="breadcrumb">
+			<li class="active">产品使用寿命预警配置管理</li>
+		</ol>
+		
+		<div id="currentDataDiv" action="manager">
+			<!-- 搜索条 -->
+			<form class="form form-inline queryForm">
+				<button type="button" class="btn btn-info pull-right del"
+					style="margin-left: 5px">删除</button>
+				<button type="button" class="btn btn-info pull-right edit"
+					style="margin-left: 5px" data-toggle="modal" data-target="#detailModel">编辑
+				</button>
+				<button type="button" class="btn btn-info pull-right add"
+					data-toggle="modal" data-target="#detailModel">添加</button>
+					
+				 
+				<div class="form-group">
+					<label class="control-label">用户名</label> 
+					<INPUT type="text" name="name" class="form-control" opr="like" placeholder="全部""/>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">真实姓名</label> 
+					<input type="text" name='realName' class="form-control" opr="like" placeholder="全部"> 
+			##		<input type="hidden" name="pagenum" value="1"> 
+			##		<input type="hidden" name="pageSize" value="">
+				</div>
+
+				<button type="button" name="searchButton" class="btn btn-info search">
+					<i class="icon-search"></i>搜 索
+				</button>
+			</form>
+			<!-- 列表 -->
+			<table class="table table-bordered table-list table-single">
+				<thead>
+					<tr>
+						<th width="" name="name"><a href="#" class="sort"> <i
+								## class="icon-caret-up"
+								></i> 用户名
+						</a></th>
+						<th width="" name="realName"><a href="#" class="sort"> <i></i>
+								真实姓名
+						</a></th>
+						<th width="" name="sex"><a href="#" class="sort"> <i></i>
+								性别
+						</a></th>
+						<th width="" name="tel"><a href="#" class="sort"> <i></i>
+								联系电话
+						</a></th>
+						<th width="" name="createTime"><a href="#" class="sort">
+								<i></i> 创建日期
+						</a></th>
+						<th width="">操作</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<!-- 分页 -->
+			<ul class="pagination">
+			</ul>
+            ## 列表模板 
+            <script type="text/x-jquery-tmpl" id="listTmpl">
+            	<tr class="active" val="${name}" value="${id}">
+            		<td>${name}</td>
+            		<td>${realName}</td>
+            		<td>{{if sex=='1'}}男{{else}}女{{/if}}</td>
+            		<td>${tel}</td>
+            		<td>${createTime}</td>
+            		<td class="text-center">
+            			## <a onclick="detail(this,\${id},'product')" href="#" data-toggle="modal" data-target="#myModal4">查看</a>
+            		</td>
+            	</tr>
+            </script>
+		</div>
+	</div>
+	
+	 <!-- 弹框 -->
+    <div id="detailModel" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">用户信息</h4>
+                </div>
+                <div class="modal-body">
+                   <form class="form-horizontal menuForm validation">
+						<input type="hidden" name="id"/>
+    					<input type="hidden" name="parentId" />
+    					
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="用户名" name="name" check-type="required" required-message="请填写登录名称。" />
+                       		</div>
+    					</div>
+    					
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">真实姓名</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="真实姓名" name="realName" check-type="required" required-message="请填写真实姓名。" />
+                       		</div>
+    					</div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">性别</label>
+                            <div class="col-sm-6">
+								<INPUT type="radio" name="sex" value="1" checked id="sex1"/><LABEL for="sex1">男</LABEL>&nbsp;&nbsp;&nbsp;
+								<INPUT type="radio" name="sex" value="0" id="sex0"/><label for="sex0">女</label>
+                       		</div>
+    					</div>
+				   </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary save"> 保 存 </button>
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal"> 取 消 </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

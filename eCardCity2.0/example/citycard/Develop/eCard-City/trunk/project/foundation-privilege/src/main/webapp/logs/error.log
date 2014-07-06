@@ -1,0 +1,18 @@
+[INFO ] [2013-12-18 11:29:03] init (DefaultLocalCache.java:73) 
+ DefaultCache CheckService is start!
+[INFO ] [2013-12-18 11:29:16] init (BaseResource.java:92) 
+ method[GET] call!
+[INFO ] [2013-12-18 11:29:16] <clinit> (TemplateEngine.java:23) 
+ templatePath:/E:/platform/project/foundation-privilege/src/main/webapp/
+[INFO ] [2013-12-18 11:29:18] init (BaseResource.java:92) 
+ method[POST] call!
+[ERROR] [2013-12-18 11:29:18] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[ERROR] [2013-12-18 11:29:34] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI
+[INFO ] [2013-12-18 11:29:39] init (BaseResource.java:92) 
+ method[GET] call!
+[INFO ] [2013-12-18 11:29:41] init (BaseResource.java:92) 
+ method[POST] call!
+[ERROR] [2013-12-18 11:29:41] getRepresentation (ExceptionStatusService.java:43) 
+ The server has not found anything matching the request URI

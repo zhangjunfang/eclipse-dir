@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>电子钱包充值撤销</title>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/art/jquery.artDialog.source.js?skin=default"></script>
+	<script type="text/javascript" src="${_project.envRoot}/pages/common/common.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+	<script type='text/javascript' src='${_project.envRoot}/scripts/lib/DatePicker/WdatePicker.js'></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/card/v1.1/quashAddCharge.js"></script>
+	<link type="text/css" rel="stylesheet" href="${_project.envRoot}/styles/css/card/v1.0/css/style.css">
+</head>
+<body>
+	<div class="ld-asideaa btngroup topWz">
+		<div class="dqwz">
+			当前位置：卡务管理平台 / 消费卡管理  /<a href="javascript:location.reload();" class="blue"> 电子钱包充值撤销</a>
+		</div>
+	</div>
+	<div class="con">
+		<!-- 读卡器操作-->
+		<object id="readCardOCX" name="readCardOCX" style="display:none;" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+		<!-- 当前充值员及时统计信息-->
+		<div id="bizMsgInfo" class="ld-aside" style="border:0;">
+			#parse("foundation/card/pagelet/v1.1/bizCardMsg.html")
+		</div>
+		
+		<!-- 业务操作-->
+		<div id="bizOptCont" class="ld-aside" style="border:0;">
+			<!--  -->
+			<form id="form1" name="form1" method="post">
+			<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+				<thead>
+					<tr>
+						<th colspan="2" style="border-right:none;">
+							<img alt="电子钱包充值撤销" title="电子钱包充值撤销" src="${_project.envRoot}/styles/css/card/v1.0/images/people.png" align="middle"/>
+							电子钱包充值撤销&nbsp;&nbsp;
+							<span style="color:graytext;font-weight:lighter;">操作提示：请先点击“读卡”获取充值信息;最后一笔交易记录为充值类，可完全撤销单笔充值.</span>&nbsp;&nbsp;
+						</th>
+						<th style="text-align:right;border-left:none;">
+							<span>
+								<img alt="展开/折叠" title="展开/折叠" align="middle" style="cursor:pointer;" 
+									onclick="$('#bizSearchParm').toggle()" src="${_project.envRoot}/styles/css/card/v1.0/images/win_restore_down16.png"/>
+							</span>
+						</th>
+					</tr>
+				</thead>
+				
+				<tbody id="bizSearchParm">
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;客户姓名</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取客户姓名" type="text" id="custName" name="custName" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;客户性别</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取客户性别" type="text" id="custSex" name="custSex" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;客户卡号</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取客户一卡通卡号" type="text" id="cardNo" name="cardNo" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;证件号码</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取证件号码" type="text" id="idCardNo" name="idCardNo" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+						
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;交易金额</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取交易金额" type="text" id="opFare" name="opFare" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;钱包余额</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取钱包余额" type="text" id="cardFare" name="cardFare" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+						
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;交易日期</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取交易日期" type="text" id="opDate" name="opDate" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;交易类型</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取交易类型" type="text" id="opCodeDesc" name="opCodeDesc" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;交易网点</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取交易网点" type="text" id="opNetName" name="opNetName" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;终端编号</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取交易终端编号" type="text" id="opTermName" name="opTermName" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;充值员</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取充值员" type="text" id="opUserName" name="opUserName" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;撤销标识</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取撤销标识" type="text" id="correctFlag" name="correctFlag" style="width:200px;" readonly="readonly">
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>撤销操作员</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取撤销操作员" type="text" id="quashUser" name="quashUser" style="width:200px;" readonly="readonly">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;撤销密码</label>
+							<label style="color:red;width: 10px;">*</label>
+							<input type="password" id="searchpwd" required-message="请输入撤销密码。" min="0" maxlength="6" style="width:100px;">
+							<a title="录入密码" href="javascript:" class="ld-btn ld-lanse" id="btnPWD">
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/Tile.png" />
+								录入密码
+							</a>
+						</td>
+					</tr>
+					
+					<tr class="t3">
+						<td align="right" style="border-right:0px;width: 10%;">&nbsp;</td>
+						<td colspan="2" style="border-left:0px;">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a title="读卡" href="javascript:clickReadCard();" class="ld-btn ld-lanse" id="btnRead">
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/readcard.png" />
+								读卡
+							</a>
+							&nbsp;&nbsp;
+							<a title="撤销" href="javascript:clickQuash();" class="ld-btn ld-lanse" id="btnQuash">
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/ok_gray.png"/>
+								撤销
+							</a>
+							&nbsp;&nbsp;
+							<a title="重置" href="javascript:location.reload();" class="ld-btn ld-lanse" >
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/reset00.png" style="background-image:none;"/>
+								重置
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

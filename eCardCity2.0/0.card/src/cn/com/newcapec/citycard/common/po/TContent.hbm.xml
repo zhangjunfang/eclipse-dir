@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TContent"
+		table="T_CONTENT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="sequence"><param name="sequence">SEQ_T_CONTENT</param></generator>
+		</id>
+
+		<property
+			name="ctitle"
+			column="C_TITLE"
+			type="string"
+			not-null="true"
+			length="60"
+		/>
+		<property
+			name="ccontent"
+			column="C_CONTENT"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="source"
+			column="SOURCE"
+			type="string"
+			not-null="false"
+			length="60"
+		/>
+		<property
+			name="hit"
+			column="HIT"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="state"
+			column="STATE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="channelId"
+			column="CHANNEL_ID"
+			type="integer"
+			not-null="true"
+			length="3"
+		/>
+		<property
+			name="updateuser"
+			column="UPDATEUSER"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="updatetime"
+			column="UPDATETIME"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,143 @@
+/*
+    bluefrit样式
+    AUTHOR:mzh
+    DATE:2008-3-18
+*/
+
+/*body类：主操作区模板body用样式*************************************************************************/
+body {
+	font-size: 12px;
+	color: #4b4b4b;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px;
+	SCROLLBAR-FACE-COLOR: #DAE6F7; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #DEF1FF;
+	SCROLLBAR-SHADOW-COLOR: #B0CFF4; 
+	SCROLLBAR-3DLIGHT-COLOR: #ffffff; 
+	SCROLLBAR-ARROW-COLOR: #366AB3;
+	SCROLLBAR-TRACK-COLOR: #E7EFF9;  
+	SCROLLBAR-SHADOW-COLOR: #B0CFF4;
+	SCROLLBAR-DARKSHADOW-COLOR: #5484BD; 
+	overflow-x:hidden;
+	margin: 0px;
+	padding: 0px;
+}
+/*单元格默认字体大小*/
+td {
+	font-size: 12px;/*字体大小12象素*/
+	color:#333333;
+}
+
+/*超链接样式*/
+
+/*链接颜色：蓝，无下划线，12象素*/
+a:link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 12px;
+}
+/*鼠标覆盖：颜色，蓝；无下划线；12象素；覆盖时向上右方向偏移1象素*/
+a:hover {
+    color: #0066cc;
+    text-decoration: none;
+    position: relative;
+    top: 1px;
+    right: 1px;
+}
+/*点击访问颜色：蓝，无下划线，12象素*/
+a:visited {
+    color: #000000;
+    text-decoration: none;
+	font-size: 12px;
+}
+/*头部图标文字点击访问颜色：白，无下划线，12象素*/
+a.head:visited {
+    color: #ffffff;
+    text-decoration: none;
+	font-size: 12px;
+}
+/*头部图标文字链接颜色：蓝，无下划线，12象素*/
+a.head:link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 12px;
+}
+/*头部图标文字鼠标覆盖：颜色，红；无下划线；12象素；覆盖时向上右方向偏移1象素*/
+a.head:hover {
+    color: #FFCC00;
+    text-decoration: none;
+    position: relative;
+    top: 2px;
+    right: 1px;
+}
+
+/*div类：页面主要布局*****************************************************************************/
+
+/*整个页面区域布局样式*/
+#page-container {
+	width: 100%;
+	margin: 0;
+	background: #blue;
+}
+/*头部区域布局*/
+#header {
+	width:100%;
+	height: 102px;
+	
+}
+/*logo头部区域布局*/
+#top {
+	width:100%;
+	height: 63px;
+	background-image: url(../img/frame/top_bg.jpg);
+	background-repeat: repeat-x;
+}
+#logo {
+	padding-left: 0px;
+}
+
+/*左侧区域布局*/
+#left {
+	float:left;
+	width: 188px;
+	height:100%;
+	background:#f8fbff;
+}
+/*底部区域布局*/
+/*#footer {
+	clear:both;
+	width: 100%;
+	height: 25px;
+	background-image: url(../img/frame/footer.jpg);
+	text-align: center;
+	font-size: 12px;
+	color: #0077B0;
+	padding-top: 5px;
+	background-repeat: repeat-x;	
+}
+*/
+.welcomeBody {
+	overflow: hidden;
+}
+#content {
+	width: 100%;
+	height: 100%;
+	border:1px solid #98B7D2;
+	margin-top:1px;
+}
+.welcomeBody {
+	overflow: hidden;
+}
+.welcomeTable {
+	background-image: url(../img/frame/welcome.gif);
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	border:1px solid #98B7D2;
+	margin-top:1px;
+}
+
+/*头部按钮表格样式*/

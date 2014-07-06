@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 安全校验 -->
+    <package name="security" extends="struts-default">
+    	<interceptors>
+    		<interceptor name="auth" class="cn.com.newcapec.common.interceptor.AuthenticationInterceptor"/>
+    		
+    		<interceptor-stack name="security">
+    			<interceptor-ref name="defaultStack"/>
+    			<interceptor-ref name="auth"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<default-interceptor-ref name="security"/>
+    	
+    	<global-results>
+    		<result name="login">/login.jsp</result>
+    	</global-results>
+    	
+    </package>
+</struts>

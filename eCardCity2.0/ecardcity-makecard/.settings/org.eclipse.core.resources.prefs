@@ -1,0 +1,13 @@
+#Fri Apr 11 16:40:33 CST 2014
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/resources/config/config.properties=UTF-8
+encoding//src/main/resources/config/jdbc.properties=UTF-8
+encoding//src/main/resources/log4j.properties=UTF-8
+encoding//src/main/resources/views/pages/foundation/card/pagelet/v1.0/addCharge.html=UTF-8
+encoding//src/main/resources/views/pages/foundation/card/pagelet/v1.0/sellCard.html=UTF-8
+encoding//src/main/resources/views/scripts/foundation/card/addCharge_jsp.js=UTF-8
+encoding//src/main/resources/views/scripts/foundation/card/bizCardMsg.js=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8

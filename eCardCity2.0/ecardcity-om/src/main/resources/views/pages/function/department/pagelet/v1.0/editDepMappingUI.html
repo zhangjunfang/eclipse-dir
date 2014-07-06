@@ -1,0 +1,130 @@
+<!--
+ 	功能描述 ：部门映射管理
+	Author : Wangjian
+  Date   : 2014-03-26
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	#parse("function/common/incHead.vm")
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/department/moveOptions.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			//提交
+			jQuery("#submit1").click(function(){
+				if(document.getElementById("selUsers").length>0){
+				  jQuery.ajax({
+						url : "${_project.envRoot}/departmentMapping/save",
+						data : {dept:document.getElementById("dept").value,selUsers:selectToStr(document.getElementById("selUsers"))},
+						dataType : 'json',
+						type : "post",
+						success:function(data){
+							if(data.success){
+							    alert(data.msg);
+							}else{
+								alert(data.msg);
+							}
+						}
+					});
+				}
+			});
+			//获取当前选定部门的用户
+			jQuery("#dept").change(function(){
+			    getCurrentDepUser();
+			});
+			//首次加载获取部门用户
+			getCurrentDepUser();
+		});
+		
+		//获取当前选定的部门用户
+		function getCurrentDepUser(){
+		    jQuery.ajax({
+				async: false,
+				url : "${_project.envRoot}/departmentMapping/ajaxGetDepUser",
+				data : {depId:document.getElementById("dept").value},
+				type : "post",
+				dataType : 'json',
+				success : function(data) {
+					if (data.success) {
+							fillAllUser();//填充用户表
+							clearAllOptions(document.getElementById("selUsers"));//清除当前选定的用户表
+							var oOption = null;
+							var rtnJSONObject = eval ("(" + data.data + ")");
+							for(var i in rtnJSONObject){
+							    //当前部门上级不能是当前部门及其下级部门
+									oOption = new Option(rtnJSONObject[i].user_name, rtnJSONObject[i].user_id, false, false);
+									document.getElementById("selUsers").add(oOption);
+									removeTargetOption(document.getElementById("selUsers"),document.getElementById("users"));
+							}
+					}else {
+							alert(data.msg);
+					}
+				}
+			});
+		}
+		//填充用户
+		function fillAllUser(){
+		  //先清除
+		  clearAllOptions(document.getElementById("users"));
+		  //再重新填充
+		  var uOption=null;
+			#foreach($!user in $!userJson)
+				uOption = new Option("$!user.user_name", "$!user.user_id", false, false);
+				document.getElementById("users").add(uOption);
+			#end
+		}
+	</script>
+</head>
+<body>
+<div class="ld-asideaa btngroup">
+	<div class="dqwz">当前位置：系统管理 > 组织机构管理  > <a href="#" class="blue">部门映射管理</a></div>
+</div>
+<div class="con">
+<div class="ld-container ld-con">
+	<div class="ld-asideaa btngroup"><h2>部门映射管理</h2></div>
+	<div class="ld-aside" style="border-top:none; padding:10px;">功能描述：提供部门和用户表之间的映射归属管理。</div>
+	<form id="form1" name="form1" method="post">
+		<div class="ld-aside">
+			<div class="ld-aside btngroup" style="text-align: center;">
+				<label><strong>部门：</strong></label>
+				<select id="dept" class="ld-sele" style="width: 200px;">
+						#foreach($!dep in $!depList)
+							<option value="$dep.ID" #if($!velocityCount == 1)selected="true"#end>$dep.DEPT_NAME</option>
+						#end
+						</select>
+			</div>
+			<div class="baparameter runparameter">
+				<div class="runparameter">
+					<div class="kxrs naleft" style="text-align: right;">
+						<h1 class="blue">已选人数</h1>
+						<select id="selUsers" name="selUsers" style="width: 250px;" size="15" multiple="multiple"
+							ondblclick="fMoveCurrentOptionToTarget(this,document.getElementById('users'))">
+							</select>
+					</div>
+					<div class="kxrs-btn naleft">
+						<img src="${_project.envRoot}/styles/images/anleft.jpg" 
+						onclick="fMoveSelectedOptionsLeftToRight(document.getElementById('selUsers'),document.getElementById('users'));"
+						/>
+						<img src="${_project.envRoot}/styles/images/anright.jpg" 
+						onclick="fMoveSelectedOptionsRightToLeft(document.getElementById('selUsers'),document.getElementById('users'));"
+						/>
+					</div>
+					<div class="kxrs naleft" style="text-align: left;">
+						<h1 class="blue">可选人数</h1>
+							<select id="users" name="users" style="width: 250px;" size="15" multiple="multiple" 
+							ondblclick="fMoveCurrentOptionToTarget(this,document.getElementById('selUsers'))">
+							</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tjbtngroup" >
+					<a id="submit1" onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;float:none;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+					<a id="reset1" onClick="document.getElementById('form1').reset();" class="ld-btn ld-huise" style="cursor:pointer;float:none;"><img src="${_project.envRoot}/styles/images/cz.png"/>重置</a>
+		</div>
+	</form>
+</div>
+</div>
+</body>
+</html>

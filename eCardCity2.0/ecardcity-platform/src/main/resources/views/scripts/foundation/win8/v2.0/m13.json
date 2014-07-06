@@ -1,0 +1,4 @@
+[
+	{ "id":1, "pId":0, "name":"客户管理与授权", "file":"legelPerson/manageAndPermitUI"},
+	{ "id":2, "pId":0, "name":"应用业务授权委托", "file":"legelPerson/indexUI"}
+]

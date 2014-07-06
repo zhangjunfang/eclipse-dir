@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TPicture"
+		table="T_PICTURE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="sequence"><param name="sequence">SEQ_T_PICTURE</param></generator>
+		</id>
+
+		<property
+			name="guid"
+			column="GUID"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="category"
+			column="CATEGORY"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="picurl"
+			column="PICURL"
+			type="string"
+			not-null="true"
+			length="40"
+		/>
+		<property
+			name="recommend"
+			column="RECOMMEND"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="indexpage"
+			column="INDEXPAGE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="updateuser"
+			column="UPDATEUSER"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="updatetime"
+			column="UPDATETIME"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

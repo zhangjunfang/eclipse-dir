@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ipnet" default="ear" basedir="../">
+
+    <property file="build/build.properties"/>
+
+    <path id="project.class.path">
+        <fileset dir="${project.lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    	<fileset dir="${project.thirdlib.dir}">
+    		<include name="*.jar"/>
+    	</fileset>
+    </path>
+
+    <!--清除目标目录-->
+    <target name="clean">
+        <delete dir="${build.dir}/classes"/>
+        <delete dir="${build.dir}/jar"/>
+        <delete dir="${build.dir}/war"/>
+    	<delete dir="${build.dir}/ear"/>
+    </target>
+
+    <!--初始化目标目录-->
+    <target name="init">
+        <mkdir dir="${build.dir}/classes"/>
+        <mkdir dir="${build.dir}/jar"/>
+        <mkdir dir="${build.dir}/war"/>
+    	<mkdir dir="${build.dir}/ear"/>
+    </target>
+
+    <!--编译-->
+    <target name="javac">
+        <javac srcdir="${project.java.dir}"
+               destdir="${build.dir}/classes"
+               classpathref="project.class.path"
+               debug="on"
+               deprecation="on"
+               optimize="on"
+               encoding="UTF-8">
+            <include name="**/*.java"/>
+        </javac>
+    </target>
+
+    <!--拷贝配置文件-->
+    <target name="copy" depends="clean,init,javac">
+        <copy todir="${build.dir}/classes">
+            <fileset dir="${project.java.dir}">
+                <exclude name="**/*.java"/>
+            	<include name="com/iman/**/*.*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!--打JAR包-->
+    <target name="jar" depends="copy">
+        <jar basedir="${build.dir}/classes"
+             jarfile="${build.dir}/jar/${project.jar.name}.jar"
+             includes="**" />
+    </target>
+
+    <!--打WAR包-->
+    <target name="war" depends="jar">
+        <war warfile="${build.dir}/war/${project.name}.war"
+             webxml="${project.docroot.dir}/WEB-INF/web.xml">
+            <lib dir="${project.lib.dir}">
+                <include name="*.jar"/>
+            </lib>
+            <lib dir="${build.dir}/jar">
+                <include name="${project.jar.name}.jar"/>
+            </lib>
+            <classes dir="${project.java.dir}">
+                <include name="*.*"/>
+            	<include name="struts/*.*"/>
+            	<include name="spring/*.*"/>
+            	<include name="excel/*.*"/>
+                <include name="config/*.*"/>
+            </classes>
+            <fileset dir="${project.docroot.dir}">
+                <exclude name="WEB-INF/web.xml"/>
+                <exclude name="WEB-INF/classes/**/*.*"/>
+                <exclude name="WEB-INF/lib/**/*.*"/>
+                <include name="**/*.*"/>
+            </fileset>
+        </war>
+    </target>
+	
+	<!--打EAR包-->
+	<target name="ear" depends="war">
+		<ear earfile="${build.dir}/ear/${project.name}.ear" 
+			 appxml="${basedir}/ear/application.xml" >
+			<fileset dir="${build.dir}/war" includes="**"/>
+		</ear>
+	</target>	
+
+</project>

@@ -1,0 +1,50 @@
+body {
+	font-size: 12px;
+	color: #ffffff;
+	background-color:#fdfdfe;
+	padding-top: 50px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+.login_bg {
+	background-repeat: no-repeat;
+	height: 130px;
+}
+
+.input {
+    width: 90px;
+	vertical-align:bottom;    
+}
+
+.table-button {
+	text-align:center;
+	margin: 20px;
+	width: 58px;
+	cursor: hand;
+}
+
+.table-button input {
+	font-size: 12px;
+	color: #003366;
+	background-color: #FFFFFF;
+	text-align: right;
+	vertical-align: bottom;
+	border: none;
+	height: 20px;
+	width: 58px;
+	cursor: hand;
+}
+
+.table-button input.login01 {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 20px;
+    width: 58px;
+    cursor: hand;
+}

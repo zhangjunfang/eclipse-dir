@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TermUpdateLog"
+		table="TERM_UPDATE_LOG"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="poscode"
+			column="POSCODE"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="fileid"
+			column="FILEID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="upgradeendtime"
+			column="UPGRADEENDTIME"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="createdate"
+			column="CREATEDATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="iserasureflash"
+			column="ISERASUREFLASH"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="filever"
+			column="FILEVER"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="systype"
+			column="SYSTYPE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="progress"
+			column="PROGRESS"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="appver"
+			column="APPVER"
+			type="integer"
+			not-null="true"
+			length="5"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

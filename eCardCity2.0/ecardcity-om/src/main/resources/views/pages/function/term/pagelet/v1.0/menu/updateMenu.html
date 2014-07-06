@@ -1,0 +1,130 @@
+<!--
+ 	功能描述 ：终端菜单修改
+	Author : Wangjian
+  Date   : 2014-04-23
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+		//交易类型列表
+		var paraTradeTypeStrs="";
+		#foreach($!param in $!dictList)
+	  	paraTradeTypeStrs+="<option value='$!param.d_code'>$!param.d_desc1</option>";
+	  #end
+		//权限位置列表
+		var paraPermLocStrs="";
+		#foreach($!permParam in $!permParamList)
+			paraPermLocStrs+="<option value='$!permParam.P_VALUE'>$!permParam.TITLE_NAME</option>";
+		#end
+	  
+	  //删除图标
+	  var delImg="${_project.envRoot}/styles/images/del.png";
+	  
+	  //重复标记
+		var isRepeat=false;
+		jQuery(document).ready(function(){
+			jQuery("#main_menu").blur(function(){		//一级菜单是否存在
+				jQuery("#main_menu").val(jQuery("#main_menu").val().trim());
+				if(jQuery("#main_menu").val()!="" && jQuery("#main_menu").val()!="$!main_menu"){
+					isRepeat=menuCheck("main_menu",jQuery("#main_menu").val());
+					if(isRepeat){
+						jQuery("#msgName").text("该一级菜单已存在！");
+					}else{
+						jQuery("#msgName").text("");
+					}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="termid" value="$!term_id">
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">商户</td>
+					<td><select id="netsiteid" name="netsiteid" size="1" style="width: 200px;" disabled>
+							<option value="$!trader_id">$!trader_name</option>
+						</select>
+					</td>
+					<td class="ld-lab">终端</td>
+					<td><select id="termid" name="termid" size="1" style="width: 200px;" disabled>
+							<option value="$!term_id">$!term_name</option>
+						</select><span class='red'>*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">一级菜单名称</td>
+					<td>
+						<input style="width: 180px;" name="main_menu" value="$!main_menu" id="main_menu" type="text" size="8" fTip="一级菜单名称" fLength="1,8" fType=""/><span class="red">*</span><span id="msgName">
+					</td>
+					<td class="ld-lab">参数</td>
+					<td>
+						版本：<input style="width: 90px;" name="param_ver" value="$!param_ver" id=""param_ver"" type="text" size="3" fTip="参数版本" fLength="1,3" fType=""/><span class="red">*</span>
+						&nbsp;&nbsp;&nbsp;
+						时间：<input type="text" name="ver_time" value="$!ver_time" class="Wdate" onClick="WdatePicker()" readonly="true" style="width: 90px" fTip="版本时间" fLength="10" fType="date"><span class="red">*</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="text-align:right"><label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。</div>
+		<!-- 二级菜单 -->
+		<table id="tb1" border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td>二级菜单编号</td>
+					<td>二级菜单名称</td>
+					<td>响应一级菜单按键</td>
+					<td>交易类型编号</td>
+					<td>权限列表位置</td>
+					<td>刷卡设置</td>
+					<td nowrap><a id="add" onClick="addSubMenu();" class="ld-btn ld-lanse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/add.png"/>增加</a></td>
+				</tr>
+				#foreach($!obj in $!menuList)
+				<tr><input type='hidden' name='line_no' value='$!obj.SUB_ID'>
+						<td><input type='text' style='width:15px;' value='$!obj.SUB_ID' name='sub_id' size='2' fTip='二级菜单编号' fLength='1,2' fType='num'/><span class='red'>*</span></td>				
+						<td><input type='text' style='width:50px;' value='$!obj.SUB_MENU' name='sub_menu' size='8' fTip='二级菜单名称' fLength='1,8' fType=''/><span class='red'>*</span></td>
+						<td>$!obj.SUB_ID</td>
+						<td><select name='sub_trade_type' size='1'>
+							#foreach($!dict in $!dictList)
+								<option value='$!dict.d_code' #if("$!dict.d_code"=="$!obj.SUB_TRADE_TYPE")selected#end>$!dict.d_desc1</option>
+							#end
+						<select></td>
+						<td><select name='sub_acl_location' size='1'>
+							#foreach($!param in $!permParamList)
+								<option value='$!param.P_VALUE' #if("$!param.P_VALUE"=="$!obj.SUB_ACL_LOCATION")selected#end>$!param.TITLE_NAME</option>
+							#end
+						</select></td>
+						<td><select name='sub_acl_setting' size='1'>
+							<option value='1' #if("$!obj.SUB_ACL_SETTING"=="1")selected#end>只允许先刷卡</option>
+							<option value='2' #if("$!obj.SUB_ACL_SETTING"=="2")selected#end>只允许先输号码</option>
+							<option value='3' #if("$!obj.SUB_ACL_SETTING"=="3")selected#end>刷卡和输号码都允许</option>
+						</select></td>
+						<td><a id='del' onClick='jQuery(this).parent().parent().remove();' class='ld-btn ld-huise' style='cursor:pointer;'><img src='${_project.envRoot}/styles/images/del.png'/>删除</a></td>	
+				</tr>
+				#end
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submitAdd();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'param'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

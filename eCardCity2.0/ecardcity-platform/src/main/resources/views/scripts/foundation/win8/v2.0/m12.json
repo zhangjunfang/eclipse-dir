@@ -1,0 +1,5 @@
+[
+    { "id":20, "pId":0, "name":"用户管理", "file":"homepage/loginUI"},
+	{ "id":18, "pId":0, "name":"角色管理", "file":"role/roleList"},
+    { "id":19, "pId":0, "name":"角色组管理", "file":"roleGroup/roleGroupList"}
+]

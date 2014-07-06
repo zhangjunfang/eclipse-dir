@@ -1,0 +1,27 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 帐号Action -->
+	<package name="account" extends="struts-default"
+		namespace="/account">
+		<!-- 账号登录和改密 -->
+		<action name="account_*" class="accountAction" method="{1}">
+			<!-- 生成随机验证码 -->
+			<result name="generate_success" type="stream">
+				<param name="contentType">image/jpeg</param>   
+				<param name="inputName">inputStream</param>   
+			</result>
+			<!-- 登录 -->
+			<result name="login_success">/common/frame/frame.jsp</result>
+			<result name="error">/system/jsp/login.jsp</result>
+			<result name="logout_success">/system/jsp/login.jsp</result>
+			<!-- 修改个人信息 -->
+        	<result name="updateSelfPage">/system/jsp/selfUpdateOthers.jsp</result>
+			<!-- 修改个人密码 -->
+        	<result name="updatePwdPage">/system/jsp/selfUpdatePassword.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

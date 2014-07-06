@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="BaseEmployee"
+		table="BASE_EMPLOYEE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="netsiteid"
+			column="NETSITEID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="bankid"
+			column="BANKID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="saleCardtype"
+			column="SALE_CARDTYPE"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="cashCardtype"
+			column="CASH_CARDTYPE"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="privilegeCashin"
+			column="PRIVILEGE_CASHIN"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="privilegeCashout"
+			column="PRIVILEGE_CASHOUT"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="privilegePos"
+			column="PRIVILEGE_POS"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="privilegeLogin"
+			column="PRIVILEGE_LOGIN"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

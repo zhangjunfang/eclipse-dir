@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<!-- 日志操作动作配置 -->
+	<bean id="logAction" class="cn.com.newcapec.common.util.BaseDataHelper">
+		<constructor-arg>
+			<value type="java.lang.String">/config/logAction.xml</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 日志操作模块配置 -->
+	<bean id="logModule" class="cn.com.newcapec.common.util.BaseDataHelper">
+		<constructor-arg>
+			<value type="java.lang.String">/config/logModule.xml</value>
+		</constructor-arg>
+	</bean>
+
+</beans>

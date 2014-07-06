@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<!-- 基本配置 -->
+    <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+	<property name="show_sql">true</property>
+	<property name="format_sql">true</property>
+	<property name="max_fetch_depth">2</property>
+	<property name="default_batch_fetch_size">8</property>
+	<property name="jdbc.batch_size">20</property>
+	<property name="bytecode.use_reflection_optimizer">true</property>
+	<!-- 系统管理 -->
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgDept.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgMapRolePermission.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgMapUserRole.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgPermission.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgRole.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TOrgUser.hbm.xml" />
+	<mapping resource="cn/com/newcapec/citycard/common/po/TLog.hbm.xml" />
+	<!-- 内容管理 -->
+	<mapping resource="cn/com/newcapec/citycard/common/po/TContent.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

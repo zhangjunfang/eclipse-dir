@@ -1,0 +1,142 @@
+.grid {
+   	border: 1px solid #D8E3F0;
+	overflow: hidden; /*用于调整页面宽度,必须为hidden*/
+	display: block;
+	margin-left: 0px;
+	width:770px;
+	text-align:left;
+}
+
+
+.grid td {
+	font: menu;
+	padding: 1px;
+	white-space: nowrap;
+}
+
+.grid-head {
+	position: absolute;
+	overflow: hidden;
+	background-image: url(images/titletdline_bg.gif);
+}
+
+.grid-head table {
+	table-layout: fixed;
+}
+
+.grid-head td {
+	border-right: 1px solid #D8E3F0;
+	border-bottom: 1px solid #D8E3F0;
+	color:#003366;
+	overflow: hidden;
+	height:22px;
+	text-overflow: ellipsis;
+    font-size:12px;
+}
+
+.grid-head td img {
+	width:    8px;
+	height:   7px;
+	margin:   0px 5px 0px 5px;
+	display:  none;
+}
+
+.grid-body {
+	background: window;
+	width:100%;
+	overflow: auto;
+	SCROLLBAR-FACE-COLOR: #DAE6F7;
+	SCROLLBAR-HIGHLIGHT-COLOR: #DEF1FF;
+	SCROLLBAR-SHADOW-COLOR: #B0CFF4;
+	SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+	SCROLLBAR-ARROW-COLOR: #366AB3;
+	SCROLLBAR-TRACK-COLOR: #E7EFF9;
+	SCROLLBAR-SHADOW-COLOR: #B0CFF4;
+	SCROLLBAR-DARKSHADOW-COLOR: #5484BD;
+}
+
+.grid-body table {
+    BORDER-COLLAPSE: collapse;
+}
+
+.grid-body td {
+	border-right: 1px solid #D8E3F0;
+	border-bottom: 1px solid #D8E3F0;
+	overflow:      hidden;
+	empty-cells: show;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height:22px;
+    font-size:12px;
+}
+.grid-body td.title{
+	color:#000000;
+	text-align: center;
+}
+.grid-body tr.selected td {
+	background:   #BACDE7;
+}
+
+
+.grid-body tr.odd td {
+	background: #E7EEF6;
+	color: #003366;
+}
+
+.grid-body tr.even td {
+	color: #006699;
+}
+
+/**================= css define for grid-left==============**/
+.grid-left {
+	position: absolute;
+	overflow: hidden;
+}
+.grid-left td {
+	border-right: 1px solid #D8E3F0;
+	border-bottom: 1px solid #D8E3F0;
+	background: #FFFFFF;
+	overflow: hidden;
+	color: #006699;
+	height:22px;
+	text-overflow: ellipsis;
+    font-size:12px;
+}
+
+/**================= define for edit element,eg.div,text and select style============**/
+.grid-edit {
+     position:absoulte;
+     width:100%;
+     padding:0px 3px;
+}
+.grid-edit input,select{
+    border:1px solid ;
+    border-color: threedshadow;
+    width:100%;
+    display:inline;
+}
+
+/**================== define for menu ====================**/
+.grid-menu {
+    BACKGROUND-COLOR: #D6D3CE;
+    BORDER-BOTTOM: #666666 2px solid;
+    BORDER-LEFT: #E4E4E4 2px solid;
+    BORDER-RIGHT: #666666 2px solid;
+    BORDER-TOP: #E4E4E4 2px solid;
+    COLOR: #000000;
+    CURSOR: default;
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: normal;
+    LINE-HEIGHT: 20px;
+    POSITION: absolute;
+    VISIBILITY: hidden;
+    WIDTH: 110px;
+}
+.grid-menuitem {
+    font-size:9pt;
+    MARGIN: 2px;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 15px;
+    PADDING-RIGHT: 3px;
+    PADDING-TOP: 0px;
+}

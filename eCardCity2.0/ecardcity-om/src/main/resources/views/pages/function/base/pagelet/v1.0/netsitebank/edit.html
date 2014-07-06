@@ -1,0 +1,74 @@
+<!--
+ 	功能描述 ：	  网点账号编辑
+	Author : Wangjian
+  Date   : 2014-05-13
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">网点</td>
+					<td><select name="netsiteid" size="1" style="width: 165px;">
+							#foreach($!pObj in $!netsiteList)
+							<option value="$!pObj.id" #if("$!pObj.id"=="$!obj.netsiteid")selected#end>$!pObj.netname</option>
+							#end
+						</select>
+					</td>
+					<td class="ld-lab">银行</td>
+					<td><select name="bankname" size="1" style="width: 165px;">
+							#foreach($!pObj in $!bankList)
+							<option value="$!pObj.d_desc1" #if("$!pObj.d_desc1"=="$!obj.bankname")selected#end>$!pObj.d_desc1</option>
+							#end
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">开户账号</td>
+					<td>
+						<input style="width: 180px;" value="$!obj.open_account" name="open_account" type="text" fTip="开户账号" fLength="8,32" fType="num"/><span class="red">*</span>
+					</td>
+					<td class="ld-lab">转账账号</td>
+					<td>
+						<input style="width: 180px;" value="$!obj.transfer_account" name="transfer_account" type="text" fTip="转账账号" fLength=",32" fType="num"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">是否对公账号</td>
+					<td colspan="3">
+						<input type="radio" name="public_account" class="radiobutton" value="0" #if("$!obj.public_account" == "0") checked #end>非对公账号
+						<input type="radio" name="public_account" class="radiobutton" value="1" #if("$!obj.public_account" == "1") checked #end>对公账号
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'netsite'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

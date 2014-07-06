@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	
+	<description>page tag</description>
+	<tlib-version>2.0</tlib-version>
+	<short-name>pageTag</short-name>
+	<tag>
+		<description>previous page tag</description>
+		<name>previousPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLink.PreviousPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>next page tag</description>
+		<name>nextPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLink.NextPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>first page tag</description>
+		<name>firstPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLink.FirstPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>last page tag</description>
+		<name>lastPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLink.LastPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>current page num tag</description>
+		<name>currentPageNum</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.CurrentPageNumTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>List Count tag</description>
+		<name>listCount</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.ListCountTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>Page Count tag</description>
+		<name>pageCount</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.PageCountTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>Page List End Tag</description>
+		<name>pageListEnd</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.PageListEndTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>Page List Num Tag</description>
+		<name>pageListNum</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.PageListNumTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>Page List Start Tag</description>
+		<name>pageListStart</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageInfo.PageListStartTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>select page Tag</description>
+		<name>selectPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLink.GotoPageSelectTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>first page uri Tag</description>
+		<name>firstPageURI</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLinkUri.FirstPageURITag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>previous page uri Tag</description>
+		<name>previousPageURI</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLinkUri.PreviousPageURITag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>next page uri Tag</description>
+		<name>nextPageURI</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLinkUri.NextPageURITag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>last page uri Tag</description>
+		<name>lastPageURI</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLinkUri.LastPageURITag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>current page is the first page</description>
+		<name>isFirstPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLogic.IsFirstPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>current page is not the first page</description>
+		<name>isNotFirstPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLogic.IsNotFirstPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>current page is the last page</description>
+		<name>isLastPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLogic.IsLastPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+	<tag>
+		<description>current page is not the last page</description>
+		<name>isNotLastPage</name>
+		<tag-class>
+			cn.com.newcapec.common.page.tags.pageLogic.IsNotLastPageTag
+		</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+</taglib>

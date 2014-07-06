@@ -1,0 +1,45 @@
+<table border="0" cellpadding="0" cellspacing="0"
+	class="ld-table ld-tableie">
+	<thead>
+		<tr>
+			<th >所属网点</th>
+			<th >卡类别</th>
+			<th >卡号</th>
+			<th >卡序号</th>
+			<th >卡状态</th>
+			<th >失效日期</th>
+			<th >操作</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+	
+	 <td>模拟</td> <td>$模拟</td> <td>模拟</td> 
+	 <td>模拟</td> <td>模拟</td> <td>模拟</td>
+	 <td>
+			<a  href="#" id="deleteUser" onclick="remake('2')">补卡</a>
+			</td>
+	</tr>
+		#foreach($!stu in $!pageView)
+		<tr>
+		    <td>$!stu.NETNAME</td>
+			<td >$!stu.CARDTYPE</td>
+			<td >$!stu.ASN</td>
+			 <td >
+				$!stu.CARDSN
+			</td >
+			 <td >
+		    	#if($!stu.CARDSTATUS == '1')
+		    		正常
+			   	#else 
+			    	挂失
+			    #end 
+		    </td>
+			<td >$!stu.EXPIRY_DATE</td>
+			<td>
+			<a  href="#" id="deletecard" onclick="remake('$!stu.ID')">补卡</a>
+			</td>
+		</tr>
+		#end
+	</tbody>
+</table>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://getahead.org/dwr/dwr30.dtd">
+
+<dwr>
+    <allow>
+        <!-- 上传 -->
+        <create creator="new" javascript="DwrUploadService">
+            <param name="class" value="cn.com.newcapec.common.upload.impl.UploadService"/>
+        </create>
+
+        <!-- 用户分配角色 -->
+        <create creator="spring" javascript="DwrUserOrganService">
+            <param name="beanName" value="userOrganService"/>
+            <include method="saveRoleToUser"/>
+            <include method="getEomsOrganInfoTreeNodeList"/>
+            <include method="checkUserIsRepeat"/>
+            <include method="checkDeptIsRepeat"/>
+        </create>
+
+        <!-- 角色 -->
+        <create creator="spring" javascript="DwrRoleInfoService">
+            <param name="beanName" value="roleInfoService"/>
+            <include method="checkRoleInfoIsRepeat"/>
+        </create>
+        
+        <!--  模块 -->
+        <create creator="spring" javascript="DwrModuleInfoService">
+            <param name="beanName" value="moduleInfoService"/>
+            <include method="checkModuleInfoIsRepeat"/>
+        </create>
+       
+        <!-- JAVA BEAN 转化 -->
+        <convert converter="bean" match="cn.com.newcapec.common.domain.Node"/>
+        <convert converter="bean" match="cn.com.newcapec.common.domain.NameValue"/>
+        <convert converter="bean" match="cn.com.newcapec.common.exception.BusinessException">
+        	<param name="include" value="message"/>
+        </convert>
+    </allow>
+    <signatures>
+		<![CDATA[
+		DwrUserOrganService.saveRoleToUser(Integer,List<Integer>);
+		]]>
+    </signatures>
+</dwr>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="BaseParam"
+		table="BASE_PARAM"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="cardtype"
+			column="CARDTYPE"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="pGroup"
+			column="P_GROUP"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="pName"
+			column="P_NAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="pValue"
+			column="P_VALUE"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="pValueType"
+			column="P_VALUE_TYPE"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="pCode"
+			column="P_CODE"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="titleName"
+			column="TITLE_NAME"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="pDesc"
+			column="P_DESC"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="allowEdit"
+			column="ALLOW_EDIT"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="allowVisible"
+			column="ALLOW_VISIBLE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="sortNum"
+			column="SORT_NUM"
+			type="integer"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="notes"
+			column="NOTES"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,4 @@
+#Fri Oct 25 11:21:22 CST 2013
+eclipse.preferences.version=1
+validator.Checked=src/com/zzhs/common/po,WebRoot,src/struts
+validator.Unchecked=

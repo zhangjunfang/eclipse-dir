@@ -1,0 +1,68 @@
+<!--
+ 	功能描述 ：网点数据视图
+	Author : Wangjian
+  Date   : 2014-05-08
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	#parse("function/common/incHead.vm")
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/base/netsite.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+				reloadList();//初始化加载列表
+		});
+	</script>
+</head>
+<body>
+<div class="ld-asideaa btngroup">
+	<div class="dqwz">当前位置：系统管理 > 网点管理 > <a href="#" class="blue">网点信息管理</a></div>
+</div>
+<div class="con">
+	<div class="ld-container ld-con">
+		<div class="ld-asideaa btngroup"><h2>网点信息管理</h2></div>
+		<div class="ld-aside" style="border-top:none; padding:10px;">功能描述：对网点、商户信息进行维护操作。</div>
+		<!--查询区-->
+		<div class="ld-aside btngroup">
+			<label><strong>网点ID：</strong></label>
+			<input type="text" id="wdid" style="width: 165px;">
+			<label><strong>网点名称/网点简称：</strong></label>
+			<input type="text" id="wdmc" style="width: 165px;">
+			<label><strong>网点种类：</strong></label>
+			<select id="wdzl" size="1" style="width: 165px;">
+				<option value="" selected>全部</option>
+				<option value="0">直属网点</option>
+				<option value="1">代理网点</option>
+			</select>			
+			<label><strong>网点类型：</strong></label>
+			<select id="wdlx" size="1" style="width: 165px;">
+				<option value="" selected>全部</option>
+				<option value="0">充值网点</option>
+				<option value="1">消费网点</option>
+				<option value="2">综合网点</option>
+			</select>
+			<label><strong>网点状态：</strong></label>
+			<select id="wdzt" size="1" style="width: 165px;">
+				<option value="" selected>全部</option>
+				<option value="0">停用</option>
+				<option value="1">正常</option>
+			</select>			
+			<a id="search" onClick="reloadList();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/search.png"/>查询</a>
+		</div>
+		<form id="form1" name="form1" method="post">
+			<!--功能区-->
+			<div class="ld-aside btngroup">
+				<div class="naright">
+					<a id="add" 	 onClick="add();" class="ld-btn ld-lanse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/add.png"/>增加</a>
+					<a id="update" onClick="update();" class="ld-btn ld-juse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/bj.png"/>修改</a>
+					<a id="del" 	 onClick="del();" class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/del.png"/>删除</a>
+				</div>
+			</div>
+			<!--数据-->
+			<div id="pageList"></div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

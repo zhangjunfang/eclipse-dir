@@ -1,0 +1,272 @@
+[INFO ] [2014-04-23 08:55:59] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-04-23 08:55:59] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Wed Apr 23 08:55:59 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-04-23 08:55:59] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-platform.xml]
+[INFO ] [2014-04-23 08:55:59] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1298d3e: defining beans [appMangerController,codeBankController,homePageController,legelPersonController,loginController,menuManageController,roleController,roleGroupController,userController,win8Controller,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,app,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@19e3890
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/uploadFile],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.AppMangerController.uploadFile()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/customApplicationList],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.customApplicationList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/session],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void cn.newcapec.function.platform.controller.AppMangerController.customerSeeion(org.springframework.web.context.request.WebRequest)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/customAppUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.customApp(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/appUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.appUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/codeBank/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.CodeBankController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/homepage/loginUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.HomePageController.login(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/homepage/login],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.HomePageController.userLogin(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/manageAndPermitUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.manageAndPermitUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/manageAndPermitAddUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.manageAndPermitAddUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/login/login],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LoginController.appUI(org.springframework.ui.ModelMap,org.springframework.web.context.request.WebRequest)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/login/img],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void cn.newcapec.function.platform.controller.LoginController.img(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/menuManage/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.MenuManageController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/menuManage/AppMenuTree],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.MenuManageController.AppMenuTree(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/addRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.add()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/deleteRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.deleteRole()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/editRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.editRole()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/roleList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleController.roleList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/editRoleUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleController.editRoleUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/roleListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleController.roleListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/addRoleUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleController.addUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/addRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.add()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/roleGroupListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleGroupController.roleGroupListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/addRoleGroupUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleGroupController.addRoleGroupUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/deleteRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.deleteRoleGroup()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/editRoleGroupUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleGroupController.editRoleGroupUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/roleGroupList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleGroupController.roleGroupList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/editRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.editRoleGroup()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/addUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.add()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/userList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.UserController.userList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/updateUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.updateUser(cn.newcapec.function.platform.model.User)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/deleteUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.deleteUser()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/getRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.getRole()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/addUserUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.UserController.addUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/getRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.getRoleGroup()
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/userListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.UserController.userListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/editUserUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.UserController.editUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/win8/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.Win8Controller.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 08:55:59] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/win8/testUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<java.lang.Object> cn.newcapec.function.platform.controller.Win8Controller.testUI()
+[INFO ] [2014-04-23 08:55:59] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 240 ms
+[INFO ] [2014-04-23 09:09:36] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[ERROR] [2014-04-23 09:09:36] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ ResourceManager : unable to find resource 'index.html.html' in any resource loader.
+[INFO ] [2014-04-23 09:09:36] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 09:09:36] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:14] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:14] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:14] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:15] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:15] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:15] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:16] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:16] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:16] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:18] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:18] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:18] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:19] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:19] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:19] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:20] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:20] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:20] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:21] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:21] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:21] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:19:22] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : index
+[INFO ] [2014-04-23 10:19:22] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 124, column 27] : $window cannot be resolved.
+[INFO ] [2014-04-23 10:19:22] logVelocityMessage (CommonsLoggingLogSystem.java:55) 
+ Null reference [template 'index.html', line 126, column 25] : $window.onload cannot be resolved.
+[INFO ] [2014-04-23 10:46:00] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:00] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:00] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:00] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : foundation/platform/pagelet/v1.0/paltformManger/app
+[ERROR] [2014-04-23 10:46:00] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ ResourceManager : unable to find resource 'foundation/platform/pagelet/v1.0/paltformManger/app.html.html' in any resource loader.
+[ERROR] [2014-04-23 10:46:00] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ #parse() null argument
+[ERROR] [2014-04-23 10:46:00] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ Left side ($!pageView.totalpage) of '>' operation has null value. Operation not possible. foundation/platform/pagelet/v1.0/paltformManger/app_list_grid.html [line 2, column 43]
+[INFO ] [2014-04-23 10:46:14] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:14] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:14] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:46:14] postHandle (NspApplicationContextInterceptor.java:42) 
+ viewName : foundation/platform/pagelet/v1.0/paltformManger/app
+[ERROR] [2014-04-23 10:46:14] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ #parse() null argument
+[ERROR] [2014-04-23 10:46:14] logVelocityMessage (CommonsLoggingLogSystem.java:49) 
+ Left side ($!pageView.totalpage) of '>' operation has null value. Operation not possible. foundation/platform/pagelet/v1.0/paltformManger/app_list_grid.html [line 2, column 43]
+[WARN ] [2014-04-23 10:46:47] noHandlerFound (DispatcherServlet.java:1108) 
+ No mapping found for HTTP request with URI [/controller/logintestUI] in DispatcherServlet with name 'multiViewController'
+[INFO ] [2014-04-23 10:47:06] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:47:06] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:48:45] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-04-23 10:48:45] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Wed Apr 23 10:48:45 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-04-23 10:48:45] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-platform.xml]
+[INFO ] [2014-04-23 10:48:45] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@11f7520: defining beans [appMangerController,codeBankController,homePageController,legelPersonController,loginController,menuManageController,roleController,roleGroupController,userController,win8Controller,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,app,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@fded8b
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/uploadFile],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.AppMangerController.uploadFile()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/customAppUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.customApp(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/session],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void cn.newcapec.function.platform.controller.AppMangerController.customerSeeion(org.springframework.web.context.request.WebRequest)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/customApplicationList],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.customApplicationList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/app/appUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.AppMangerController.appUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/codeBank/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.CodeBankController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/homepage/loginUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.HomePageController.login(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/homepage/login],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.HomePageController.userLogin(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/manageAndPermitUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.manageAndPermitUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/legelPerson/manageAndPermitAddUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LegelPersonController.manageAndPermitAddUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/login/login],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.LoginController.appUI(org.springframework.ui.ModelMap,org.springframework.web.context.request.WebRequest)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/login/img],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void cn.newcapec.function.platform.controller.LoginController.img(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/menuManage/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.MenuManageController.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/menuManage/AppMenuTree],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.MenuManageController.AppMenuTree(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/addRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.add()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/deleteRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.deleteRole()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/editRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleController.editRole()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/roleList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleController.roleList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/roleListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleController.roleListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/addRoleUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleController.addUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/role/editRoleUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleController.editRoleUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/addRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.add()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/roleGroupList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleGroupController.roleGroupList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/editRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.editRoleGroup()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/deleteRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.RoleGroupController.deleteRoleGroup()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/addRoleGroupUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleGroupController.addRoleGroupUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/editRoleGroupUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.RoleGroupController.editRoleGroupUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/roleGroup/roleGroupListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.RoleGroupController.roleGroupListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/addUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.add()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/userList],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.UserController.userList(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/getRole],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.getRole()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/updateUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.updateUser(cn.newcapec.function.platform.model.User)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/deleteUser],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.deleteUser()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/addUserUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.UserController.addUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/userListGrid],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.UserController.userListGrid(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/editUserUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.newcapec.function.platform.controller.UserController.editUserUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/user/getRoleGroup],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.platform.controller.UserController.getRoleGroup()
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/win8/indexUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.newcapec.function.platform.controller.Win8Controller.indexUI(org.springframework.ui.ModelMap)
+[INFO ] [2014-04-23 10:48:45] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/win8/testUI],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.List<java.lang.Object> cn.newcapec.function.platform.controller.Win8Controller.testUI()
+[INFO ] [2014-04-23 10:48:45] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 261 ms
+[INFO ] [2014-04-23 10:48:50] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003
+[INFO ] [2014-04-23 10:48:50] caculFirstRow (PagingResultSet.java:132) 
+ resultSet.getType:1003

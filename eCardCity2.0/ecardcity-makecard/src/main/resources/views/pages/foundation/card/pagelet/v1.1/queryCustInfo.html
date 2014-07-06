@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>客户信息查询</title>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/art/jquery.artDialog.source.js?skin=default"></script>
+	<script type="text/javascript" src="${_project.envRoot}/pages/common/common.js"></script>
+	<script type='text/javascript' src='${_project.envRoot}/scripts/lib/DatePicker/WdatePicker.js'></script>
+	<script type='text/javascript' src='${_project.envRoot}/scripts/foundation/card/v1.1/queryCustInfo.js'></script>
+	<link type="text/css" rel="stylesheet" href="${_project.envRoot}/styles/css/card/v1.0/css/style.css">
+</head>
+<body>
+	<div class="ld-asideaa btngroup topWz">
+		<div class="dqwz">
+			当前位置：卡务管理平台 / 消费卡管理  /<a href="javascript:location.reload();" class="blue"> 客户信息查询</a>
+		</div>
+	</div>
+	<div class="con">
+		<!-- 读卡器操作-->
+		<object id="readCardOCX" name="readCardOCX" style="display:none;" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+		<!-- 当前充值员及时统计信息-->
+		<div id="bizMsgInfo" class="ld-aside" style="border:0;">
+			#parse("foundation/card/pagelet/v1.1/bizCardMsg.html")
+		</div>
+		
+		<!-- 业务操作-->
+		<div id="bizOptCont" class="ld-aside" style="border:0;">
+			<!-- 查询条件  -->
+			<form id="form1" name="form1" method="post"></form>
+			<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+				<thead>
+					<tr>
+						<th colspan="7" style="border-right:none;">
+							<img alt="客户信息查询" title="客户信息查询" src="${_project.envRoot}/styles/css/card/v1.0/images/group_gray.png" align="middle"/>
+							客户信息查询&nbsp;&nbsp;
+							<span style="color:graytext;font-weight:lighter;">操作提示：请输入条件查询，或点击读卡查询.</span>&nbsp;&nbsp;
+						</th>
+						<th style="text-align:right;border-left:none;">
+							<span>
+								<img alt="展开/折叠" title="展开/折叠" align="middle" style="cursor:pointer;" 
+									onclick="$('#bizSearchContent').toggle()" src="${_project.envRoot}/styles/css/card/v1.0/images/win_restore_down16.png"/>
+							</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody id="bizSearchParm">
+					<tr class="t3">
+						<td colspan="8">
+							<label>客户姓名</label>
+							<input title="请点击读卡或输入客户姓名" type="text" id="custName" name="custName" maxlength="16" width="160px;">
+							&nbsp;&nbsp;
+							<label>客户卡号</label>
+							<input title="请点击读卡或输入客户卡号" type="text" id="custCardNo" name="custCardNo" maxlength="10" width="160px;">
+							&nbsp;&nbsp;
+							<label>证件号码</label>
+							<input title="请点击读卡或输入证件号码" type="text" id="custIdCardNo" name="custIdCardNo" maxlength="18" width="160px;">
+							&nbsp;&nbsp;
+							&nbsp;&nbsp;
+							<a title="读卡查询" href="javascript:readCardQuery();" class="ld-btn ld-lanse" >
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/readcard.png" />
+								读卡
+							</a>
+							&nbsp;&nbsp;
+							<a title="模糊查询" href="javascript:searchCustList(1,10);" class="ld-btn ld-lanse" >
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/search0.png" />
+								查询
+							</a>
+							&nbsp;&nbsp;
+							<a title="重置查询" href="javascript:resetSearch();" class="ld-btn ld-lanse" >
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/reset00.png" style="background-image: none;"/>
+								重置
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- 查询结果列表  -->
+			<table id="bizSearchContent" border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+				<thead align="center">
+					<tr>
+						<th>客户姓名</th>
+						<th>客户性别</th>
+						<th>客户卡号</th>
+						<th>证件号码</th>
+						<th>开户日期</th>
+						<th>卡状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="bizSearchList">
+					<tr><td colspan="7">无数据</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

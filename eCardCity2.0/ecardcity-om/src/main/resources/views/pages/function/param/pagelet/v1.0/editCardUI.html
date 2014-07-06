@@ -1,0 +1,134 @@
+<!--
+ 	功能描述 ：系统参数编辑
+	Author : Wangjian
+  Date   : 2014-04-09
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/common/fn2.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+	var isRepeat=false;
+	jQuery(document).ready(function(){
+		//加载当前大类卡类型列表
+		#if("$!obj.id"=="")
+			jQuery("#groupid").change(function(){
+			    getTypeList();
+			});
+			getTypeList();
+		#end
+		
+		//卡类型是否存在
+		jQuery("#cardtypename").blur(function(){
+			jQuery("#cardtypename").val(jQuery("#cardtypename").val().trim());
+			if(jQuery("#cardtypename").val()!="" && jQuery("#cardtypename").val()!="$!obj.cardtypename"){
+				isRepeat=cardTypeCheck("cardtypename",jQuery("#cardtypename").val());
+				if(isRepeat){
+					jQuery("#msgName").text("该名称的卡类型已存在！");
+				}else{
+					jQuery("#msgName").text("");
+				}
+			}
+		});
+
+		jQuery("#typeid").blur(function(){
+			jQuery("#typeid").val(jQuery("#typeid").val().trim());
+			if(jQuery("#typeid").val()!="" && jQuery("#typeid").val()!="$!obj.typeid"){
+				isRepeat=cardTypeCheck("typeid",jQuery("#typeid").val());
+				if(isRepeat){
+					jQuery("#msgCode").text("该ID的卡类型已存在！");
+				}else{
+					jQuery("#msgCode").text("");
+				}
+			}
+		});
+		
+	});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<input type="hidden" name="ver" value="$!obj.ver"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">卡类别</td>
+					<td colspan="3">
+					#if("$!obj.id"=="")
+						<select id="groupid" name="groupid" size="1" style="width: 200px;">
+								#foreach($!dict in $!dictList)
+									<option value="$!dict.d_code" #if($!obj.groupid==$!dict.d_code) selected #end>$!dict.d_desc1</option>
+								#end
+						</select>
+					#else
+						<input type="hidden" name="groupid" value="$!obj.groupid"/>
+						#foreach($!dict in $!dictList)
+							#if($!obj.groupid==$!dict.d_code) $!dict.d_desc1 #end
+						#end
+					#end
+					</td>
+				<tr>
+					<td class="ld-lab">卡类型名称</td>
+					<td>
+						<input value="$!obj.cardtypename" id="cardtypename" name="cardtypename" type="text" fTip="卡类型名称" fLength="1,10" fType=""/><span class="red">*</span><span id="msgName"></span>
+					</td>
+					<td class="ld-lab">卡类型ID</td>
+					<td>
+						<input value="$!obj.typeid" id="typeid" name="typeid" type="text" fTip="卡类型ID" fLength="1,3" fType="int"/><span class="red">*</span><span id="msgCode"></span>
+					</td>
+				</tr>
+				#if("$!obj.id"=="")
+				<tr>
+					<td class="ld-lab">卡参数</td>
+					<td colspan="3">
+						<input type="radio" name="paraFrom" class="radiobutton" value="1" checked>来源于模板
+						<select id="lib_group" name="lib_group" size="1" style="width: 120px;">
+								#foreach($!dict in $!paramLibList)
+									<option value="$!dict.d_code">$!dict.d_desc1</option>
+								#end
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="paraFrom" class="radiobutton" value="2">来源于已有卡类型
+						<select id="cardFrom" name="cardFrom" size="1" style="width: 120px;"></select>					
+					</td>
+				</tr>
+				#end
+				<tr>
+					<td class="ld-lab">排序号</td>
+					<td>
+						<input value="$!obj.sort_num" name="sort_num" type="text" fTip="排序号" fLength="1,6" fType="int"/><span class="red">*</span>
+					</td>
+					<td class="ld-lab">描述</td>
+					<td>
+						<input value="$!obj.description" name="description" type="text" fTip="描述" fLength=",100" fType=""/>
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submitCard();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'param'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!--
+ 	功能描述 ：参数模板编辑
+	Author : Wangjian
+  Date   : 2014-04-02
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/common/fn2.js"></script>
+	<!-- end common framework -->
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<input type="hidden" name="ver" value="$!obj.ver"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">模板类别</td>
+					<td>
+						<select id="p_lib_group" name="p_lib_group" size="1">
+								#foreach($!dict in $!dictList)
+									<option value="$!dict.d_code" #if($!obj.p_lib_group==$!dict.d_code) selected #end>$!dict.d_desc1</option>
+								#end
+						</select>					
+					</td>
+					<td class="ld-lab">参数名称</td>
+					<td>
+						<input value="$!obj.p_name" name="p_name" type="text" fTip="参数名称" fLength="1,25" fType=""/><span class="red">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">参数值</td>
+					<td>
+						<input value="$!obj.p_value" name="p_value" type="text" fTip="参数值" fLength="1,60" fType=""/><span class="red">*</span>
+					</td>
+					<td class="ld-lab">参数值类型</td>
+					<td>
+						<input value="$!obj.p_value_type" name="p_value_type" type="text" fTip="参数值类型" fLength="1,50" fType=""/><span class="red">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">参数编码</td>
+					<td>
+						<input value="$!obj.p_code" name="p_code" type="text" fTip="参数编码" fLength="1,10" fType=""/><span class="red">*</span>
+					</td>
+					<td class="ld-lab">显示名称</td>
+					<td>
+						<input value="$!obj.title_name" name="title_name" type="text" fTip="显示名称" fLength="1,50" fType=""/><span class="red">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">描述</td>
+					<td>
+						<input value="$!obj.p_desc" name="p_desc" type="text" fTip="描述" fLength=",100" fType=""/>
+					</td>
+					<td class="ld-lab">可否修改</td>
+					<td>
+						<input type="radio" name="allow_edit" class="radiobutton" value="1" #if($!obj.allow_edit == "1") checked #end>是
+						<input type="radio" name="allow_edit" class="radiobutton" value="0" #if($!obj.allow_edit == "0") checked #end>否
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">可否显示</td>
+					<td>
+						<input type="radio" name="allow_visible" class="radiobutton" value="1" #if($!obj.allow_visible == "1") checked #end>是
+						<input type="radio" name="allow_visible" class="radiobutton" value="0" #if($!obj.allow_visible == "0") checked #end>否
+					</td>
+					<td class="ld-lab">排序号</td>
+					<td>
+						<input value="$!obj.sort_num" name="sort_num" type="text" fTip="排序号" fLength="1,6" fType="int"/><span class="red">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">备注</td>
+					<td colspan="3">
+						<textarea class="text-area" cols="65" rows="5" name="notes" fTip="备注" fLength=",100" fType="">$!obj.notes</textarea>
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'param'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

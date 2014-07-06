@@ -1,0 +1,14 @@
+[INFO ] [2014-03-11 16:19:56] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-11 16:19:56] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Tue Mar 11 16:19:56 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-11 16:19:56] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-11 16:19:56] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2cf27b: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@e30467
+[INFO ] [2014-03-11 16:19:56] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-11 16:19:56] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 94 ms
+[INFO ] [2014-03-11 16:20:04] init (BaseResource.java:130) 
+ method[GET] call!

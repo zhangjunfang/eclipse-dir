@@ -1,0 +1,56 @@
+<!--
+ 	功能描述 ：卡类型列表视图
+	Author : Wangjian
+  Date   : 2014-04-09
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	#parse("function/common/incHead.vm")
+	<link href="${_project.envRoot}/styles/css/om/v1.0/l-style.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="${_project.envRoot}/scripts/lib/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/param/paramCard.js"></script>
+	<script type="text/javascript">
+	//z-tree样式与数据初始化
+	var setting = {
+		data: {
+			simpleData: {
+				enable: true
+			}
+		}
+	};
+	jQuery(document).ready(function(){
+		reloadListCard();
+		var zNodes=getCardTree();
+		jQuery.fn.zTree.init(jQuery("#treeDemo"), setting, zNodes);//初始化tree	    
+	});
+	</script>
+</head>
+<body>
+<div class="ld-asideaa btngroup">
+	<div class="dqwz">当前位置：系统管理 > 参数管理 > <a href="#" class="blue">卡类型管理</a></div>
+</div>
+<div class="con">
+	<div class="sidebar"><ul id="treeDemo" class="ztree"></ul></div>
+	<div class="ld-container">
+		<div class="ld-asideaa btngroup"><h2>卡类型管理</h2></div>
+		<div class="ld-aside" style="border-top:none; padding:10px;">功能描述：进行卡类型的维护，包括不同类型卡的添加、修改、删除等。</div>
+		<form id="form1" name="form1" method="post">
+		<input type="hidden" id="pid" name="pid" value="$!pid">
+			<!--功能区-->
+			<div class="ld-aside btngroup">
+				<div class="naright">
+					<a id="add" 	 onClick="addCard();" class="ld-btn ld-lanse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/add.png"/>增加</a>
+					<a id="update" onClick="updateCard();" class="ld-btn ld-juse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/bj.png"/>修改</a>
+					<a id="del" 	 onClick="delCard();" class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/del.png"/>删除</a>
+				</div>
+			</div>
+			<!--数据-->
+			<div id="pageList"></div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

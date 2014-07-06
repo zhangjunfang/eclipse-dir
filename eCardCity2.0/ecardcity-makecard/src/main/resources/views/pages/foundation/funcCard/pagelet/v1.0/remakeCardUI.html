@@ -1,0 +1,56 @@
+
+<object id="CardOCX" name="CardOCX" style ="display: none;" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+<form id="remakedataDatail">
+   <div style="width: 100%; height: 100%; overflow: auto">
+			<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+				<tr>
+					<td>职员账号：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" disabled="disabled" />
+					<input id="customerunitcode" name="customerunitcode" type="hidden"
+					value="$!user.customerunitcode" />
+					<input id="empid" name="empid" value="$!user.empid" type="hidden" />
+					<input id="user_id" name="user_id" value="$!user.id" type="hidden" />
+					<input id="loglimit" name="loglimit" value="$!user.loglimit" type="hidden" />
+					<input id="sysId" name="sysId" value="$!sysId" type="hidden" />
+					<input id="cardsn" name="cardsn" value="$!employee.cardsn" type="hidden" />
+					</td>
+					<td>&nbsp;姓名：</td>
+					<td>  <input id="name" name="name"
+					type="text" value="$!user.name" disabled="disabled" />
+					</td>
+				</tr>
+				<tr>
+					<td>卡类型：</td>
+					<td><select id="cardtype"
+					name="cardtype">
+					#foreach($!item in $!cardtype)
+						<option value="$!item.typeid">$!item.cardtypename</option>
+						#end
+				</select>
+					</td>
+					<td>&nbsp;失效日期：</td>
+					<td>
+					<input type="text" name="expiry_date" class="Wdate" onClick="WdatePicker()" readonly="true" style="width: 90px"><span class="red">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td>卡密码：</td>
+					<td><input id="pwd"
+					name="pwd" type="password" value="" maxlength="6"/><span class="red">*</span>
+					</td>
+					<td>确认密码：</td>
+					<td><input id="verifypwd"
+					name="verifypwd" type="password" value="" maxlength="6"/><span class="red">*</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div
+			style=" border-top: 1px solid #dddddd; text-align: right; padding-top: 5px;background-color:#F8F9F9">
+		 <button type="button" onclick="javascript:remakeFuncCard()">补卡</button>
+			<button style="margin-right: 5px" onclick="javascript:art.dialog({id:'remakeFuncCardid'}).close();">取消</button>
+		</div>
+
+</form>
+

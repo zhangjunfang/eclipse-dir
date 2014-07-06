@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="CustomerImport"
+		table="CUSTOMER_IMPORT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="importdate"
+			column="IMPORTDATE"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="sex"
+			column="SEX"
+			type="integer"
+			not-null="true"
+			length="22"
+		/>
+		<property
+			name="name"
+			column="NAME"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="nation"
+			column="NATION"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="certificateid"
+			column="CERTIFICATEID"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="idcardno"
+			column="IDCARDNO"
+			type="string"
+			not-null="true"
+			length="18"
+		/>
+		<property
+			name="country"
+			column="COUNTRY"
+			type="string"
+			not-null="false"
+			length="3"
+		/>
+		<property
+			name="jpdm"
+			column="JPDM"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="address"
+			column="ADDRESS"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="email"
+			column="EMAIL"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="telephone"
+			column="TELEPHONE"
+			type="string"
+			not-null="false"
+			length="13"
+		/>
+		<property
+			name="flag"
+			column="FLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="BaseAppAccessIndustry"
+		table="BASE_APP_ACCESS_INDUSTRY"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="industrycode"
+			type="string"
+			not-null="false"
+			length="8"
+			column="INDUSTRYCODE"
+		/>
+		<property
+			name="ip"
+			column="IP"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="port"
+			column="PORT"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="remotepass"
+			column="REMOTEPASS"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="localpass"
+			column="LOCALPASS"
+			type="string"
+			not-null="false"
+			length="64"
+		/>
+		<property
+			name="allowableIp"
+			column="ALLOWABLE_IP"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="industrytype"
+			column="INDUSTRYTYPE"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

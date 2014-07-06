@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="CardType"
+		table="CARD_TYPE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="groupid"
+			column="GROUPID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="cardtypename"
+			column="CARDTYPENAME"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="sortid"
+			column="SORTID"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="true"
+			length="5"
+		/>
+		<property
+			name="paramgroupid"
+			column="PARAMGROUPID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="description"
+			column="DESCRIPTION"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

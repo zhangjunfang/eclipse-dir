@@ -1,0 +1,5 @@
+[
+	{ "moduleId": 11, "pmoduleId": 1, "moduleName": "平台管理", "smallPic": "frame/images/s1.png", "bigPic": "frame/images/n1.png" },
+	{ "moduleId": 12, "pmoduleId": 1, "moduleName": "用户管理", "smallPic": "frame/images/s2.png", "bigPic": "frame/images/n2.png" },
+	{ "moduleId": 13, "pmoduleId": 1, "moduleName": "系统运营管理", "smallPic": "frame/images/s3.png", "bigPic": "frame/images/n3.png" }
+]

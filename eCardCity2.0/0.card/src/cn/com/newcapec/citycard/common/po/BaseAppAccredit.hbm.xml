@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="BaseAppAccredit"
+		table="BASE_APP_ACCREDIT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="syscode"
+			column="SYSCODE"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="accreditedcode"
+			column="ACCREDITEDCODE"
+			type="string"
+			not-null="false"
+			length="512"
+		/>
+		<property
+			name="ip"
+			column="IP"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="description"
+			column="DESCRIPTION"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="ishost"
+			column="ISHOST"
+			type="integer"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="empid"
+			column="EMPID"
+			type="string"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="webpath"
+			column="WEBPATH"
+			type="string"
+			not-null="false"
+			length="512"
+		/>
+		<property
+			name="routerule"
+			column="ROUTERULE"
+			type="string"
+			not-null="false"
+			length="512"
+		/>
+		<property
+			name="areaid"
+			column="AREAID"
+			type="integer"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="exchangetimeout"
+			column="EXCHANGETIMEOUT"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

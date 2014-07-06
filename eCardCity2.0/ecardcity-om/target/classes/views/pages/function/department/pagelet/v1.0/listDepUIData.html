@@ -1,0 +1,47 @@
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-aside ld-table">
+			<thead>
+				<tr>
+					<th><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>部门ID</th>
+					<th>部门名称</th>
+					<th>部门代码</th>
+					<th>上级部门ID</th>
+					<th>地址</th>
+					<th>电话</th>
+					<th>有效</th>
+					<th>版本号</th>
+				</tr>
+			</thead>
+			<tbody>
+				#foreach($!dep in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id"value="$!dep.ID"></td>
+						<td>$!dep.ID</td>
+						<td>$!dep.DEPT_NAME</td>
+						<td>$!dep.CODE</td>
+						<td>$!dep.PID</td>
+						<td>$!dep.ADDRESS</td>
+						<td>$!dep.PHONE</td>
+						<td>#if($!dep.VALID=="1")是#else否#end</td>
+						<td>$!dep.VER</td>
+					</tr>
+				#end
+			</tbody>
+		</table>
+		<!--分页-->
+		<table class="page-list">
+			<tr>
+				<td>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="fenye_table">
+						<tr>
+							<td style="width:10px;"></td>
+						</tr>
+						<tr>
+							<td style="width:10px;"></td>#parse($paging) #paging($pageView)
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>

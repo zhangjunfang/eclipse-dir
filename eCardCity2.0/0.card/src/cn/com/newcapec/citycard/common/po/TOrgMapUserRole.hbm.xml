@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TOrgMapUserRole"
+		table="T_ORG_MAP_USER_ROLE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="ID"
+		>
+			<generator class="sequence"><param name="sequence">SEQ_T_ORG_MAP_USER_ROLE</param></generator>
+		</id>
+
+		<property
+			name="fkUser"
+			column="FK_USER"
+			type="integer"
+			not-null="true"
+			length="38"
+		/>
+		<property
+			name="fkRole"
+			column="FK_ROLE"
+			type="integer"
+			not-null="true"
+			length="38"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

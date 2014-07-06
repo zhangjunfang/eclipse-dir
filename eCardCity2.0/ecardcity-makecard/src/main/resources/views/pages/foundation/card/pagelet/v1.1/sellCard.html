@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>发消费卡</title>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/art/jquery.artDialog.source.js?skin=default"></script>
+	<script type="text/javascript" src="${_project.envRoot}/pages/common/common.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/commons/js/fn2.js"></script>
+	<script type='text/javascript' src='${_project.envRoot}/scripts/lib/DatePicker/WdatePicker.js'></script>
+	<script type='text/javascript' src='${_project.envRoot}/scripts/foundation/card/v1.1/sellCard.js'></script>
+	<link type="text/css" rel="stylesheet" href="${_project.envRoot}/styles/css/card/v1.0/css/style.css">
+</head>
+<body>
+
+	<div class="ld-asideaa btngroup topWz">
+		<div class="dqwz">
+			当前位置：卡务管理平台 / 消费卡管理  /<a href="javascript:location.reload();" class="blue"> 发消费卡</a>
+		</div>
+	</div>
+	
+	<div class="con">
+		<!-- 读卡器操作-->
+		<object id="readCardOCX" name="readCardOCX" style="display:none;" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+		<!-- 当前充值员及时统计信息-->
+		<div id="bizMsgInfo" class="ld-aside" style="border:0;">
+			#parse("foundation/card/pagelet/v1.1/bizCardMsg.html")
+		</div>
+		
+		<!-- 业务操作-->
+		<div id="bizOptCont" class="ld-aside" style="border:0;">
+			<!--  -->
+			<form id="form1" name="form1" method="post">
+			<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+				<thead>
+					<tr>
+						<th colspan="2" style="border-right:none;">
+							<img alt="发消费卡" title="发消费卡" src="${_project.envRoot}/styles/css/card/v1.0/images/people.png" align="middle"/>
+							发消费卡&nbsp;&nbsp;
+							<span style="color:graytext;font-weight:lighter;"></span>&nbsp;&nbsp;
+						</th>
+						<th style="text-align:right;border-left:none;">
+							<span>
+								<img alt="展开/折叠" title="展开/折叠" align="middle" style="cursor:pointer;" 
+									onclick="$('#bizSearchParm').toggle()" src="${_project.envRoot}/styles/css/card/v1.0/images/win_restore_down16.png"/>
+							</span>
+						</th>
+					</tr>
+				</thead>
+				
+				<tbody id="bizSearchParm">
+					<tr>
+						<td style="border:0px;width:10%;text-align:right;">
+							<a href="#" onclick="moreCustInfo();" class="blue">更多客户详情
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/win_restore_down.png"/>
+							</a>
+						</td>
+						<td style="border:0px;">
+							<label>客户卡号</label>
+							<label style="color:red;width:10px;">*</label>
+							<input type="text" id="cardno" name="cardno" style="width:200px;" 
+								required="required" title="请填写或读取客户一卡通卡号。" maxlength="10">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;客户姓名</label>
+							<label style="color:red;width: 10px;">*</label>
+							<input type="text" id="name" name="name" style="width:200px;" 
+								required="required" title="请读取或填写客户姓名。" maxlength="16">
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>证件号码</label>
+							<label style="color:red;width:10px;">*</label>
+							<input type="text" id="idcardno" name="idcardno" style="width:200px;" onkeyup="onBirth()" 
+								required="required" title="请填写或读取客户证件号码。" min="000000000000000000" maxlength="18">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;手机号码</label>
+							<label style="color:red;width: 10px;">*</label>
+							<input type="text" id="telephone" name="telephone" style="width:200px;" 
+								required="required" title="请填写手机号码。" maxlength="13">
+						</td>
+					</tr>
+					<tr id="trmore1">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;卡类别</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<select id="cardtypebig" name="cardtypebig" style="width:210px;">
+								<option value="0" selected>普通卡</option>
+								<!-- <option value="1">福利卡</option>
+								<option value="2">管理卡</option>
+								<option value="3">其他卡</option> -->
+							</select>
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input type="radio" name="sex" id="sex" value="1" checked>男&nbsp;&nbsp;
+							<input type="radio" name="sex" id="sex" value="0">女
+						</td>
+					</tr>
+					<tr id="trmore2">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;卡用途</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<select id="cardtype" name="cardtype" style="width:210px;">
+								#foreach($!type in $!cardTypes)
+								<option value="$!type.typeid" #if($!type.typeid=='21') selected #end>$!type.cardtypename</option>
+								#end
+							</select>
+							<label>&nbsp;&nbsp;姓名简拼</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input type="text" style="width:200px;" id="jpdm" name="jpdm" maxlength="10">
+						</td>
+					</tr>
+					<tr id="trmore3">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>联系地址</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input type="text" style="width:200px;" id="address" name="address" maxlength="50">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;民族</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<select id="nation" name="nation" style="width:210px;">
+								#foreach($!nat in $!nations)
+								<option value="$!nat.D_CODE" #if($!nat.D_CODE=='01') selected #end>$!nat.D_DESC1</option>
+								#end
+							</select>
+						</td>
+					</tr>
+					
+					<tr id="trmore5">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>电子邮箱</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input type="text" style="width:200px;" id="email" name="email" maxlength="40">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国家</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<select id="country" name="country" style="width:210px;">
+								#foreach($!county in $!countrys)
+								<option value="$!county.D_CODE" #if($!county.D_CODE=='142') selected #end>$!county.D_DESC1</option>
+								#end
+							</select>
+						</td>
+					</tr>
+					
+					<tr id="trmore6">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>邮政编码</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input type="text" style="width: 200px;" id="postcode" name="postcode" maxlength="6">
+							
+							<label>&nbsp;&nbsp;&nbsp;证件类型</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<select id="certificateid" name="certificateid" style="width:210px;">
+								#foreach($!certif in $!certificatetypes)
+								<option value="$!certif.D_CODE" #if($!certif.D_CODE=='0') selected #end>$!certif.D_DESC1</option>
+								#end
+							</select>
+						</td>
+					</tr>
+					<tr id="trmore7">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>出生日期</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<input type="text" style="width:200px;" id="birthday" name="birthday" onClick="WdatePicker()">
+							
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<textarea rows="1" id="rremark" name="rremark" maxlength="100" style="width:200px;"></textarea>
+						</td>
+					</tr>
+					<tr id="trmore8">
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<label style="color:red;width:10px;">&nbsp;&nbsp;</label>
+							<span style="width: 200px;">
+								<input type="checkbox" id="onecunsumepassword" name="onecunsumepassword"  value="1" checked>统一消费密码
+								&nbsp;&nbsp;
+								<input type="checkbox" id="noname" name="noname" value="1"
+								onClick="if(this.checked){$('#idcardno').val('000000000000000000');}">不记名
+								&nbsp;&nbsp;
+							</span>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="checkbox" id="createonlineaccount" name="createonlineaccount" value="1" 
+							onClick="if(this.checked){$('#onlineAccount').show();}else{$('#onlineAccount').hide();};">在线账户
+							&nbsp;<span id="onlineAccount" style="display:none;"></span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td style="border:0px;width:10%;text-align:right;">
+							<a href="#" onclick="" class="blue">收费信息
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/win_restore_down.png"/>
+							</a>
+						</td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;成本费</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取成本费" type="text" id="cardCost" name="cardCost" 
+							value="0.00" style="width:200px;" readonly="readonly">
+							&nbsp;&nbsp;
+							<input type="checkbox" id="useCardTaoCoat" name="useCardTaoCoat" value="true" checked 
+								onClick="if(this.checked){$('#cardTaoCoat').show();$('#cardTaoCoatTxt').val('1.00');}else{$('#cardTaoCoat').hide();$('#cardTaoCoatTxt').val('0.00');};">
+								使用卡套&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="text" id="cardTaoCoatTxt" readonly="readonly" value="1.00" style="width:160px;">元
+						</td>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+					</tr>
+					
+					
+					<tr>
+						<td align="right" style="border:0px;width:10%;"></td>
+						<td style="border:0px;">
+							<label>管理费用</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请点击读卡读取管理费用" type="text" id="manageCost" name="manageCost" 
+							value="0.00" min="0" maxlength="8" style="width:200px;">
+							&nbsp;&nbsp;
+							
+							<label>充值金额</label>
+							<label style="color:red;width: 10px;">&nbsp;&nbsp;</label>
+							<input title="请输入充值金额" type="text" id="chargeMoney" name="chargeMoney" 
+							min="0" maxlength="8" style="width:200px;" value="0.00" readonly="readonly">
+							&nbsp;&nbsp;
+							<span id="tipchargeMoney" style="color:red;"></span>
+						</td>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right" style="border:0px;width:10%;"></td>
+						<td style="border:0px;">
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;实收款</label>
+							<label style="color:red;width: 10px;">*</label>
+							<input title="请输入实收款金额" type="text" id="recMoney" name="recMoney" 
+							min="0" maxlength="8" style="width:200px;">
+							&nbsp;&nbsp;
+							<span id="tiprecMoney" style="color:red;"></span>
+						</td>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="right" style="border:0px;width:10%;"></td>
+						<td style="border:0px;">
+							<strong>
+							<label class="inline">应收金额：<span id="spCharge" class="red" style="color:red;">0.00</span>元</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<label class="inline">找零金额：<span id="spRec" class="red" style="color:red;">0.00</span>元</label>
+							</strong>
+						</td>
+						<td style="border:0px;width:10%;">&nbsp;&nbsp;</td>
+					</tr>
+					
+					<tr class="t3">
+						<td align="right" style="border-right:0px;width: 10%;">&nbsp;</td>
+						<td colspan="2" style="border-left:0px;">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<a title="读卡" href="javascript:clickReadCard();" class="ld-btn ld-lanse" id="btnRead">
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/readcard.png" />
+								读卡
+							</a>
+							&nbsp;&nbsp;
+							<a title="充值" href="javascript:clickSell();" class="ld-btn ld-lanse" id="btnSell">
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/ok_gray.png"/>
+								售卡
+							</a>
+							&nbsp;&nbsp;
+							<a title="重置" href="javascript:location.reload();" class="ld-btn ld-lanse" >
+								<img src="${_project.envRoot}/styles/css/card/v1.0/images/reset00.png" style="background-image:none;"/>
+								重置
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>             
+    <!-- 系统管理模块Action -->
+
+    <package name="system" extends="security" namespace="/system">
+   
+   		<!-- 系统管理-用户组织机构管理 -->
+        <action name="userOrganInfo_*" class="userOrganAction" method="{1}">
+        	<result name="listFrame_success">/system/jsp/organUserFrame.jsp</result>
+        	<result name="listTree_success">/system/jsp/organUserTree.jsp</result>
+        	<result name="listAllUser_success">/system/jsp/organUserList.jsp</result>
+        	<result name="userAddRole_pre">/system/jsp/userAddRole.jsp</result>
+        	<result name="editUser_pre">/system/jsp/userEdit.jsp</result>
+        	<result name="saveUser_success" type="redirect">/system/userOrganInfo_listAllUserByOrgid.action?eomsOrganInfo.id=${eomsOrganInfo.id}</result>
+        	<result name="saveUser_failure">/system/jsp/userEdit.jsp</result>
+        	<result name="listDept_success">/system/jsp/deptList.jsp</result>
+        	<result name="editDept_pre">/system/jsp/deptEdit.jsp</result>
+        	<result name="saveDept_success" type="redirect">/system/userOrganInfo_listAllDeptByFather.action?eomsOrganInfo.pid=${eomsOrganInfo.pid}&amp;fresh=t</result>
+        	<result name="saveDept_failure">/system/jsp/deptEdit.jsp</result>
+        </action>
+        
+        
+        <!-- 系统管理-角色管理 -->	
+        <action name="roleInfo_*" class="roleInfoAction" method="{1}">
+        	<result name="list_success">/system/jsp/roleManageList.jsp</result>
+        	<result name="add_pre">/system/jsp/roleManageAdd.jsp</result>
+        	<result name="add_success" type="redirect">/system/roleInfo_list.action</result>
+        	<result name="add_failure">/system/jsp/roleManageAdd.jsp</result>
+        	<result name="update_pre">/system/jsp/roleManageUpdate.jsp</result>
+        	<result name="update_success" type="redirect">/system/roleInfo_list.action</result>
+        	<result name="update_failure">/system/jsp/roleManageUpdate.jsp</result>
+        	<result name="delete_success" type="redirect">/system/roleInfo_list.action</result>
+        	<result name="addModule_pre">/system/jsp/roleAddModule.jsp</result>
+        	<result name="addModule_success" type="redirect">/system/roleInfo_list.action</result>
+        </action>
+        
+        <!-- 系统管理-模块管理 -->	
+        <action name="moduleInfo_*" class="moduleInfoAction" method="{1}">
+        	<result name="listFrame_success">/system/jsp/moduleInfoViewFrame.jsp</result>
+        	<result name="listTree_success">/system/jsp/moduleInfoViewTree.jsp</result>
+        	<result name="listAllChildNode_success">/system/jsp/moduleInfoViewMain.jsp</result>
+        	<result name="listAllChildNodeByIdNoFresh_success">/system/jsp/moduleInfoViewMain.jsp?fresh=0</result>
+        	<result name="add_pre">/system/jsp/moduleInfoAdd.jsp</result>
+        	<result name="add_success" type="redirect">/system/moduleInfo_listAllChildNodeById.action?parentId=${parentId}</result>
+        	<result name="add_failure">/system/jsp/moduleInfoAdd.jsp?parentId=${parentId}</result>
+        	<result name="update_pre">/system/jsp/moduleInfoUpdate.jsp</result>
+        	<result name="update_success" type="redirect">/system/moduleInfo_listAllChildNodeById.action?parentId=${parentId}</result>
+        	<result name="update_failure">/system/jsp/moduleInfoUpdate.jsp?parentId=${parentId}</result>
+        	<result name="delete_success" type="redirect">/system/moduleInfo_listAllChildNodeById.action?parentId=${parentId}</result>
+        	<result name="view_success">/system/jsp/moduleInfoView.jsp</result>
+        </action>
+        
+	</package>
+	
+	<!-- 日志 -->
+	<package name="logInfo" extends="security" namespace="/system">
+        <action name="logInfoList" class="logInfoAction" method="logInfoList">
+        	<result name="success">/system/jsp/logInfoList.jsp</result>
+        </action>
+        <action name="logInfoExport" class="logInfoAction" method="logInfoExport">
+        	<result name="success" type="redirect">/system/logInfoList.action</result>
+        </action>
+        <action name="logInfoDelete" class="logInfoAction" method="logInfoDelete">
+        	<result name="success" type="redirect">/system/logInfoList.action</result>
+        </action>
+	</package>
+	
+</struts>

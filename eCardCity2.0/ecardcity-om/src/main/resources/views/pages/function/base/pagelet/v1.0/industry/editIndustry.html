@@ -1,0 +1,111 @@
+<!--
+ 	功能描述 ：	   基础行业信息编辑
+	Author : Wangjian
+  Date   : 2014-04-23
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+	var isRepeat=false;
+	jQuery(document).ready(function(){
+		//行业是否存在
+		jQuery("#industrycode").blur(function(){
+			jQuery("#industrycode").val(jQuery("#industrycode").val().trim());
+			if(jQuery("#industrycode").val()!="" && jQuery("#industrycode").val()!="$!obj.industrycode"){
+				isRepeat=getIndustryExists("industrycode",jQuery("#industrycode").val());
+				if(isRepeat){
+					jQuery("#msgCode").text("该代码的行业已存在！");
+				}else{
+					jQuery("#msgCode").text("");
+				}
+			}
+		});
+	
+		jQuery("#industryname").blur(function(){
+			jQuery("#industryname").val(jQuery("#industryname").val().trim());
+			if(jQuery("#industryname").val()!="" && jQuery("#industryname").val()!="$!obj.industryname"){
+				isRepeat=getIndustryExists("industryname",jQuery("#industryname").val());
+				if(isRepeat){
+					jQuery("#msgName").text("该名称的行业已存在！");
+				}else{
+					jQuery("#msgName").text("");
+				}
+			}
+		});	
+	});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">行业代码</td>
+					<td><input style="width: 80px;" value="$!obj.industrycode" id="industrycode" name="industrycode" type="text" fTip="行业代码" fLength="2" fType="num"/>只能填写40-99之间<span class="red">*</span><span id="msgCode"></span></td>
+					<td class="ld-lab">行业名称</td>
+					<td><input style="width: 180px;" value="$!obj.industryname" id="industryname" name="industryname" type="text" fTip="行业名称" fLength=",25" fType=""/><span class="red">*</span><span id="msgName"></span></td>
+				</tr>
+				<tr>
+					<td class="ld-lab">行业简称</td>
+					<td><input style="width: 180px;" value="$!obj.jpdm" name="jpdm" type="text" fTip="行业简称" fLength=",6" fType=""/></td>
+					<td class="ld-lab">行业等级</td>
+					<td><select name="industrygrade" size="1" style="width: 200px;">
+							<option value="01" #if("$!obj.industrygrade"=="01")selected#end>一级</option>
+							<option value="02" #if("$!obj.industrygrade"=="02")selected#end>二级</option>
+							<option value="03" #if("$!obj.industrygrade"=="03")selected#end>三级</option>
+							<option value="04" #if("$!obj.industrygrade"=="04")selected#end>四级</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">上级行业</td>
+					<td><select name="industry_p" size="1" style="width: 200px;">
+							<option value="" #if(""=="$!obj.industry_p")selected#end>无</option>
+						#foreach($!pObj in $!pIndustryList)
+							<option value="$!pObj.industrycode" #if("$!pObj.industrycode"=="$!obj.industry_p")selected#end>$!pObj.industryname</option>
+						#end					
+						</select>
+					</td>
+					<td class="ld-lab">是否系统保留行业</td>
+					<td>
+						<input type="radio" name="reserved" class="radiobutton" value="1" #if("$!obj.reserved" == "1") checked #end>是
+						<input type="radio" name="reserved" class="radiobutton" value="0" #if("$!obj.reserved" == "0") checked #end>否				
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">是否在门户查询显示</td>
+					<td colspan="3">
+						<input type="radio" name="isshow" class="radiobutton" value="1" #if("$!obj.isshow" == "1") checked #end>是
+						<input type="radio" name="isshow" class="radiobutton" value="0" #if("$!obj.isshow" == "0") checked #end>否				
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'industry'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

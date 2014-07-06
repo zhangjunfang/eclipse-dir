@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 日志操作动作 -->
+<datas>
+	<data>
+		<key>ADD</key>
+		<value>添加</value>
+	</data>
+	<data>
+		<key>UPDATE</key>
+		<value>修改</value>
+	</data>
+	<data>
+		<key>DELETE</key>
+		<value>删除</value>
+	</data>
+	<data>
+		<key>QUERY</key>
+		<value>查询</value>
+	</data>
+	<data>
+		<key>STAT</key>
+		<value>统计</value>
+	</data>
+	<data>
+		<key>IMPORT</key>
+		<value>导入</value>
+	</data>
+	<data>
+		<key>EXPORT</key>
+		<value>导出</value>
+	</data>
+</datas>

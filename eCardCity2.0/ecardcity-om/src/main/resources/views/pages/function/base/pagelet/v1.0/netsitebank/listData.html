@@ -1,0 +1,34 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th style="text-align: center;"><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>网点</th>
+					<th>银行</th>
+					<th>开户账号</th>
+					<th>转账账号</th>
+					<th>是否对公账号</th>
+					<th>更新用户</th>
+					<th>更新日期</th>
+				</tr>
+			</thead>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id" value="$!obj.ID"></td>
+						<td>$!obj.NETNAME</td>
+						<td>$!obj.BANKNAME</td>
+						<td>$!obj.OPEN_ACCOUNT</td>
+						<td>$!obj.TRANSFER_ACCOUNT</td>
+						<td>#if("$!obj.PUBLIC_ACCOUNT"=="1")是#else否#end</td>
+						<td>$!obj.EDIT_PERSON</td>
+						<td>$!obj.EDIT_DATE</td>
+					</tr>
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

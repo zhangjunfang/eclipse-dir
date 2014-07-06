@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="FareComplexAutopay"
+		table="FARE_COMPLEX_AUTOPAY"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="bindcstaccfc"
+			column="BINDCSTACCFC"
+			type="integer"
+			not-null="true"
+			length="22"
+		/>
+		<property
+			name="empcardno"
+			column="EMPCARDNO"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="olineno"
+			column="OLINENO"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="industrycode"
+			column="INDUSTRYCODE"
+			type="string"
+			not-null="true"
+			length="8"
+		/>
+		<property
+			name="tradeno"
+			column="TRADENO"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="lastpaydt"
+			column="LASTPAYDT"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

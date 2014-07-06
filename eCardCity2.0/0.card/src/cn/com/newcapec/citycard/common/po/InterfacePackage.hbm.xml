@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="InterfacePackage"
+		table="INTERFACE_PACKAGE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="fileid"
+			column="FILEID"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="localcstaccfc"
+			column="LOCALCSTACCFC"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="filename"
+			column="FILENAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="respcode"
+			column="RESPCODE"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="merchantcode"
+			column="MERCHANTCODE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="tradecitycode"
+			column="TRADECITYCODE"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="ownercitycode"
+			column="OWNERCITYCODE"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="industrycode"
+			column="INDUSTRYCODE"
+			type="string"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="testflag"
+			column="TESTFLAG"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="businesstype"
+			column="BUSINESSTYPE"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="opdt"
+			column="OPDT"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="lineno"
+			column="LINENO"
+			type="integer"
+			not-null="false"
+			length="8"
+		/>
+		<property
+			name="accountdate"
+			column="ACCOUNTDATE"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th style="text-align: center;"><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'id');"></th>
+					<th>行业代码</th>
+					<th>行业名称</th>
+					<th>行业简称</th>
+					<th>行业等级</th>
+					<th>上级行业</th>
+					<th>是否保留</th>
+					<th>科目代码</th>
+					<th>是否显示</th>
+				</tr>
+			</thead>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id" value="$!obj.ID" onClick="if('$!obj.RESERVED'=='1'){alert('该行业是保留行业，不允许被修改和删除！');this.checked=false;}"></td>
+						<td>$!obj.INDUSTRYCODE</td>
+						<td>$!obj.INDUSTRYNAME</td>
+						<td>$!obj.JPDM</td>
+						<td>
+							#if("$!obj.INDUSTRYGRADE"=="01")
+								一级
+							#elseif("$!obj.INDUSTRYGRADE"=="02")
+								二级
+							#elseif("$!obj.INDUSTRYGRADE"=="03")
+								三级
+							#elseif("$!obj.INDUSTRYGRADE"=="04")
+								四级
+							#end
+							</td>
+						<td>$!obj.INDUSTRY_P_NAME</td>
+						<td>#if("$!obj.RESERVED"=="1")是#else否#end</td>
+						<td>$!obj.ACCCODE</td>
+						<td>#if("$!obj.ISSHOW"=="1")是#else否#end</td>
+					</tr>
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

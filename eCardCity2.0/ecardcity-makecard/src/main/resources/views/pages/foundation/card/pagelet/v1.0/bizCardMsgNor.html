@@ -1,0 +1,41 @@
+﻿<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/card/bizCardMsg.js"></script>
+<form id="form0" name="form0" method="post"></form>
+<div class="ld-aside" style="border:0;">
+	<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+		<thead>
+			<tr style="border:0px;">
+				<th colspan="8" style="text-align:left;">
+					<span id="currOddFare">当前授权余额：未启用充值授权</span>&nbsp;&nbsp;&nbsp;&nbsp;
+					<span id="currCntIn">总收入金额：0.00</span>&nbsp;&nbsp;
+					<span id="currCntOut">总支出金额：0.00</span>&nbsp;&nbsp;
+					<span style="width:100%"></span>
+					<span >
+						&nbsp;<a id="printid" onClick="javascript:onMsgPrint();" class="ld-btn ld-molan" style="cursor:pointer;">打印</a>
+						&nbsp;<a id="minwinid" onClick="javascript:onRefresh();" class="ld-btn ld-molan" style="cursor:pointer;">刷新</a>
+						&nbsp;<a id="reloadid" onClick="javascript:onMsgPrint();" class="ld-btn ld-molan" style="cursor:pointer;">展开</a>
+					</span>
+				</th>
+			</tr>
+		</thead>
+		<tr onmousemove="this.className = 't3'" id="msgDiv0">
+			<td><span id="currSellCardNum" >售卡张数：0</span></td>
+			<td><span id="currAddChargeNum" >钱包充值张数：0</span></td>
+			<td><span id="currUnAddChargeNum" >充值撤销张数：0</span></td>
+			<td><span id="currPutRightNum" >消费纠错张数：0</span></td>
+			<td><span id="currRenewCardNum" >补卡张数：0</span></td>
+			<td><span id="currCardLossNum" >挂失张数：0</span></td>
+			<td><span id="currHasCardLogoutNum" >有卡销户张数：0</span></td>
+			<td><span id="currNoCardLogoutNum" >无卡销户张数：0</span></td>
+		</tr>
+		<tr class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'" id="msgDiv1">
+			<td><span id="currSellCardCash" >售卡收费金额：0.00</span></td>
+			<td><span id="currAddChargeCash" >钱包充值金额：0.00</span></td>
+			<td><span id="currUnAddChargeCash" >充值撤销金额：0.00</span></td>
+			<td><span id="currPutRightCash" >消费纠错金额：0.00</span></td>
+			<td><span id="currGetFrozenCash" >领取冻结金额：0.00</span></td>
+			<td><span id="currCardUnLossNum" >解挂张数：0</span></td>
+			<td><span id="currHasCardLogoutCash" >有卡销户金额：0.00</span></td>
+			<td><span id="currNoCardLogoutCash" >无卡销户金额：0.00</span></td>
+		</tr>
+	</table>
+</div>

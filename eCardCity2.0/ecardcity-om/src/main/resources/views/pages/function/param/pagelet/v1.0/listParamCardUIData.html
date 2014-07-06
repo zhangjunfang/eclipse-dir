@@ -1,0 +1,40 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th style="text-align: center;">&nbsp;</th>
+					<th>参数名称</th>
+					<th>参数值</th>
+					<th>参数值类型</th>
+					<th>参数编码</th>
+					<th>显示名称</th>
+					<th>描述</th>
+					<th>可否修改</th>
+					<th>可否显示</th>
+					<th>排序号</th>
+					<th>版本号</th>
+				</tr>
+			</thead>
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						<td style="text-align: center;"><input type="checkbox" name="id" value="$!obj.ID" onClick="if('$!obj.ALLOW_EDIT'=='0'){alert('该条记录不允许被修改！');this.checked=false;}"></td>
+						<td>$!obj.P_NAME</td>
+						<td>$!obj.P_VALUE</td>
+						<td>$!obj.P_VALUE_TYPE</td>
+						<td>$!obj.P_CODE</td>
+						<td>$!obj.TITLE_NAME</td>
+						<td>$!obj.P_DESC</td>
+						<td>#if($!obj.ALLOW_EDIT=="1")是#else否#end</td>
+						<td>#if($!obj.ALLOW_VISIBLE=="1")是#else否#end</td>
+						<td>$!obj.SORT_NUM</td>
+						<td>$!obj.VER</td>
+					</tr>
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

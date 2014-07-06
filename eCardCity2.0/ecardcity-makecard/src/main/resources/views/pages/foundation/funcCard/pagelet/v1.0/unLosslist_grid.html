@@ -1,0 +1,46 @@
+<div class="ld-container ld-con">
+			<div class="ld-aside" >
+				<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+				<tr>
+					<td>账号：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+					<td>&nbsp;当前卡号：</td>
+					<td> <input id="asn"
+					name=asn type="text" value="$!CardEmployee.asn" /></input>
+					</td>
+				</tr>
+				<tr>
+					<td>姓名：</td>
+					<td>  <input id="name" name="name"
+					type="text" value="$!user.name" /></input>
+					</td>
+					<td>&nbsp;性别：</td>
+					<td> #if($!stu.SEX=='1') 
+							   男
+					           #else 
+					                        女
+					           #end
+					</td>
+				</tr>
+				<tr>
+					<td>卡类型：</td>
+					<td><input id="cardtype"
+					name='cardtype' type="text" value="$!CardEmployee.cardtype" /></input>
+					</td>
+					<td>&nbsp;卡状态：</td>
+					<td><input id="cardstatus"
+					name='cardstatus' type="text" value="$!CardEmployee.cardstatus"  /></input>
+					</td>
+				</tr>
+			</table>
+			</div>
+				<a href="javascript:readloss();" class="ld-btn ld-lanse" ><img
+					src="${_project.envRoot}/styles/css/funcCard/v1.0/images/new.png" />读卡</a>
+				<a href="javascript:unLoss($!CardEmployee.asn);" class="ld-btn ld-lanse" ><img
+					src="${_project.envRoot}/styles/css/funcCard/v1.0/images/new.png" />解挂</a>
+			</div>
+			<script type="text/javascript">
+$('input').attr("disabled","false");
+</script>

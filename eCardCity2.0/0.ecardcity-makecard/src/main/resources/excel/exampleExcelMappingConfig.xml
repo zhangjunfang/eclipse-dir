@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Excel文件格式配置信息-->
+<excel-mapping-config>
+	<!-- 
+	EXCEL表头,仅用于导出时(可选项)
+	
+	属性       说明  
+	height   :EXCEL头单元格高度(可选项)
+	-->
+	<head height="600">
+		<!-- 
+		合并EXCEL表头单元格,若设置头部,则为必选项
+		
+		属性             说明  
+	    beginColumn   :合并起始列位置索引(从0开始计数)
+	    beginRow      :合并起始行位置索引(从0开始计数)
+	    endColumn     :合并终止列位置索引(从0开始计数)
+	    endRow        :合并终止行位置索引(从0开始计数)
+		-->
+		<merge beginColumn="0" beginRow="0" endColumn="7" endRow="0"/>
+	</head>
+
+    <!--
+        与EXCEL文件数据对应的JAVA类
+
+         说明:   1. 该类必须提供公有的默认构造方法
+               2. 映射字段对应成员必须提供公有的set方法和get方法
+               3. 映射字段对应成员类型可以为字符类型(java.lang.String),
+               				    数字类型(java.lang.Double),
+               				    日期类型(java.util.Date)
+               4.导入时建议实现接口com.iman.lts.common.excel.entity.IBaseExcel				    
+    -->
+    <className>cn.com.newcapec.common.excel.example.Example</className>
+	
+	<!-- 
+	    EXCEL文件工作表配置信息
+
+         属性        说明
+    	nameField :工作表名称所对应JAVA类的字段名称 
+	-->
+    <sheet nameField="sheetName">
+    	<!-- 
+    	EXCEL文件标题配置信息
+
+         属性       说明
+    	row      :标题行位置索引(从0开始计数)
+    	height   :标题单元格高度,仅用于导出时(可选项)
+    	freeze   :是否冻结{true,false},默认false,仅用于导出时(可选项)
+    	checkTitleName:是否校验标题名称{true,false},默认false,仅用于导入时(可选项)
+    	 -->
+        <title row="1" height="400" freeze="true" checkTitleName="false">
+            <!--
+                EXCEL文件数据元素配置信息
+
+                  属性       说明
+                column   :列位置索引,从0开始计数
+                field    :数据元素所对应JAVA类的字段名称
+                type     :数据类型{Double,Date,String},默认String(可选项)
+                format   :数据格式,只可用于Double和Date类型(可选项)
+                maxLength:数据元素的最大长度,用于String类型,默认全部长度;若超过最大长度,则截取到最大长度,仅用于导入时(可选项)
+                width    :数据元素单元格宽度,仅用于导出时(可选项)
+            -->
+            <cell column="0" field="id" type="Double" format="#">编号</cell>
+            <cell column="1" field="name" width="15">姓名</cell>
+            <cell column="2" field="age" type="Double" format="#">年龄</cell>
+            <cell column="3" field="birthday" type="Date" format="yyyy-MM-dd" width="15">出生日期</cell>
+            <cell column="4" field="salary" type="Double" format="#.00" width="20">薪水</cell>
+            <cell column="5" field="bonus" type="Double" format="#.00" width="20">奖金</cell>
+            <cell column="6" field="statDate" type="Date" format="yyyy-MM-dd HH:mm:ss" width="25">统计时间</cell>
+            <cell column="7" field="remark" maxLength="200" width="50">备注</cell>
+        </title>
+        <!--
+		  数据属性配置信息
+
+		  属性      说明
+		  begin   :数据元素的起始行,从0开始计数
+		  end     :数据元素的结束行,从0开始计数,默认到最后一行,仅用于导入时(可选项)
+		  height  :数据元素单元格高度,仅用于导出时(可选项)
+	     -->
+         <data begin="2" end="" height="300"/>
+    </sheet>
+</excel-mapping-config>

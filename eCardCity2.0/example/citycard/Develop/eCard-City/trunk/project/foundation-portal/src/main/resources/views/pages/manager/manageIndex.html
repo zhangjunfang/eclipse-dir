@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title></title>
+        	#parse("/common/commonHead.html")
+            <link rel="stylesheet" media="screen" href="${_project.envRoot}/styles/css/base/css/index.css" />
+   			<script src="${_project.envRoot}/scripts/lib/plugins/js/index.js" ></script>
+	</head>
+	<body>
+     <!-- header begin -->
+        <div class="header-wrap">
+            <div class="logo"><img src="public/image/header_logo.jpg"/></div>
+            <div class="r-info pull-right">
+                <div class="btn-group cmc">
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" data-toggle="modal" data-target="#choise_meeting_modal"><i class="glyphicon glyphicon-align-justify"></i> 切换</a></li>
+                        <li><a href="index.html" class="meeting_logout"><i class="icon-signout"></i> 退出</a></li>
+                    </ul>
+                </div>&nbsp;&nbsp;
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success"><i class="icon-user"></i> 系统管理员</button>
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" style="min-width:110px;">
+                        <li><a href="login.html"><i class="icon-signout"></i> 注销 </a></li>
+                    </ul>
+                </div>&nbsp;&nbsp;         
+            </div>
+        </div>
+        <!-- header end -->
+    
+    
+    <!-- menu begin -->
+       <!-- menu begin -->
+              <!-- menu begin -->
+        <div class="menu-wrap pull-left">
+            <dl class="">
+                <dt class=""><i class="icon-user-md"></i>学生配置管理</dt>
+                <dd><a href="/controller/student/stuListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 学生信息配置</a></dd>
+                <dd><a href="/controller/student/studentInfo" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 学生信息配置</a></dd>
+            </dl>
+            <dl class="">
+                <dt class=""><i class="icon-cog"></i> 系统配置管理</dt>
+                <dd><a href="/restful/privilegeProxyService/user/userListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 用户信息配置</a></dd>
+                <dd><a href="/restful/privilegeProxyService/department/departmentListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 部门信息配置</a></dd>
+                <dd><a href="/restful/privilegeProxyService/menu/menuListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 菜单信息配置</a></dd>
+                <dd><a href="/restful/privilegeProxyService/resource/resourceListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 功能信息配置</a></dd>
+                <dd><a href="/restful/privilegeProxyService/role/roleListUI" class="" target="mainIframe"><i class="icon-minus"></i>&nbsp; 角色信息配置</a></dd>
+            </dl>
+    
+        </div>
+        <!-- menu end -->
+       <!-- main begin -->
+        <div class="main-wrap">
+            <iframe src="/controller/student/stuListUI" id="mainIframe" name="mainIframe" scrolling="auto" width="100%" height="500px" frameborder="0" noresize> </iframe>
+        </div>
+        <!-- main end -->
+
+
+        <!-- footer begin -->
+        <div class="footer-wrap">
+            <p class="copyright text-right">Copyright@LANXUM ALL Right Reserved 郑州新开普电子股份有限公司</p>
+            <p class="url text-right"><a href="main.html" target="_blank">www.newcapec.com</a></p>
+        </div>
+        <!-- footer end -->
+
+</body>
+</html>

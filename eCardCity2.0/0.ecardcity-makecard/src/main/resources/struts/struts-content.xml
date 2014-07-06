@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>             
+    <!-- 内容管理模块 -->
+    <package name="content" extends="security" namespace="/content">
+   
+   		<!-- 网站公告 -->
+        <action name="bulletin_*" class="bulletinAction" method="{1}">
+        	<result name="viewSuccess">/content/jsp/bulletinView.jsp</result>
+        	<result name="listSuccess">/content/jsp/bulletinList.jsp</result>
+        	<result name="editPreSuccess">/content/jsp/bulletinEdit.jsp</result>
+        	<result name="editPreFailure">/content/bulletin_list.action?obj.channelId=${obj.channelId}</result>
+        	<result name="editSuccess" type="redirect">/content/bulletin_list.action?obj.channelId=${obj.channelId}</result>
+        	<result name="editFailure">/content/jsp/bulletinEdit.jsp</result>
+        </action>
+
+	</package>
+</struts>

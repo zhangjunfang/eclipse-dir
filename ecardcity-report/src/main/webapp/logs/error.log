@@ -1,0 +1,10 @@
+[INFO ] [2014-03-17 15:49:34] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-17 15:49:34] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 17 15:49:34 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-17 15:49:34] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-ecardcity-report.xml]
+[INFO ] [2014-03-17 15:49:34] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1e2160d: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5ea9e1
+[INFO ] [2014-03-17 15:49:34] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 88 ms

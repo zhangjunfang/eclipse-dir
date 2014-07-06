@@ -1,0 +1,714 @@
+/*
+    Topgta主操作区样式
+    AUTHOR:HOUBO
+    DATE:2006-04-28
+*/
+
+/*body类：主操作区模板body用样式*/
+body {
+    font-size: 12px;
+    color: #4b4b4b;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    SCROLLBAR-FACE-COLOR: #DAE6F7;
+    SCROLLBAR-HIGHLIGHT-COLOR: #DEF1FF;
+    SCROLLBAR-SHADOW-COLOR: #B0CFF4;
+    SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+    SCROLLBAR-ARROW-COLOR: #366AB3;
+    SCROLLBAR-TRACK-COLOR: #E7EFF9;
+    SCROLLBAR-SHADOW-COLOR: #B0CFF4;
+    SCROLLBAR-DARKSHADOW-COLOR: #5484BD;
+    overflow-x:hidden;
+}
+/*超链接样式*/
+a:visited {
+    color: #666699;
+    text-decoration: none;
+}
+
+a:link {
+    color: #3366CC;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+a:hover {
+    color: #FF0000;
+    text-decoration: none;
+    position: relative;
+    top: 1px;
+    right: 1px;
+}
+
+/*操作区模板页分类标题样式,作用与分类标题栏****************************************************************OK*/
+
+/*标题栏外框表格样式,页面标题位置指向*/
+.table-location {
+    font-size: 12px;
+    color: #000000;
+    height: 22px;
+    width: 100%;
+    margin: 10px;
+}
+
+/*标题栏内部列样式，自动加载*/
+.table-location td {
+    text-align: left;
+}
+
+/*操作区模板表单页面外部样式，作用与标题栏下方的表单类页面*************************************************OK*/
+
+/*页面外层框架表格样式***************/
+/*此样式作用与两列表单,四列表单,列表页面*/
+
+.table-frame {
+    margin: 15px;
+    width: 600px;
+    border-right-width: 3px;
+    border-bottom-width: 4px;
+    border-right-style: inset;
+    border-bottom-style: inset;
+    border-right-color: #E4E4E4;
+    border-bottom-color: #BBBBBB;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-top-color: #B7C9E2;
+    border-left-color: #B7C9E2;
+}
+.table-list {
+    margin: 15px;
+    width: 95%;
+    border-right-width: 3px;
+    border-bottom-width: 4px;
+    border-right-style: inset;
+    border-bottom-style: inset;
+    border-right-color: #E4E4E4;
+    border-bottom-color: #BBBBBB;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-top-color: #B7C9E2;
+    border-left-color: #B7C9E2;
+}
+
+/*两列表单外框内部table样式************************************************************************************/
+.table-form {
+    width: 100%;
+    background-color: #CAD8EA;
+    houbo-border: expression( this . border = 0 );
+    houbo-cellspacing: expression( this . cellSpacing = 1 );
+    houbo-cellpadding: expression( this . cellPadding = 2 );
+}
+
+/*两列表单顶部标题行样式*/
+.table-form td.table-title {
+	font-size: 14px;
+	color: #3078AA;
+	text-align: left;
+	text-indent: 20px;
+	height: 22px;
+	font-weight: bold;
+	background-image: url(../images/frame/tableHeadTitleBlueBg.gif );
+    
+}
+.table-form td.table-list_title {
+	font-size: 12px;
+	color: #000000;
+	text-align: center;
+	height: 22px;
+	background-color:#F8FAFB;
+}
+.table-form td.table-list_title1 {
+	font-size: 12px;
+	color: #000000;
+	text-align: center;
+	height: 22px;
+	background-image: url(../images/frame/tableHeadTitleBlueBg.gif )
+}
+
+/*两列或四列表单域名称样式,自动加载*/
+.table-form td {
+    padding-left:6px;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    font-size: 12px;
+    height: 22px;
+}
+.table-form td.td2{
+    padding-left:6px;
+    padding-right: 10px;
+    background-color: #E7EEF6;
+    font-size: 12px;
+    height: 22px;
+}
+
+/*两列表单域内容样式*/
+.table-form td.two-content {
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*两列表单域内容样式,表单域占到四列中的两列。域名称采用*/
+.table-form td.half-content {
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: right;
+    padding-left: 10px;
+}
+
+/*两列表单域内容样式,表单域占到四列中的两列。输入框列采用*/
+.table-form td.half-content-input {
+    width: 50%;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*文本域样式*/
+.text-area {
+    font-size: 12px;
+	line-height:21px;
+    width: 96.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+    overflow: auto;
+}
+
+/*四列表单域内容样式*/
+.table-form td.four-content {
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*四列表单域原文本区域输入框列样式*/
+.table-form td.four-label {
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*六列表单域内容样式*/
+.table-form td.six-content{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: left;
+	padding-left: 5px;
+}
+
+/*六列表单域内容样式(不折行)*/
+.table-form td.six-content2{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: left;
+	padding-left: 5px;
+    td-nowrap:expression(this.noWrap=true);
+}
+
+/*六列表单域原文本区域输入框列样式*/
+.table-form td.six-label{
+   font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: right;
+	padding-left: 5px;
+}
+
+/*八列表单域内容样式*/
+.table-form td.eight-content{
+ 	font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: left;
+	padding-left: 10px;
+}
+
+/*八列表单域原文本区域输入框列样式*/
+.table-form td.eight-label{
+    font-size: 12px;
+	background-color: #FFFFFF;
+	text-align: right;
+	padding-left: 10px;
+}
+
+/*表单内文本框基本样式,用于一行四列的情况,此样式自动加载*/
+.input{
+    font-size: 12px;
+    width: 90%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+.table-form input {
+    font-size: 12px;
+}
+
+/*表单内文本框基本样式,用于一行两列的情况*/
+.table-form input.input-longer {
+    font-size: 12px;
+    width: 96.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+
+/*表单内文本框基本样式,用于一行两列的情况，数字输入框使用*/
+.table-form input.input-longer-number {
+    font-size: 12px;
+    text-align: right;
+    width: 96.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+
+/*表单内复选框样式*/
+.table-form input.checkbox {
+    width: 18px;
+
+}
+
+/*表单内单选框样式*/
+.table-form input.radiobutton {
+    width: 18px;
+    cursor: hand;
+}
+/*数据错误文本框样式*/
+.table-form input.number-error {
+    width: 90%;
+    text-align: right;
+    border-top-color: #CC0000;
+    border-right-color: #FFC1C1;
+    border-bottom-color: #FFC1C1;
+    border-left-color: #CC0000;
+}
+
+/*文本框中数字的样式，右对齐*/
+.table-form input.number {
+    width: 90%;
+    text-align: right;
+}
+
+/*表单内按钮定位table样式**********************************************************/
+.table-button {
+    text-align: center;
+    cursor: hand;
+}
+
+/*表单内按钮样式，以下包括提交按钮，重置按钮，取消按钮，删除按钮*/
+/*其中提交按钮样式自动加载*/
+.table-button input {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    background-image: url( ../images/inputOk.gif);
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 23px;
+    width: 45px;
+    cursor: hand;
+}
+
+.table-button input.cancle {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    background-image: url( ../images/cancle.gif);
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 23px;
+    width: 45px;
+    cursor: hand;
+}
+
+.table-button input.delete {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    background-image: url( ../images/inputDelete.gif );
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 23px;
+    width: 45px;
+    cursor: hand;
+}
+
+.table-button input.long {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    background-image: url( ../images/bottonFontLong.gif );
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 23px;
+    width: 80px;
+    cursor: hand;
+}
+
+/*分页菜单项样式应用******************************************************************/
+
+/*外层定位表格样式*/
+.pagination {
+    font-size: 12px;
+    color: #003366;
+    margin: 2px;
+    width: 100%;
+    text-align: right;
+}
+
+/*转向文本框样式*/
+.pagination input.input-go {
+    font-size: 12px;
+    width: 20px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699cc;
+    border-right-color: #dfe8f3;
+    border-bottom-color: #dfe8f3;
+    border-left-color: #6699cc;
+    cursor: hand;
+}
+
+/*页面跳转按钮样式*/
+.pagination input.go {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #003366;
+    background-image: url( ../images/bottonGo.gif );
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 23px;
+    width: 23px;
+    border: none;
+    background-color: #FFFFFF;
+    vertical-align: bottom;
+    cursor: hand;
+}
+
+/*翻页按钮样式*/
+.pagination input.next {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    text-align: center;
+    height: 23px;
+    width: 35px;
+    border: none;
+    background-image: url( ../images/bottonPage.gif );
+    vertical-align: bottom;
+    cursor: hand;
+}
+
+/*表单内部标题栏样式****************************************************************/
+/*标题栏样式，作用在外部table上*/
+.title-table {
+    width: 260px;
+}
+
+/*标题栏样式,用于定位左侧图片和宽度*/
+.title-table td.image {
+    width: 3px;
+    background-image: url( ../images/arrowDown.gif );
+    background-repeat: no-repeat;
+    width: 12px;
+    background-position: center;
+}
+
+/*标题栏样式,用于控制右侧标题内容样式*/
+.title-table td.title {
+    width: 220px;
+    height: 20px;
+    font-size: 14px;
+    color: #003366;
+    text-align: left;
+    text-indent: 5pt;
+}
+
+/*特殊的样式定义**********************************************************************/
+/*用于两列的表格，前面是文本，后面是选择按钮*/
+.special-table {
+    width: 100%;
+    background-color: #CAD8EA;
+}
+
+/*用于上方特殊表格的文本列样式,自动加载*/
+.special-table td {
+    width: 90%;
+    text-align: right;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+    font-size: 12px;
+    height: 22px;
+}
+
+.special-table td.check {
+    width: 10%;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/*不定宽度的文本框，交于开发人员在页面中自行定义宽度，建议用size属性*/
+.table-form input.input-free {
+    width: 50px;
+    font-size: 12px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+
+/*普通下拉列表的样式,自动加载*/
+.table-form select.common-select {
+    font-size: 12px;
+    width: 90%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+
+/*独占一行的下拉列表的样式*/
+.table-form select.long-select {
+    font-size: 12px;
+    width: 96.7%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+}
+
+/******************************************************************************************/
+/*错误返回表单输入框标式*/
+.table-form input.input-error {
+    font-size: 12px;
+    width: 88.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #CC0000;
+    border-right-color: #FFC1C1;
+    border-bottom-color: #FFC1C1;
+    border-left-color: #CC0000;
+}
+
+/*错误返回表单输入框标式*/
+.table-form input.input-longer-error {
+    font-size: 12px;
+    width: 96.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #CC0000;
+    border-right-color: #FFC1C1;
+    border-bottom-color: #FFC1C1;
+    border-left-color: #CC0000;
+}
+
+/*错误返回表单文本域样式*/
+.table-form textarea.textarea-error {
+    font-size: 12px;
+    width: 96.5%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #CC0000;
+    border-right-color: #FFC1C1;
+    border-bottom-color: #FFC1C1;
+    border-left-color: #CC0000;
+
+}
+
+/*嵌入web编辑器的表格样式*/
+.webEditor {
+    font-size: 12px;
+    width: 100%;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #6699CC;
+    border-right-color: #DFE8F3;
+    border-bottom-color: #DFE8F3;
+    border-left-color: #6699CC;
+    background-color: #FFFFFF;
+}
+
+/*以下css用于成功与错误页面*/
+.windoTable {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle; /*margin-top: 0px;*/
+}
+
+.windowsTitleTd {
+    height: 45px;
+    width: 425px;
+    background-image: url( ../images/windowHead.gif );
+}
+
+.windowsBodyTd {
+    background-image: url( ../images/windowBody.gif );
+    background-repeat: no-repeat;
+    height: 211px;
+    width: 425px;
+    vertical-align: top;
+}
+
+.windowDownTd {
+    background-image: url( ../images/windowsDown.gif );
+    background-repeat: no-repeat;
+    text-align: right;
+    vertical-align: middle;
+    height: 39px;
+    width: 425px;
+}
+
+.windowsBottonTd {
+    margin-right: 20px;
+}
+
+.windowsTitleFont {
+}
+
+.windowsInfoTable {
+    width: 380px;
+}
+
+.windowsInfoTd {
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: normal;
+    color: #FF6600;
+    text-align: center;
+    height: 160px;
+    vertical-align: middle;
+}
+
+.win
+.windowsInfoTitleTd {
+    text-align: left;
+}
+
+.windowsBg {
+    background-image: url( ../images/windowsbg.gif );
+    margin: 0px;
+    background-color: #FFFFFF;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+/* added by hezhenfeng  在form中的button  mainorgUI.do中用到*/
+.table-form input.long {
+    font-size: 12px;
+    color: #003366;
+    background-color: #FFFFFF;
+    background-image: url( ../images/bottonFontLong.gif );
+    text-align: center;
+    vertical-align: bottom;
+    border: none;
+    height: 23px;
+    width: 80px;
+}

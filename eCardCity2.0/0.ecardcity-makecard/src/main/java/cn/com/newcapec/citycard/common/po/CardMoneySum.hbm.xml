@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="CardMoneySum"
+		table="CARD_MONEY_SUM"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="appinfoId"
+			column="APPINFO_ID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="wallettype"
+			column="WALLETTYPE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="opcount"
+			column="OPCOUNT"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="saveopcount"
+			column="SAVEOPCOUNT"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="oddfare"
+			column="ODDFARE"
+			type="big_decimal"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="oddfareacc"
+			column="ODDFAREACC"
+			type="big_decimal"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="sumconsumefare"
+			column="SUMCONSUMEFARE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="sumaddfare"
+			column="SUMADDFARE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="sumqc"
+			column="SUMQC"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="sumload"
+			column="SUMLOAD"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="sumsave"
+			column="SUMSAVE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<!-- 系统管理 -->
+
+	<!-- DAO定义  -->
+
+	<!-- 系统管理-用户管理 -->
+	<bean id="userOrganDao"
+		class="cn.com.newcapec.citycard.system.dao.impl.UserOrganDao"
+		parent="baseDao" />
+		
+	<!-- 系统管理-角色管理 -->
+	<bean id="roleInfoDao"
+		class="cn.com.newcapec.citycard.system.dao.impl.RoleInfoDao"
+		parent="baseDao" />
+		
+	<!-- 系统管理-模块管理 -->
+	<bean id="moduleInfoDao"
+		class="cn.com.newcapec.citycard.system.dao.impl.ModuleInfoDao"
+		parent="baseDao" />
+
+	<!-- Service定义 -->
+
+	<!-- 系统管理-用户管理 -->
+	<bean id="userOrganService"
+		class="cn.com.newcapec.citycard.system.service.impl.UserOrganService"
+		parent="baseService">
+		<property name="userOrganDao">
+			<ref local="userOrganDao" />
+		</property>
+	</bean>
+	
+	<!-- 系统管理-角色管理 -->
+	<bean id="roleInfoService"
+		class="cn.com.newcapec.citycard.system.service.impl.RoleInfoService"
+		parent="baseService">
+		<property name="roleInfoDao">
+			<ref local="roleInfoDao" />
+		</property>
+	</bean>
+	
+	<!-- 系统管理-菜单管理 -->
+	<bean id="moduleInfoService"
+		class="cn.com.newcapec.citycard.system.service.impl.ModuleInfoService"
+		parent="baseService">
+		<property name="moduleInfoDao">
+			<ref local="moduleInfoDao" />
+		</property>
+	</bean>
+
+	<!-- Action定义 -->
+
+	<!-- 系统管理-用户管理 -->
+	<bean id="userOrganAction"
+		class="cn.com.newcapec.citycard.system.action.UserOrganAction"
+		parent="commonAction" scope="prototype">
+		<property name="userOrganService">
+			<ref local="userOrganService" />
+		</property>
+		<property name="roleInfoService">
+			<ref local="roleInfoService" />
+		</property>
+	</bean>
+
+	<!-- 系统管理-角色管理 -->
+	<bean id="roleInfoAction"
+		class="cn.com.newcapec.citycard.system.action.RoleInfoAction"
+		parent="commonAction" scope="prototype">
+		<property name="roleInfoService">
+			<ref local="roleInfoService" />
+		</property>
+		<property name="moduleInfoService">
+			<ref local="moduleInfoService" />
+		</property>
+	</bean>
+	
+	<!-- 系统管理-菜单管理 -->
+	<bean id="moduleInfoAction"
+		class="cn.com.newcapec.citycard.system.action.ModuleInfoAction"
+		parent="commonAction" scope="prototype">
+		<property name="moduleInfoService">
+			<ref local="moduleInfoService" />
+		</property>
+	</bean>
+
+ 	<!-- 日志管理 -->
+    <bean id="logInfoService" class="cn.com.newcapec.citycard.system.service.impl.TLogService" parent="baseService"/>
+    <bean id="logInfoAction" class="cn.com.newcapec.citycard.system.action.TLogAction" scope="prototype" parent="commonAction"/>
+
+</beans>

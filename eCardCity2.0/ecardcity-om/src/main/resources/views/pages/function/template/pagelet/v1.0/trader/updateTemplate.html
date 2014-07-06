@@ -1,0 +1,132 @@
+<!--
+ 	功能描述 ：参数模板编辑
+	Author : Wangjian
+  Date   : 2014-04-02
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+		//打印参数值列表
+		var paraStrs="";
+		#foreach($!param in $!sysPrintParamList)
+	  	paraStrs+="<option value='$!param.p_value'>$!param.title_name</option>";
+	  #end
+	  //删除图标
+	  var delImg="${_project.envRoot}/styles/images/del.png";
+	  //提交重复性验证
+		var isRepeat=false;
+		jQuery(document).ready(function(){
+			jQuery("#template_name").blur(function(){		//模板是否存在
+				jQuery("#template_name").val(jQuery("#template_name").val().trim());
+				if(jQuery("#template_name").val()!="" && jQuery("#template_name").val()!="$!template_name"){
+					isRepeat=templateCheck("template_name",jQuery("#template_name").val());
+					if(isRepeat){
+						jQuery("#msgName").text("该名称的打印模板已存在！");
+					}else{
+						jQuery("#msgName").text("");
+					}
+				}
+			});
+		});		
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="netsiteid" value="$!netsiteid">
+		<input type="hidden" name="template_type" value="$!template_type">
+		<input type="hidden" name="old_template_name" value="$!template_name">
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">商户</td>
+					<td>
+						<select id="netsiteid" name="netsiteid" size="1" style="width: 150px;" disabled>
+								#foreach($!trader in $!traderList)
+									<option value="$!trader.id" #if("$!netsiteid"=="$!trader.id")selected#end>$!trader.netname</option>
+								#end
+						</select>
+					</td>
+					<td class="ld-lab">模板类型</td>
+					<td>
+						<select id="template_type" name="template_type" size="1" style="width: 125px;" disabled>
+								#foreach($!dict in $!dictList)
+									<option value="$!dict.p_value" #if("$!template_type"=="$!dict.p_value")selected#end>$!dict.title_name</option>
+								#end
+						</select>					
+					</td>
+					<td class="ld-lab">模板名称</td>
+					<td>
+						<input style="width: 150px;" value="$!template_name" name="template_name" id="template_name" type="text" fTip="模板名称" fLength="1,25" fType=""/><span class="red">*</span><span id="msgName">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="text-align:right"><label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。</div>
+		<!-- 打印参数列表 -->
+		<table id="tb1" border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td rowspan="2" align="center" valign="center">行号</td>
+					<td colspan="4" align="center" valign="center">控制符</td>
+					<td rowspan="2" align="center" valign="center">显示标题</td>
+					<td rowspan="2" align="center" valign="center">参数值</td>
+					<td rowspan="2" align="center" valign="center"><a id="add" onClick="addPara();" class="ld-btn ld-lanse" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/add.png"/>增加</a></td>
+				</tr>
+				<tr>
+					<td align="center">字体大小</td>
+					<td align="center">字体灰度</td>
+					<td align="center">字间距</td>
+					<td align="center">行间距</td>
+				</tr>
+				#foreach($!obj in $!templateList)
+				<tr>
+						#set($symbolList=$!obj.CONTROL_SYMBOL.split(","))
+						<input type='hidden' name='line_no' value='$!obj.LINE_NO'><td>$!obj.LINE_NO</td>						
+						#foreach($!symbol in $!symbolList)
+							#if($!velocityCount==1)
+							<td><select name='symbol_1' size='1'>
+								#foreach($num in [0..3])
+									<option value='$num' #if("$num"=="$!symbol")selected#end>$num</option>
+								#end
+							</select></td>
+							#else
+							<td><select name='symbol_$!velocityCount' size='1'>
+								#foreach($num in [0..15])
+									<option value='$num' #if("$num"=="$!symbol")selected#end>$num</option>
+								#end
+							</select></td>
+							#end
+						#end
+						<td><input type='text' style='width:130px;' name='print_title' value="$!obj.PRINT_TITLE" placeholder='该行打印显示标题' fTip='显示标题' fLength='0,30' fType=''/></td>
+						<td><select id='print_param' name='print_param' size='1'>
+							#foreach($!param in $!sysPrintParamList)
+								<option value="$!param.p_value" #if("$!param.p_value"=="$!obj.PRINT_PARAM") selected#end>$!param.title_name</option>
+						  #end
+					  </select></td>
+						<td><a id='del' onClick='jQuery(this).parent().parent().remove();' class='ld-btn ld-huise' style='cursor:pointer;'><img src='${_project.envRoot}/styles/images/del.png'/>删除</a></td>	
+					</tr>
+				#end				
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submitTemplatePara();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'param'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

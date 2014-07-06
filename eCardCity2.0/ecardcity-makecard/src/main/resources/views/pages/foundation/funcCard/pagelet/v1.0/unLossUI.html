@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>解挂界面</title>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/art/jquery.artDialog.source.js?skin=default"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/funcCard/funcCard.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/pages/common/common.js"></script>
+<script type='text/javascript' src='${_project.envRoot}/scripts/lib/DatePicker/WdatePicker.js'></script>	
+<link
+	href="${_project.envRoot}/styles/css/funcCard/v1.0/css/style.css"
+	rel="stylesheet" type="text/css" />
+	<style>
+.xubox_main {
+	border: 1px solid #bfd6ec;
+}
+.xubox_page {
+	width: 100%
+}
+</style>
+</head>
+<body>
+<div >
+	<div class="ld-asideaa btngroup topWz">
+		<div class="dqwz">
+			当前位置：首页   功能卡管理  <a href="javascript:location.reload();"
+				class="blue">解挂管理</a>
+		</div>
+	</div>
+		<!-- 当前充值员及时统计信息    预留-->
+		<object id="CardOCX" name="CardOCX"  style="display:none" classid= "clsid:F8E509D8-9582-4F49-A84E-6B1EB7AC11EC" ></object>
+	<div class="con" id="pageInfo">
+		<div class="ld-container ld-con">
+			<div class="ld-aside" >
+				<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+				<tr>
+					<td>账号：</td>
+					<td> <input
+					id="empCode" name="empCode" value="$!user.empCode" type="text" />
+					</td>
+					<td>&nbsp;当前卡号：</td>
+					<td> <input id="asn"
+					name=asn type="text" value="$!CardEmployee.asn" /></input>
+					</td>
+				</tr>
+				<tr>
+					<td>姓名：</td>
+					<td>  <input id="name" name="name"
+					type="text" value="$!user.name" /></input>
+					</td>
+					<td>&nbsp;性别：</td>
+					<td> 
+					</td>
+				</tr>
+				<tr>
+					<td>卡类型：</td>
+					<td><input id="cardtype"
+					name='cardtype' type="text" value="$!CardEmployee.cardtype" /></input>
+					</td>
+					<td>&nbsp;卡状态：</td>
+					<td><input id="cardstatus"
+					name='cardstatus' type="text" value="$!CardEmployee.cardstatus"  /></input>
+					</td>
+				</tr>
+			</table>
+			</div>
+				<a href="javascript:readloss();" class="ld-btn ld-lanse" ><img
+					src="${_project.envRoot}/styles/css/funcCard/v1.0/images/new.png" />读卡</a>
+				<a href="javascript:alert('请先读卡！');" class="ld-btn ld-lanse" ><img
+					src="${_project.envRoot}/styles/css/funcCard/v1.0/images/new.png" />解挂</a>
+			</div>
+			<script type="text/javascript">
+$('input').attr("disabled","false");
+</script>
+	    </div>
+	 </div>   
+</body>
+</html>

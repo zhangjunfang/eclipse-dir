@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="TermUpdateFileBind"
+		table="TERM_UPDATE_FILE_BIND"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="poscode"
+			column="POSCODE"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="fileid"
+			column="FILEID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="upgradeendtime"
+			column="UPGRADEENDTIME"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="status"
+			column="STATUS"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="opdt"
+			column="OPDT"
+			type="date"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="iserasureflash"
+			column="ISERASUREFLASH"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="applicationver"
+			column="APPLICATIONVER"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="systype"
+			column="SYSTYPE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

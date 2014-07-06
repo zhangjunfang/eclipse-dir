@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="FareCost"
+		table="FARE_COST"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="customerid"
+			column="CUSTOMERID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="asn"
+			column="ASN"
+			type="integer"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="opfare"
+			column="OPFARE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="acccode"
+			column="ACCCODE"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="dscrp"
+			column="DSCRP"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="hasreturn"
+			column="HASRETURN"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="notfarecause"
+			column="NOTFARECAUSE"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="cardkind"
+			column="CARDKIND"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="cardtype"
+			column="CARDTYPE"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="accfare"
+			column="ACCFARE"
+			type="big_decimal"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="ischarge"
+			column="ISCHARGE"
+			type="string"
+			not-null="true"
+			length="1"
+		/>
+		<property
+			name="editPerson"
+			column="EDIT_PERSON"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="editDate"
+			column="EDIT_DATE"
+			type="date"
+			not-null="true"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

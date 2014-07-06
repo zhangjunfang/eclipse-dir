@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>发卡界面</title>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery-form.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/lib/art/jquery.artDialog.source.js?skin=default"></script>
+<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/funcCard/funcCard.js"></script>
+<script type="text/javascript" src="${_project.envRoot}/pages/common/common.js"></script>
+<script type='text/javascript' src='${_project.envRoot}/scripts/lib/DatePicker/WdatePicker.js'></script>	
+<link
+	href="${_project.envRoot}/styles/css/funcCard/v1.0/css/style.css"
+	rel="stylesheet" type="text/css" />
+	<style>
+.xubox_main {
+	border: 1px solid #bfd6ec;
+}
+.xubox_page {
+	width: 100%
+}
+</style>
+</head>
+<body>
+	<div class="ld-asideaa btngroup topWz">
+		<div class="dqwz">
+			当前位置：首页   功能卡管理  <a href="javascript:location.reload();"
+				class="blue">发卡管理</a>
+		</div>
+	</div>
+		<!-- 当前充值员及时统计信息    预留-->
+	<div class="con">
+		<div class="ld-container ld-con">
+			<div class="ld-aside">
+				<table border="0" cellspacing="0" cellpadding="0" class="ld-slitab">
+					<tr>
+						<td style="text-align: right;"><strong>网点：</strong></td>
+						<td>
+						<input id="netid" name="netid" type="hidden" value="" />
+						<input id="netname" name="netname" type="text" class="text_input"  
+						onfocus="javascript:$('#nets').show();"/><font color="red">*&nbsp;&nbsp; </font>
+						</td>
+						<td style="text-align: right;"><strong>账号：</strong></td>
+						<td><input id="empCode" name="empCode" type="text" class="text_input" /></td>
+						<td style="text-align: right;"><strong>姓名：</strong></td>
+						<td><input id="name" name="name" type="text" class="text_input" /></td>
+					</tr>
+					<tr><td>
+					<div style="position :absolute ;left :60px; z-index: 9999; ">
+						<table id="nets" style="display: none;line-height: 13px;">
+							 #foreach($!net in $!netList)
+						     <tr><td id="$!net.ID" onclick="chooseNet('$!net.ID','$!net.NETNAME');"onmouseout="this.style.color=''" onmouseover="this.style.color='blue'">$!net.NETNAME</td></tr>
+						  #end
+						</table>
+						</div>
+					</td></tr>
+				</table>
+			</div>
+				<a href="javascript:reloadEmpList();" class="ld-btn ld-lanse" ><img
+					src="${_project.envRoot}/styles/css/funcCard/v1.0/images/new.png" />查询</a>
+			</div>
+			<div id="pageInfo" class="ld-aside" style="border:0;">
+				#parse("foundation/funcCard/pagelet/v1.0/emplist_grid.html")
+			</div>						
+	    </div>
+
+</body>
+<script type="text/javascript">
+ function chooseNet(netid,netname){
+	 $('#netid').val(netid);
+	 $('#netname').val(netname);
+	 $('#nets').hide();
+ }
+</script>
+</html>

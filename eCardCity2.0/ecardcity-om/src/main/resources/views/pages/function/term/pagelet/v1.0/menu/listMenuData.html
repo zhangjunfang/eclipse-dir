@@ -1,0 +1,81 @@
+<div class="ld-aside" style="border:0;">
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<thead>
+				<tr>
+					<th rowspan="2" style="text-align: center;"><input type="checkbox" title="选择/不选择当前页的全部记录" id="ckid" onclick="chkAll(this,'mainId');"></th>
+					<th rowspan="2">终端名称</th>
+					<th rowspan="2">一级菜单</th>
+					<th rowspan="2">参数版本</th>
+					<th rowspan="2">版本时间</th>
+					<th colspan="6">二级菜单</th>
+				</tr>
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>响应一级菜单按键</th>
+					<th>交易类型</th>
+					<th>权限列表位置</th>
+					<th>刷卡设置</th>
+				</tr>
+			</thead>
+				#set($prevMainId = '')
+				#foreach($!obj in $!pageView.records)
+				<tr onmousemove="this.className = 't3'"
+						#if($!velocityCount % 2 ==0) class='ld-defalcolor' onmouseout="this.className='ld-defalcolor'"#end
+				>
+						#if("$!prevMainId"!="$!obj.ID")
+						<td style="text-align: center;"><input type="checkbox" name="mainId" value="$!obj.ID"></td>
+						<td>$!obj.TERMNAME</td>
+						<td>$!obj.MAIN_MENU</td>
+						<td>$!obj.PARAM_VER</td>
+						<td>$!obj.VER_TIME</td>
+						#else
+						<td>&nbsp;</td>						
+						<td>&nbsp;</td>						
+						<td>&nbsp;</td>						
+						<td>&nbsp;</td>						
+						<td>&nbsp;</td>						
+						#end
+						<td>$!obj.SUB_ID</td>
+						<td>$!obj.SUB_MENU</td>
+						<td>
+							#if("$!obj.MAIN_MENU_KEY1"=="$!obj.SUB_ID")
+								按键“1”
+							#elseif("$!obj.MAIN_MENU_KEY2"=="$!obj.SUB_ID")
+								按键“2”
+							#elseif("$!obj.MAIN_MENU_KEY3"=="$!obj.SUB_ID")
+								按键“3”
+							#elseif("$!obj.MAIN_MENU_KEY4"=="$!obj.SUB_ID")
+								按键“4”
+							#elseif("$!obj.MAIN_MENU_KEY5"=="$!obj.SUB_ID")
+								按键“5”
+							#elseif("$!obj.MAIN_MENU_KEY6"=="$!obj.SUB_ID")
+								按键“6”
+							#elseif("$!obj.MAIN_MENU_KEY7"=="$!obj.SUB_ID")
+								按键“7”
+							#elseif("$!obj.MAIN_MENU_KEY8"=="$!obj.SUB_ID")
+								按键“8”
+							#end
+						</td>
+						#foreach($!dict in $!dictList)
+							#if("$!dict.d_code"=="$!obj.SUB_TRADE_TYPE")
+							<td>$!dict.d_desc1</td>
+							#end
+						#end
+						#foreach($!param in $!permParamList)
+							#if("$!param.p_value"=="$!obj.SUB_ACL_LOCATION")
+							<td>$!param.title_name</td>
+							#end
+						#end
+						<td>
+						#if("$!obj.SUB_ACL_SETTING"=="1")只允许先刷卡#elseif("$!obj.SUB_ACL_SETTING"=="2")只允许先输号码#elseif("$!obj.SUB_ACL_SETTING"=="3")刷卡和输号码都允许#end
+						</td>
+					</tr>
+					#set($prevMainId = $!obj.ID)
+				#end
+		</table>
+</div>
+<!--分页-->
+<div class="ld-aside">
+#parse($paging) #paging($pageView)
+</div>

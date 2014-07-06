@@ -1,0 +1,87 @@
+<!--
+ 	功能描述 ：参数模板编辑
+	Author : Wangjian
+  Date   : 2014-04-02
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+		var isRepeat=false;
+		jQuery(document).ready(function(){
+			jQuery("#template_type").change(function(){
+					getTemplateList();											//得到该类型下模板列表
+			});
+		
+			jQuery("#template_name").blur(function(){		//模板是否存在
+				jQuery("#template_name").val(jQuery("#template_name").val().trim());
+				if(jQuery("#template_name").val()!=""){
+					isRepeat=templateCheck("template_name",jQuery("#template_name").val());
+					if(isRepeat){
+						jQuery("#msgName").text("该名称的打印模板已存在！");
+					}else{
+						jQuery("#msgName").text("");
+					}
+				}
+			});
+
+			getTemplateList();	//加载时得到该类型下模板列表
+		});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">商户</td>
+					<td><select id="netsiteid" name="netsiteid" size="1" style="width: 200px;">
+						#foreach($!trader in $!traderList)
+							<option value="$!trader.id">$!trader.netname</option>
+						#end
+						</select>
+					</td>
+					<td class="ld-lab">模板类型</td>
+					<td><select id="template_type" name="template_type" size="1" style="width: 200px;">
+								#foreach($!dict in $!dictList)
+									<option value="$!dict.p_value">$!dict.title_name</option>
+								#end
+						</select>					
+					</td>
+				</tr>			
+				<tr>
+					<td class="ld-lab">模板名称</td>
+					<td>
+						<input style="width: 200px;" name="template_name" id="template_name" type="text" fTip="模板名称" fLength="1,25" fType=""/><span class="red">*</span><span id="msgName">
+					</td>
+					<td class="ld-lab">来源</td>
+					<td>
+						<select id="defaultFrom" name="defaultFrom" size="1" style="width: 200px;"></select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4"><label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submitTemplate();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'param'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

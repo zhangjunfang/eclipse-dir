@@ -1,0 +1,101 @@
+[INFO ] [2014-03-07 14:38:36] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-07 14:38:36] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Fri Mar 07 14:38:36 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-07 14:38:36] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-07 14:38:36] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@27d572: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@18ce895
+[INFO ] [2014-03-07 14:38:36] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-07 14:38:36] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 110 ms
+[INFO ] [2014-03-07 14:41:06] init (BaseResource.java:130) 
+ method[GET] call!
+[WARN ] [2014-03-07 14:42:01] noHandlerFound (DispatcherServlet.java:1108) 
+ No mapping found for HTTP request with URI [/controller/collectService/collect/getIndustryList] in DispatcherServlet with name 'multiViewController'
+[INFO ] [2014-03-07 14:43:39] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-07 14:43:39] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Fri Mar 07 14:43:39 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-07 14:43:39] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from class path resource [config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-07 14:43:39] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@9cc168: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@14017cf
+[INFO ] [2014-03-07 14:43:39] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-07 14:43:39] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 94 ms
+[WARN ] [2014-03-07 14:44:16] noHandlerFound (DispatcherServlet.java:1108) 
+ No mapping found for HTTP request with URI [/controller/collectService/collect/getIndustryList] in DispatcherServlet with name 'multiViewController'
+[WARN ] [2014-03-07 14:44:50] noHandlerFound (DispatcherServlet.java:1108) 
+ No mapping found for HTTP request with URI [/controller/collectService/collect/getIndustryList] in DispatcherServlet with name 'multiViewController'
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:725) 
+ [c3p0] Exceptions occurred while trying to close a PooledConnection's resources normally.
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:725) 
+ [c3p0] Exceptions occurred while trying to close a PooledConnection's resources normally.
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:725) 
+ [c3p0] Exceptions occurred while trying to close a PooledConnection's resources normally.
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:735) 
+ [c3p0] NewPooledConnection close Exception.
+java.sql.SQLException: Io 异常: Socket read timed out
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:255)
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:481)
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:1203)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:549)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:735) 
+ [c3p0] NewPooledConnection close Exception.
+java.sql.SQLException: Io 异常: Socket read timed out
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:255)
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:481)
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:1203)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:549)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+[INFO ] [2014-03-07 17:13:07] logCloseExceptions (NewPooledConnection.java:735) 
+ [c3p0] NewPooledConnection close Exception.
+java.sql.SQLException: Io 异常: Socket read timed out
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:255)
+	at oracle.jdbc.driver.T4CConnection.logoff(T4CConnection.java:481)
+	at oracle.jdbc.driver.PhysicalConnection.close(PhysicalConnection.java:1203)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:549)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+[WARN ] [2014-03-07 17:13:07] run (BasicResourcePool.java:972) 
+ Failed to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@732173
+java.sql.SQLException: Some resources failed to close properly while closing com.mchange.v2.c3p0.impl.NewPooledConnection@732173
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:571)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+[WARN ] [2014-03-07 17:13:07] run (BasicResourcePool.java:972) 
+ Failed to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@192671a
+java.sql.SQLException: Some resources failed to close properly while closing com.mchange.v2.c3p0.impl.NewPooledConnection@192671a
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:571)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+[WARN ] [2014-03-07 17:13:07] run (BasicResourcePool.java:972) 
+ Failed to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@ce4e4c
+java.sql.SQLException: Some resources failed to close properly while closing com.mchange.v2.c3p0.impl.NewPooledConnection@ce4e4c
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:571)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.close(NewPooledConnection.java:234)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.destroyResource(C3P0PooledConnectionPool.java:470)
+	at com.mchange.v2.resourcepool.BasicResourcePool$1DestroyResourceTask.run(BasicResourcePool.java:964)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)

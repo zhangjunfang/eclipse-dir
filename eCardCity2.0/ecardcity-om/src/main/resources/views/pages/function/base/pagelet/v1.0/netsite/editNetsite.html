@@ -1,0 +1,132 @@
+<!--
+ 	功能描述 ：	  网点信息编辑
+	Author : Wangjian
+  Date   : 2014-05-08
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<!-- end common framework -->
+	<script language="javaScript">
+	var isRepeat=false;
+	jQuery(document).ready(function(){
+		//行业是否存在
+		jQuery("#netname").blur(function(){
+			jQuery("#netname").val(jQuery("#netname").val().trim());
+			if(jQuery("#netname").val()!="" && jQuery("#netname").val()!="$!obj.netname"){
+				isRepeat=getNetsiteExists("netname",jQuery("#netname").val());
+				if(isRepeat){
+					jQuery("#msgName").text("该名称的行业已存在！");
+				}else{
+					jQuery("#msgName").text("");
+				}
+			}
+		});	
+	});
+	</script>
+</head>
+<body>
+<div class="ld-container ld-con">
+	<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!obj.id"/>
+		<input type="hidden" name="ver" value="$!obj.ver"/>
+		<input type="hidden" name="netid" value="$!obj.netid"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+		<!--功能区-->
+		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+			<tbody>
+				<tr>
+					<td class="ld-lab">网点名称</td>
+					<td colspan="3"><input style="width: 180px;" value="$!obj.netname" id="netname" name="netname" type="text" fTip="网点名称" fLength="1,25" fType=""/><span class="red">*</span><span id="msgName"></span></td>
+				</tr>
+				<tr>
+					<td class="ld-lab">网点简称</td>
+					<td><input style="width: 180px;" value="$!obj.netjp" name="netjp" type="text" fTip="网点简称" fLength=",15" fType=""/></td>
+					<td class="ld-lab">网点状态</td>
+					<td>
+						<input type="radio" name="netstatus" class="radiobutton" value="1" #if("$!obj.netstatus" == "1") checked #end>正常
+						<input type="radio" name="netstatus" class="radiobutton" value="0" #if("$!obj.netstatus" == "0") checked #end>停用
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">网点类型</td>
+					<td>
+						<input type="radio" name="nettype" class="radiobutton" value="0" #if("$!obj.nettype" == "0") checked #end>充值网点
+						<input type="radio" name="nettype" class="radiobutton" value="1" #if("$!obj.nettype" == "1") checked #end>消费网点
+						<input type="radio" name="nettype" class="radiobutton" value="2" #if("$!obj.nettype" == "2") checked #end>综合网点
+					</td>
+					<td class="ld-lab">网点种类</td>
+					<td>
+						<input type="radio" name="netkind" class="radiobutton" value="0" #if("$!obj.netkind" == "0") checked #end>直属网点
+						<input type="radio" name="netkind" class="radiobutton" value="1" #if("$!obj.netkind" == "1") checked #end>代理网点
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">上级网点</td>
+					<td><select name="netid_p" size="1" style="width: 180px;">
+							<option value="0" #if("0"=="$!obj.netid_p")selected#end>无</option>
+						#foreach($!pObj in $!pNetsiteList)
+							<option value="$!pObj.netid" #if("$!pObj.netid"=="$!obj.netid_p")selected#end>$!pObj.netname</option>
+						#end
+						</select>
+					</td>
+					<td class="ld-lab">行业代码</td>
+					<td>
+					#if("$!obj.id"!="")
+						<select name="induscode_code" size="1" style="width: 180px;" disabled>
+							#foreach($!pObj in $!pIndustryList)
+								<option value="$!pObj.industrycode" #if("$!pObj.industrycode"=="$!obj.induscode_code")selected#end>$!pObj.industryname</option>
+							#end
+						</select>	
+						<input type="hidden" name="induscode_code" value="$!obj.induscode_code"/>
+					#else
+						<select name="induscode_code" size="1" style="width: 180px;">
+							#foreach($!pObj in $!pIndustryList)
+								<option value="$!pObj.industrycode" #if("$!pObj.industrycode"=="$!obj.induscode_code")selected#end>$!pObj.industryname</option>
+							#end
+						</select>
+					#end
+					</td>
+				</tr>
+				<tr>		
+					<td class="ld-lab">排序号</td>
+					<td><input style="width: 180px;" value="$!obj.sort_num" name="sort_num" type="text" fTip="排序号" fLength="1,8" fType="int"/><span class="red">*</span></td>
+					<td class="ld-lab">联系人</td>
+					<td><input style="width: 180px;" value="$!obj.linkman" name="linkman" type="text" fTip="联系人" fLength=",10" fType=""/></td>
+				</tr>
+				<tr>
+					<td class="ld-lab">联系电话</td>
+					<td><input style="width: 180px;" value="$!obj.phone" name="phone" type="text" fTip="联系电话" fLength="" fType="phone"/></td>
+					<td class="ld-lab">联系传真</td>
+					<td><input style="width: 180px;" value="$!obj.fax" name="fax" type="text" fTip="联系传真" fLength="" fType="phone"/></td>
+				</tr>
+				<tr>
+					<td class="ld-lab">地址</td>
+					<td><input style="width: 180px;" value="$!obj.address" name="address" type="text" fTip="地址" fLength=",50" fType=""/></td>
+					<td class="ld-lab">邮编</td>
+					<td><input style="width: 180px;" value="$!obj.postcode" name="postcode" type="text" fTip="邮编" fLength="" fType="post"/></td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+  <div class="tjbtngroup" >
+		<a id="submit1"	onClick="submit();" class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+		<a id="cancel1" onClick="art.dialog({id:'industry'}).close();"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+	</div>
+	</form>
+</div>
+</body>
+</html>

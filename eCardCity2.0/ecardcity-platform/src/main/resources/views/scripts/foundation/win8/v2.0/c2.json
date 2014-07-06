@@ -1,0 +1,5 @@
+[
+	{ "moduleId": 11, "pmoduleId": 1, "moduleName": "权限管理", "smallPic": "", "bigPic": "frame/images/n4.png" },
+	{ "moduleId": 12, "pmoduleId": 1, "moduleName": "用户管理", "smallPic": "", "bigPic": "frame/images/n5.png" },
+	{ "moduleId": 11, "pmoduleId": 1, "moduleName": "权限管理", "smallPic": "", "bigPic": "frame/images/n6.png" }
+]

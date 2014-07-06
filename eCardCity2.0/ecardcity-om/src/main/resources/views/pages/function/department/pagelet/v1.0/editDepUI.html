@@ -1,0 +1,190 @@
+<!--
+ 	功能描述 ：部门添加
+	Author : Wangjian
+  Date   : 2014-03-24
+  Version: 1.0
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>卡务平台-城市一卡通V2.0</title>
+	<!-- common framework -->
+	<link href="${_project.envRoot}/styles/css/om/v1.0/style.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery_1.10/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/lib/jquery/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="${_project.envRoot}/scripts/foundation/common/fn2.js"></script>
+	<!-- end common framework -->
+	<script type="text/javascript">
+		var isRepeat=false;
+		jQuery(document).ready(function(){		//填充部门列表
+		    jQuery.ajax({
+				data : {pid:"$!dep.id"},
+				url : "${_project.envRoot}/department/ajaxGetDepList",
+				type : "post",
+				dataType : 'json',
+				success : function(data) {
+					if (data.success) {
+ 							var oOption = null;
+ 							var rtnJSONObject = eval ("(" + data.data + ")");
+							oOption = new Option("根", "0", false, false);
+							document.getElementById("pid").add(oOption);
+ 							for(var i in rtnJSONObject){
+ 							    //当前部门上级不能是当前部门及其下级部门
+									oOption = new Option(rtnJSONObject[i].DEPT_NAME, rtnJSONObject[i].ID, false, false);
+									//修改置父部门为默认值，添加置左边选中部门为默认值
+	 								if(("$!dep.pid"!="" && rtnJSONObject[i].ID=="$!dep.pid") || rtnJSONObject[i].ID=="$!parentid"){
+	 									oOption.setAttribute("selected","true");
+	 								}
+	 								document.getElementById("pid").add(oOption);
+ 							}
+ 					} else {
+						alert(data.msg);
+					}
+				}
+			});
+		    
+			jQuery("#dept_name").blur(function(){		//部门是否存在
+				jQuery("#dept_name").val(jQuery("#dept_name").val().trim());
+				if(jQuery("#dept_name").val()!="" && jQuery("#dept_name").val()!="$!dep.dept_name"){
+					isRepeat=deptCheck("dept_name",jQuery("#dept_name").val());
+					if(isRepeat){
+						jQuery("#msgName").text("该名称的部门已存在！");
+					}else{
+						jQuery("#msgName").text("");
+					}
+				}
+			});
+
+			jQuery("#code").blur(function(){		//部门是否存在
+				jQuery("#code").val(jQuery("#code").val().trim());
+				if(jQuery("#code").val()!="" && jQuery("#code").val()!="$!dep.code"){
+					isRepeat=deptCheck("code",jQuery("#code").val());
+					if(isRepeat){
+						jQuery("#msgCode").text("该编码的部门已存在！");
+					}else{
+						jQuery("#msgCode").text("");
+					}
+				}
+			});
+			
+			jQuery("#submit1").click(function(){		//提交
+				if(submitCheck(document.forms[0])){
+					jQuery("#form1").ajaxSubmit({
+						async: false,
+						url:"${_project.envRoot}/department/save",
+						dataType:'json',
+						type : "post",
+						success:function(data){
+							if(data.success){
+								location="${_project.envRoot}/department/listDepUI?parentid=$!parentid";
+								art.dialog({id:'addDep'}).close();
+							}else{
+								alert(data.msg);
+							}
+						}
+					});
+				}
+			});
+			
+			jQuery("#cancel1").click(function(){		//取消
+			    art.dialog({id:'addDep'}).close();
+			});
+		});
+    
+		//检查部门是否存在
+		function deptCheck(name,value){
+		    var tmp=false;
+		    jQuery.ajax({
+				async: false,
+				url : "${_project.envRoot}/department/ajaxGetDepIsExists",
+				data : {attrName:name,attrValue:value},
+				type : "post",
+				dataType : 'json',
+				success : function(data) {
+					if (data.success) {
+					    tmp=data.data;
+						} else {
+							alert(data.msg);
+					}
+				}
+			});
+			return tmp;
+		}
+		
+		//提交检测
+		function submitCheck(frm){
+ 			if (isRepeat) {
+				alert('该部门已存在！');
+				return false;
+			} else {
+				return fCheck(frm);
+			}
+ 		}
+	</script>
+</head>
+<body>
+	<div class="ld-container ld-con">
+		<form id="form1" name="form1" method="post">
+		<input type="hidden" name="id" value="$!dep.id"/>
+		<input type="hidden" name="ver" value="$!dep.ver"/>
+		<div class="ld-aside">
+		<div class="baparameter runparameter">
+	 		<table border="0" cellpadding="0" cellspacing="0" class="ld-table ld-tableie">
+        <tbody>
+				<tr>
+					<td class="ld-lab">名称</td>
+					<td>
+						<input value="$!dep.dept_name" id="dept_name" name="dept_name" type="text" fTip="名称" fLength="3,25" fType=""/><span class="red">*</span><span id="msgName"></span>
+					</td>
+					<td class="ld-lab">编码</td>
+					<td>
+						<input value="$!dep.code" id="code" name="code" type="text" fTip="编码" fLength="1,25" fType="" /><span class="red">*</span><span id="msgCode"></span>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">上级部门</td>
+					<td><select id="pid" name="pid" style="width:158px"></select></td>
+					<td class="ld-lab">联系地址</td>
+					<td>
+						<input value="$!dep.address" name="address" type="text" fTip="联系地址" fLength=",50" fType=""/>
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">状态</td>
+					<td colspan="3">
+						<input type="radio" name="valid" class="radiobutton" value="1" #if($!dep.valid == "1") checked #end>有效
+						<input type="radio" name="valid" class="radiobutton" value="0" #if($!dep.valid == "0") checked #end>无效
+					</td>
+				<tr>
+					<td class="ld-lab">联系电话</td>
+					<td>
+						<input value="$!dep.phone" name="phone" type="text" fTip="电话" fLength=",20" fType="phone" />
+					</td>
+					<td class="ld-lab">电子信箱</td>
+					<td>
+						<input value="$!dep.email" name="email" type="text" fTip="电子信箱" fLength=",20" fType="email" />
+					</td>
+				</tr>
+				<tr>
+					<td class="ld-lab">备注</td>
+					<td colspan="3">
+						<textarea class="text-area" cols="66" rows="5" name="remark" fTip="备注" fLength=",100" fType="">$!dep.remark</textarea>
+					</td>
+				</tr>
+				<tr>
+	  				<td colspan="4">
+	  					<label class="ld-margvalue">说明：带<span class="red">*</span></label>为必填项。
+	  				</td>
+				</tr>
+        </tbody>
+			</table>
+			</div>
+		</div>
+	  <div class="tjbtngroup" >
+			<a id="submit1"	class="ld-btn ld-molan" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/tj.png"/>提交</a>
+			<a id="cancel1"	class="ld-btn ld-huise" style="cursor:pointer;"><img src="${_project.envRoot}/styles/images/cz.png"/>取消</a>
+		</div>
+		</form>
+	</div>
+</body>
+</html>

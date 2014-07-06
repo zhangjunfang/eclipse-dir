@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="cn.com.newcapec.citycard.common.po">
+	<class
+		name="CustomerPhoto"
+		table="CUSTOMER_PHOTO"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="string"
+			column="ID"
+		>
+			<generator class="uuid.hex"/>
+		</id>
+
+		<property
+			name="customerid"
+			column="CUSTOMERID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="photoid"
+			column="PHOTOID"
+			type="string"
+			not-null="true"
+			length="32"
+		/>
+		<property
+			name="photo"
+			column="PHOTO"
+			type="binary"
+			not-null="true"
+		/>
+		<property
+			name="ver"
+			column="VER"
+			type="integer"
+			not-null="false"
+			length="5"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

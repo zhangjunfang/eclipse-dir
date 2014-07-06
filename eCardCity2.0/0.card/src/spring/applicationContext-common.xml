@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+    
+    <!-- DBCP数据源定义 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+		<property name="initialSize" value="${jdbc.initialSize}"/>
+		<property name="maxActive" value='${jdbc.maxActive}'/>
+		<property name="maxIdle" value='${jdbc.maxIdle}'/>
+		<property name="minIdle" value='${jdbc.minIdle}'/>
+		<property name="maxWait" value="${jdbc.maxWait}"/>
+		<property name="removeAbandoned" value="${jdbc.removeAbandoned}"/>
+		<property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}"/>
+		<property name="logAbandoned" value="${jdbc.logAbandoned}"/>
+    </bean>
+  
+    
+    <!-- JNDI数据源定义
+	<bean id="dataSource"
+          class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value type="java.lang.String">oracle_newcity</value>
+        </property>
+    </bean>
+    -->
+
+	<!-- sessionFactory定义 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+          destroy-method="destroy">
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+        <property name="configLocation">
+            <value type="org.springframework.core.io.Resource">classpath:hibernate.cfg.xml</value>
+        </property>
+    </bean>
+
+	<!-- transactionManager定义 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref local="sessionFactory"/>
+        </property>
+    </bean>
+
+	<!-- baseDao定义 -->
+    <bean id="baseDao" class="cn.com.newcapec.common.dao.impl.BaseDao">
+        <property name="sessionFactory">
+            <ref local="sessionFactory"/>
+        </property>
+    </bean>
+
+	<!-- baseService定义 -->
+	<bean id="baseService" class="cn.com.newcapec.common.service.impl.BaseService">
+        <property name="baseDao">
+            <ref local="baseDao"/>
+        </property>
+    </bean>
+    
+    <!-- commonDao定义 -->
+    <bean id="commonDao" class="cn.com.newcapec.citycard.common.dao.impl.CommonDao" parent="baseDao"/>
+ 
+	<!-- commonService定义 -->    
+    <bean id="commonService" class="cn.com.newcapec.citycard.common.service.impl.CommonService">
+        <property name="commonDao">
+            <ref local="commonDao"/>
+        </property>
+    </bean>
+ 
+	<!-- commonAction定义 -->    
+    <bean id="commonAction" class="cn.com.newcapec.citycard.common.action.CommonAction">
+        <property name="commonService">
+            <ref local="commonService"/>
+        </property>
+        <property name="logAction">
+            <ref bean="logAction"/>
+        </property>
+        <property name="logModule">
+            <ref bean="logModule"/>
+        </property>
+        <property name="TLog">
+        	<bean class="cn.com.newcapec.citycard.common.po.TLog"/>
+        </property>
+        <property name="TLogService">
+            <ref bean="logInfoService"/>
+        </property>
+    </bean>
+</beans>
