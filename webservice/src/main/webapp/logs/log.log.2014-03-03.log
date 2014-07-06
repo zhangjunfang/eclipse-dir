@@ -1,0 +1,156 @@
+[INFO ] [2014-03-03 15:11:06] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 15:11:06] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 15:11:06 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 15:11:06] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 15:11:06] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@9185fa: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1d89e7d
+[INFO ] [2014-03-03 15:11:06] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 15:11:06] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 113 ms
+[WARN ] [2014-03-03 15:20:46] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/ocean's Observer 
+[WARN ] [2014-03-03 16:05:17] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/ocean's Observer 
+[INFO ] [2014-03-03 16:22:37] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:22:37] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:22:37 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:22:37] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:22:37] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5f82c1: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@115f2fc
+[INFO ] [2014-03-03 16:22:37] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:22:37] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 113 ms
+[WARN ] [2014-03-03 16:22:46] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/ocean's Observer 
+[INFO ] [2014-03-03 16:23:25] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:23:25] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:23:25 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:23:25] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:23:25] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@817f5b: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1797d5f
+[INFO ] [2014-03-03 16:23:25] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:23:25] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 98 ms
+[WARN ] [2014-03-03 16:23:31] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/1's Observer 
+[INFO ] [2014-03-03 16:25:10] doClose (AbstractApplicationContext.java:1042) 
+ Closing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:23:25 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:25:10] destroySingletons (DefaultSingletonBeanRegistry.java:444) 
+ Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@817f5b: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1797d5f
+[INFO ] [2014-03-03 16:27:29] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:27:29] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:27:29 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:27:29] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:27:29] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1da5af5: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1a915ec
+[INFO ] [2014-03-03 16:27:29] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:27:29] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 110 ms
+[WARN ] [2014-03-03 16:28:32] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/1's Observer 
+[INFO ] [2014-03-03 16:28:49] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:28:49] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:28:49 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:28:49] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:28:49] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@14f370a: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1f42649
+[INFO ] [2014-03-03 16:28:49] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:28:49] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 94 ms
+[WARN ] [2014-03-03 16:28:54] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/request/1's Observer 
+[WARN ] [2014-03-03 16:29:02] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services//'s Observer 
+[INFO ] [2014-03-03 16:46:39] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:46:39] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:46:39 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:46:39] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:46:39] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@148563: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@103cd1b
+[INFO ] [2014-03-03 16:46:39] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:46:40] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 94 ms
+[WARN ] [2014-03-03 16:47:33] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample/list's Observer 
+[WARN ] [2014-03-03 16:47:49] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services//'s Observer 
+[WARN ] [2014-03-03 16:50:26] invoke (ServletController.java:175) 
+ Can't find the the request for http://192.168.101.108:8080/webservice/services/sample's Observer 
+[INFO ] [2014-03-03 16:58:43] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 16:58:43] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 16:58:43 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 16:58:43] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 16:58:43] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ee64f1: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@1daca00
+[INFO ] [2014-03-03 16:58:43] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 16:58:43] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 109 ms
+[INFO ] [2014-03-03 17:08:54] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 17:08:54] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 17:08:54 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 17:08:54] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 17:08:54] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1f5a6f9: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@e671f1
+[INFO ] [2014-03-03 17:08:54] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 17:08:54] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 78 ms
+[INFO ] [2014-03-03 17:11:04] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 17:11:04] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 17:11:04 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 17:11:04] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 17:11:04] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@f2cbf2: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@e671f1
+[INFO ] [2014-03-03 17:11:04] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 17:11:04] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 63 ms
+[INFO ] [2014-03-03 17:15:53] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 17:15:53] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 17:15:53 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 17:15:53] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 17:15:54] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1f8e296: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@ecb7c8
+[INFO ] [2014-03-03 17:15:54] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 17:15:54] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 110 ms
+[INFO ] [2014-03-03 17:19:55] initServletBean (FrameworkServlet.java:454) 
+ FrameworkServlet 'multiViewController': initialization started
+[INFO ] [2014-03-03 17:19:55] prepareRefresh (AbstractApplicationContext.java:510) 
+ Refreshing WebApplicationContext for namespace 'multiViewController-servlet': startup date [Mon Mar 03 17:19:55 CST 2014]; parent: Root WebApplicationContext
+[INFO ] [2014-03-03 17:19:55] loadBeanDefinitions (XmlBeanDefinitionReader.java:315) 
+ Loading XML bean definitions from URL [file:/D:/eclipse4.2/webservice/src/main/webapp/WEB-INF/classes/config/spring-conf/application-ecardcity-om.xml]
+[INFO ] [2014-03-03 17:19:55] preInstantiateSingletons (DefaultListableBeanFactory.java:598) 
+ Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@158ffd5: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,collectController,collectResource,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@158f66
+[INFO ] [2014-03-03 17:19:55] registerHandlerMethod (AbstractHandlerMethodMapping.java:179) 
+ Mapped "{[/collectService/collect/addIndustryUI],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public cn.newcapec.framework.core.rest.Msg cn.newcapec.function.ecardcity.om.controller.CollectController.getIndustryList()
+[INFO ] [2014-03-03 17:19:55] initServletBean (FrameworkServlet.java:473) 
+ FrameworkServlet 'multiViewController': initialization completed in 78 ms
